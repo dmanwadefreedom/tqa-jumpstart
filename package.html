@@ -897,12 +897,444 @@ section:last-of-type { border-bottom: none; }
   margin: 12px auto 0;
 }
 
+/* ── WhatsApp / SMS / Quote Blocks ── */
+.wa-msg-block {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid #25d366;
+  border-radius: 0 10px 10px 0;
+  padding: 20px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.wa-msg-block pre {
+  font-family: 'Inter', monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.wa-msg-block .copy-hint {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.wa-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #25d366;
+  margin-bottom: 6px;
+}
+.sms-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.sms-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.sms-when {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+.sms-text {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  font-family: 'Inter', monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.sms-chars {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 8px;
+  font-weight: 500;
+}
+.person-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 16px 0;
+}
+.person-table th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.15);
+}
+.person-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(30,42,66,0.5);
+  color: var(--text-muted);
+  vertical-align: top;
+}
+.person-table td:first-child {
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* ── Script Styling ── */
+.script-block {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.script-timing {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.2);
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.script-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.script-text {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+.script-notes {
+  background: rgba(245,158,11,0.06);
+  border: 1px solid rgba(245,158,11,0.2);
+  border-radius: 10px;
+  padding: 24px;
+  margin-top: 24px;
+}
+.script-notes h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.script-notes li {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 6px;
+}
+
+/* ── Email Sequence (Full 18) ── */
+.phase-block {
+  margin-bottom: 32px;
+}
+.phase-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+}
+.phase-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: #000;
+  background: var(--gold);
+  border-radius: 8px;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  flex-shrink: 0;
+}
+.phase-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+.phase-dates {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-left: auto;
+  white-space: nowrap;
+}
+.seq-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.seq-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+}
+.seq-header:hover { background: rgba(255,255,255,0.02); }
+.seq-id {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.2);
+  border-radius: 6px;
+  padding: 4px 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.seq-title {
+  font-size: 15px;
+  font-weight: 700;
+  flex: 1;
+}
+.seq-meta {
+  font-size: 11px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.seq-toggle {
+  font-size: 18px;
+  color: var(--text-dim);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+.seq-card.open .seq-toggle { transform: rotate(180deg); }
+.seq-body {
+  display: none;
+  padding: 24px;
+}
+.seq-card.open .seq-body { display: block; }
+.seq-detail-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 4px 12px;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+.seq-detail-label {
+  color: var(--text-dim);
+  font-weight: 600;
+}
+.seq-detail-value {
+  color: var(--text-muted);
+}
+.seq-subjects {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 16px;
+}
+.seq-subjects li {
+  font-size: 14px;
+  color: var(--text-muted);
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(30,42,66,0.4);
+}
+.seq-subjects li strong { color: var(--text); }
+.seq-email-body {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-top: 12px;
+}
+.seq-email-body p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+.seq-email-body .email-cta-line {
+  font-weight: 600;
+  color: var(--gold);
+}
+.seq-email-body .email-sig {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.seq-flow {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  font-family: 'Inter', monospace;
+  font-size: 13px;
+  line-height: 2.2;
+  color: var(--text-muted);
+  white-space: pre-wrap;
+  overflow-x: auto;
+  margin-bottom: 32px;
+}
+.seq-flow .flow-phase {
+  color: var(--gold);
+  font-weight: 700;
+}
+.seq-flow .flow-arrow {
+  color: var(--text-dim);
+}
+
+/* ── LinkedIn Posts ── */
+.li-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.li-summary-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.li-summary-num {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.li-summary-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.li-post-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.li-post-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+  flex-wrap: wrap;
+}
+.li-post-header:hover { background: rgba(255,255,255,0.02); }
+.li-post-num {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.2);
+  border-radius: 6px;
+  padding: 4px 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.li-post-info { flex: 1; min-width: 180px; }
+.li-post-title {
+  font-size: 15px;
+  font-weight: 700;
+}
+.li-post-meta {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+.li-post-cat {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.li-cat-fear { background: rgba(239,68,68,0.15); color: #f87171; }
+.li-cat-career { background: rgba(16,185,129,0.15); color: #34d399; }
+.li-cat-authority { background: rgba(139,92,246,0.15); color: #a78bfa; }
+.li-cat-bts { background: rgba(59,130,246,0.15); color: #60a5fa; }
+.li-post-toggle {
+  font-size: 18px;
+  color: var(--text-dim);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+.li-post-card.open .li-post-toggle { transform: rotate(180deg); }
+.li-post-body {
+  display: none;
+  padding: 24px;
+}
+.li-post-card.open .li-post-body { display: block; }
+.li-post-text {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.8;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin-bottom: 16px;
+}
+.li-post-hashtags {
+  font-size: 13px;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+.li-post-cta-note {
+  font-size: 12px;
+  color: var(--text-dim);
+  font-style: italic;
+  padding: 12px 16px;
+  background: rgba(245,158,11,0.06);
+  border: 1px solid rgba(245,158,11,0.15);
+  border-radius: 8px;
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .pages-grid { grid-template-columns: 1fr; }
   .ad-grid { grid-template-columns: 1fr; }
   .brand-arch { grid-template-columns: 1fr; }
   .filter-grid { grid-template-columns: 1fr; }
+  .li-summary-grid { grid-template-columns: repeat(2, 1fr); }
+  .seq-detail-row { grid-template-columns: 1fr; }
+  .phase-header { flex-wrap: wrap; }
+  .phase-dates { margin-left: 0; }
   section { padding: 48px 0; }
 }
 </style>
@@ -920,6 +1352,11 @@ section:last-of-type { border-bottom: none; }
     <a href="#linkedin" class="nav-link">LinkedIn DMs</a>
     <a href="#emails" class="nav-link">Emails</a>
     <a href="#ads" class="nav-link">Ads</a>
+    <a href="#whatsapp" class="nav-link">WhatsApp</a>
+    <a href="#sms" class="nav-link">SMS</a>
+    <a href="#trustvideo" class="nav-link">Trust Video</a>
+    <a href="#emailseq" class="nav-link">Email Sequence</a>
+    <a href="#liposts" class="nav-link">LinkedIn Posts</a>
     <a href="#actions" class="nav-link nav-action">Action Items</a>
   </div>
 </nav>
@@ -2430,11 +2867,1465 @@ email sequence       to next briefing</div>
   </div>
 </section>
 
-<!-- ═══════════════ SECTION 8: ACTION ITEMS ═══════════════ -->
-<section id="actions">
+<!-- ═══════════════ SECTION 8: WHATSAPP MESSAGES ═══════════════ -->
+<section id="whatsapp">
   <div class="container">
     <div class="section-header">
       <div class="section-number">Section 08</div>
+      <h2>WhatsApp Messages</h2>
+      <p>Ready-to-send messages for your 12 warm leads plus broader outreach templates. Copy the text, personalize the bracketed lines, and send.</p>
+    </div>
+
+    <!-- ── A. Sprint Offer — 6 Applicants ── -->
+    <div class="dm-section">
+      <h3>A. Sprint Offer -- 6 Applicants (Applied March 19, No Follow-Up)</h3>
+      <p style="font-size:13px;color:var(--text-dim);margin-bottom:16px;">Names: Sonny Pierre, Ejaz Khan, Muhammad Mazed, Rama Krishna Guttula, Shafiul Kh, Kenny Ganta</p>
+
+      <div class="wa-label">Template</div>
+      <div class="wa-msg-block">
+        <span class="copy-hint">Click to copy</span>
+        <pre>[First name], DJ Naronikar here.
+
+I saw your application from March 19. I want to be upfront — you should have heard from me sooner. You filled it out, and that tells me you're serious about making the move into cybersecurity.
+
+I've been doing something different since then. Instead of running another large group, I'm taking 6 people through what I'm calling the Sprint — a 4-week intensive where I personally build your career transition plan, run mock interviews with you, and get your LinkedIn and resume in shape for cybersecurity hiring managers. Not a course. Direct work with me.
+
+It's $2,500 for the 4 weeks. That's roughly what companies pay me for a single day of consulting. The difference is you get 4 weeks of my attention focused on your career.
+
+[Personalized line based on their application]
+
+Would you be open to a 15-minute call this week so I can hear where you're at?</pre>
+      </div>
+
+      <div class="wa-label">Example 1: Ejaz Khan</div>
+      <div class="wa-msg-block">
+        <span class="copy-hint">Click to copy</span>
+        <pre>Ejaz, DJ Naronikar here.
+
+I saw your application from March 19. I want to be upfront — you should have heard from me sooner. You filled it out, and that tells me you're serious about making the move into cybersecurity.
+
+I've been doing something different since then. Instead of running another large group, I'm taking 6 people through what I'm calling the Sprint — a 4-week intensive where I personally build your career transition plan, run mock interviews with you, and get your LinkedIn and resume in shape for cybersecurity hiring managers. Not a course. Direct work with me.
+
+It's $2,500 for the 4 weeks. That's roughly what companies pay me for a single day of consulting. The difference is you get 4 weeks of my attention focused on your career.
+
+Based on your application, you've got the technical background. The gap is usually in how you position it for security roles — and that's exactly what the Sprint is built to fix.
+
+Would you be open to a 15-minute call this week so I can hear where you're at?</pre>
+      </div>
+
+      <div class="wa-label">Example 2: Rama Krishna Guttula</div>
+      <div class="wa-msg-block">
+        <span class="copy-hint">Click to copy</span>
+        <pre>Rama Krishna, DJ Naronikar here.
+
+I saw your application from March 19. I want to be upfront — you should have heard from me sooner. You filled it out, and that tells me you're serious about making the move into cybersecurity.
+
+I've been doing something different since then. Instead of running another large group, I'm taking 6 people through what I'm calling the Sprint — a 4-week intensive where I personally build your career transition plan, run mock interviews with you, and get your LinkedIn and resume in shape for cybersecurity hiring managers. Not a course. Direct work with me.
+
+It's $2,500 for the 4 weeks. That's roughly what companies pay me for a single day of consulting. The difference is you get 4 weeks of my attention focused on your career.
+
+I've worked with a lot of professionals making this exact transition from IT infrastructure into security. The experience you already have is more transferable than most people realize — the Sprint is about closing the remaining gaps fast.
+
+Would you be open to a 15-minute call this week so I can hear where you're at?</pre>
+      </div>
+
+      <div class="wa-label">Personalization Notes for Remaining 4</div>
+      <table class="person-table">
+        <thead><tr><th>Name</th><th>Suggested personalized line</th></tr></thead>
+        <tbody>
+          <tr><td>Sonny Pierre</td><td>"Your background stood out to me. The Sprint is built for people who are ready to move, not people still thinking about it. From what I saw in your application, you're ready."</td></tr>
+          <tr><td>Muhammad Mazed</td><td>"I've worked with professionals in similar positions to yours. The transition is very doable — the Sprint compresses what normally takes people 6+ months into 4 focused weeks."</td></tr>
+          <tr><td>Shafiul Kh</td><td>"What caught my attention in your application was that you're already thinking about cybersecurity seriously. The Sprint is about turning that into a concrete plan with real interviews lined up."</td></tr>
+          <tr><td>Kenny Ganta</td><td>"I noticed your IT background in your application. You're closer to a cybersecurity role than you probably think — the Sprint is designed to bridge that last gap."</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── B. Sprint Offer — 6 Attended ── -->
+    <div class="dm-section">
+      <h3>B. Sprint Offer -- 6 Attended (Attended March 19, Didn't Buy)</h3>
+      <p style="font-size:13px;color:var(--text-dim);margin-bottom:16px;">Names: Dev Ambrose, Jay Magpantay, Hector Ramirez, Tim Hughes, Dayo Adegbola, Jaya Singh</p>
+
+      <div class="wa-label">Template</div>
+      <div class="wa-msg-block">
+        <span class="copy-hint">Click to copy</span>
+        <pre>[First name], DJ here.
+
+You came to the March 19 session. I know that one had some timezone issues and the format wasn't ideal for everyone. I appreciate you sticking through it.
+
+Since then I've been rethinking how I work with people. The large-group model doesn't let me go deep enough on individual career situations. So I'm doing something different.
+
+I'm running what I'm calling the Sprint — 4 weeks, 6 people maximum, working directly with me. I build your personal career transition plan, we do live mock interviews, I audit your LinkedIn and resume, and by week 4 you have a clear path into cybersecurity with applications out the door.
+
+It's $2,500. I know that's a real number. But I charge companies $2-3K per day, and in the Sprint you're getting 4 weeks of that same level of attention focused entirely on your career move.
+
+[Personalized line based on attendance]
+
+Interested in hearing more about it? I can do a quick call this week.</pre>
+      </div>
+
+      <div class="wa-label">Example 1: Jay Magpantay</div>
+      <div class="wa-msg-block">
+        <span class="copy-hint">Click to copy</span>
+        <pre>Jay, DJ here.
+
+You came to the March 19 session. I know that one had some timezone issues and the format wasn't ideal for everyone. I appreciate you sticking through it.
+
+Since then I've been rethinking how I work with people. The large-group model doesn't let me go deep enough on individual career situations. So I'm doing something different.
+
+I'm running what I'm calling the Sprint — 4 weeks, 6 people maximum, working directly with me. I build your personal career transition plan, we do live mock interviews, I audit your LinkedIn and resume, and by week 4 you have a clear path into cybersecurity with applications out the door.
+
+It's $2,500. I know that's a real number. But I charge companies $2-3K per day, and in the Sprint you're getting 4 weeks of that same level of attention focused entirely on your career move.
+
+You sat through the full session, which tells me you're not casually browsing. If the group format didn't quite fit, this might be a better match for how you work.
+
+Interested in hearing more about it? I can do a quick call this week.</pre>
+      </div>
+
+      <div class="wa-label">Example 2: Dayo Adegbola</div>
+      <div class="wa-msg-block">
+        <span class="copy-hint">Click to copy</span>
+        <pre>Dayo, DJ here.
+
+You came to the March 19 session. I know that one had some timezone issues and the format wasn't ideal for everyone. I appreciate you sticking through it.
+
+Since then I've been rethinking how I work with people. The large-group model doesn't let me go deep enough on individual career situations. So I'm doing something different.
+
+I'm running what I'm calling the Sprint — 4 weeks, 6 people maximum, working directly with me. I build your personal career transition plan, we do live mock interviews, I audit your LinkedIn and resume, and by week 4 you have a clear path into cybersecurity with applications out the door.
+
+It's $2,500. I know that's a real number. But I charge companies $2-3K per day, and in the Sprint you're getting 4 weeks of that same level of attention focused entirely on your career move.
+
+I remember you had good questions during the session. That kind of engagement is exactly what makes the Sprint work — it's built around people who actually dig in.
+
+Interested in hearing more about it? I can do a quick call this week.</pre>
+      </div>
+
+      <div class="wa-label">Personalization Notes for Remaining 4</div>
+      <table class="person-table">
+        <thead><tr><th>Name</th><th>Suggested personalized line</th></tr></thead>
+        <tbody>
+          <tr><td>Dev Ambrose</td><td>"You showed up when 80% of registrants didn't. That alone tells me about your commitment level. The Sprint is built for people like that."</td></tr>
+          <tr><td>Hector Ramirez</td><td>"I've been thinking about the questions that came up in that session. The Sprint addresses most of them head-on — especially the 'where do I start' piece."</td></tr>
+          <tr><td>Tim Hughes</td><td>"The session covered a lot of ground in a short time. The Sprint lets me go deep on YOUR specific situation instead of covering general frameworks."</td></tr>
+          <tr><td>Jaya Singh</td><td>"You invested the time to show up and stay through the full session. The Sprint is about turning that investment into results — a real transition plan with timelines."</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── C. Briefing Invite — Broader Outreach ── -->
+    <div class="dm-section">
+      <h3>C. Briefing Invite -- Broader WhatsApp Outreach</h3>
+      <p style="font-size:13px;color:var(--text-dim);margin-bottom:16px;">For: LinkedIn connections, Telegram group, WhatsApp contacts who are NOT the 12 applicants/attendees above.</p>
+
+      <div class="wa-label">Variant 1: Short (Individual DMs -- under 100 words)</div>
+      <div class="wa-msg-block">
+        <span class="copy-hint">Click to copy</span>
+        <pre>I'm running a live Cybersecurity Career Briefing on April 11 at 11:00 AM EST. No fluff — I'll walk through the exact career path from IT to cybersecurity with real salary data, a certification roadmap, and a live LinkedIn audit exercise.
+
+28 years as a CISO at Deloitte, EY, and Shell. This is what I'd tell my own team.
+
+$27 to attend. Small room. Link: [REGISTRATION_LINK]
+
+Worth a look if you're in IT and thinking about cybersecurity.</pre>
+      </div>
+
+      <div class="wa-label">Variant 2: Medium (WhatsApp Group Posts -- under 150 words)</div>
+      <div class="wa-msg-block">
+        <span class="copy-hint">Click to copy</span>
+        <pre>For anyone here working in IT who's thought about moving into cybersecurity:
+
+I'm hosting a live Career Briefing on April 11, 11:00 AM EST. I'll cover the real career path — not motivational content, but the salary data, the certification roadmap that actually matters, how the hidden job market works, and I'll do a live LinkedIn audit exercise with attendees.
+
+Background on me: 28-year CISO. Deloitte, EY, Shell. Wrote AI policy for a Middle East central bank. I've sat on the hiring side of cybersecurity for three decades. This briefing is what I'd share with someone I personally wanted to see succeed.
+
+$27 to attend. I keep the room small on purpose.
+
+Register here: [REGISTRATION_LINK]
+
+If you know someone in IT thinking about this path, feel free to pass this along.</pre>
+      </div>
+
+      <div class="wa-label">Variant 3: Long (LinkedIn Connections -- under 250 words)</div>
+      <div class="wa-msg-block">
+        <span class="copy-hint">Click to copy</span>
+        <pre>[First name], hope you're well.
+
+I wanted to reach out because I'm running something I think might be relevant to you — or someone in your network.
+
+On April 11 at 11:00 AM EST, I'm hosting a live Cybersecurity Career Briefing. Not a webinar pitch. An actual briefing where I walk through the career transition framework I've built over 28 years as a CISO.
+
+What I'll cover:
+- The real career path from IT to cybersecurity, with current salary data at each level
+- Which certifications actually move the needle (and which ones waste your money)
+- How the hidden job market works — most cybersecurity roles never hit job boards
+- A live LinkedIn profile audit exercise (bring an open LinkedIn tab)
+
+Quick context on me: I've been a CISO at Deloitte, EY, and Shell. Worked across 8 countries, 400+ organizations. Wrote the AI policy for a Middle East central bank that became the national banking standard. Earlier this year I mentored a former chef — no IT background at all — into a cybersecurity analyst role earning $120K.
+
+The briefing costs $27. I used to run these free. 200 people would register, 24 would show. The entry fee keeps the room serious and small.
+
+If this is on your radar — or someone you know — here's the link: [REGISTRATION_LINK]
+
+Either way, good to be connected.
+
+— DJ</pre>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 9: SMS REMINDERS ═══════════════ -->
+<section id="sms">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 09</div>
+      <h2>SMS Reminders</h2>
+      <p>6 text messages covering the full briefing lifecycle. For Agresh to build in GHL as automated triggers.</p>
+    </div>
+
+    <div class="sms-card">
+      <div class="sms-label">1. Registration Confirmation</div>
+      <div class="sms-when">Immediately After Signup</div>
+      <div class="sms-text">[First name], you're confirmed for the Cybersecurity Career Briefing with DJ Naronikar on April 11, 11:00 AM EST. You'll receive a prep video before the session. — DJ</div>
+      <div class="sms-chars">Characters: 160</div>
+    </div>
+
+    <div class="sms-card">
+      <div class="sms-label">2. Day Before Reminder</div>
+      <div class="sms-when">April 10</div>
+      <div class="sms-text">[First name], your Career Briefing with DJ Naronikar is tomorrow at 11:00 AM EST. Have your LinkedIn profile open — you'll need it. Zoom: [ZOOM_LINK] — DJ</div>
+      <div class="sms-chars">Characters: ~155 (depending on Zoom link length)</div>
+    </div>
+
+    <div class="sms-card">
+      <div class="sms-label">3. One Hour Before</div>
+      <div class="sms-when">April 11, 10:00 AM EST</div>
+      <div class="sms-text">[First name], we start in 60 minutes. Grab your laptop and open LinkedIn. Zoom: [ZOOM_LINK] — DJ</div>
+      <div class="sms-chars">Characters: ~95</div>
+    </div>
+
+    <div class="sms-card">
+      <div class="sms-label">4. Five Minutes Before</div>
+      <div class="sms-when">April 11, 10:55 AM EST</div>
+      <div class="sms-text">Starting now. Join here: [ZOOM_LINK]</div>
+      <div class="sms-chars">Characters: ~40</div>
+    </div>
+
+    <div class="sms-card">
+      <div class="sms-label">5. Post-Briefing Follow-Up</div>
+      <div class="sms-when">Same Day (Within 2 Hours After)</div>
+      <div class="sms-text">[First name], thanks for showing up today. If you want to keep going, the Accelerator details are here: [ACCELERATOR_LINK] — DJ</div>
+      <div class="sms-chars">Characters: ~120 (depending on link length)</div>
+    </div>
+
+    <div class="sms-card">
+      <div class="sms-label">6. No-Show Follow-Up</div>
+      <div class="sms-when">Same Day Evening</div>
+      <div class="sms-text">[First name], missed you at the briefing today. DJ covered the full career path and did a live LinkedIn audit. I run these periodically — reply HERE if you want to know about the next one. — DJ</div>
+      <div class="sms-chars">Characters: ~165 (2 SMS segments)</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 10: TRUST VIDEO SCRIPT ═══════════════ -->
+<section id="trustvideo">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 10</div>
+      <h2>Trust Video Script</h2>
+      <p>Pre-briefing trust video sent to every registrant after signup. ~7 minutes. DJ records on camera, direct to viewer.</p>
+    </div>
+
+    <div class="script-block">
+      <div class="script-timing">0:00 -- 1:00</div>
+      <div class="script-section-title">The Hook</div>
+      <div class="script-text">"You just registered for the Career Briefing. Good.
+
+Before we meet live on April 11, there's something I want you to know — about me, and about what you're walking into.
+
+I'm DJ Naronikar. I've spent 28 years in cybersecurity. Not selling courses about it — doing it. As a CISO. At organizations most people in our industry would recognize.
+
+I'm recording this because I want you to show up on April 11 already knowing three things: who I am, what the briefing actually covers, and why I charge $27 for it.
+
+Let me take those one at a time."</div>
+    </div>
+
+    <div class="script-block">
+      <div class="script-timing">1:00 -- 3:00</div>
+      <div class="script-section-title">DJ's Story</div>
+      <div class="script-text">"I started in cybersecurity before most people knew the word existed. Over 28 years, I've served as CISO and virtual CISO at Deloitte, EY, and Shell. I've worked across eight countries and assessed the security posture of over 400 organizations.
+
+Last year, I wrote the artificial intelligence policy for a Middle East central bank. That policy is now the regulatory standard for every bank operating in that country. It's the kind of work companies pay me two to three thousand dollars a day to do.
+
+So why am I running a Career Briefing for IT professionals?
+
+Because I've spent three decades on the hiring side of cybersecurity. I've reviewed thousands of resumes. I've sat on hundreds of interview panels. And I've watched talented IT professionals — people with 8, 10, 15 years of experience — get stuck. Not because they lack the ability. Because nobody showed them how the cybersecurity career path actually works.
+
+The hiring process in cybersecurity is different from general IT. The certifications that matter are different. The way you position your experience is different. And most of what people read online about breaking in is either outdated or written by someone who's never actually hired a security professional.
+
+I built this briefing because I was tired of watching good people waste years on the wrong approach."</div>
+    </div>
+
+    <div class="script-block">
+      <div class="script-timing">3:00 -- 5:00</div>
+      <div class="script-section-title">What the Briefing Covers</div>
+      <div class="script-text">"Here is exactly what happens on April 11.
+
+I'm going to walk you through the cybersecurity career path — not in theory, with real salary data at every level. Entry analyst roles. Mid-level engineering. Architecture. Leadership. CISO track. You'll see the actual numbers and know which path fits your background.
+
+Then I'll cover the certification roadmap. I'll tell you which certifications actually influence hiring decisions and which ones are a waste of your money. I've reviewed over 5,000 resumes. I know what hiring managers look at and what they skip.
+
+I'll explain how the hidden job market works. Most cybersecurity roles never make it to a job board. I'll show you where they live and how to access them.
+
+And here's the part that makes this different from a YouTube video: we're going to do a live exercise. You'll need an open LinkedIn tab. I'm going to walk you through auditing your own profile in real time — the same audit I do when I'm evaluating candidates. You'll leave with specific changes to make, not general advice.
+
+This is not motivational content. I'm not going to tell you to believe in yourself. You're a working professional — I respect your intelligence. You'll leave with a concrete next step. That's the standard."</div>
+    </div>
+
+    <div class="script-block">
+      <div class="script-timing">5:00 -- 6:30</div>
+      <div class="script-section-title">Social Proof</div>
+      <div class="script-text">"Let me give you one example of what's possible.
+
+A few months ago I took on someone named Rob. Rob was a chef. Not an IT professional. A chef. Zero technical background. Within five months, Rob was working as a cybersecurity analyst earning $120,000 a year. I walked him through the same framework I'll cover in the briefing — the career path, the certifications, the positioning strategy.
+
+If a chef can make that transition, your IT background puts you significantly ahead of where he started.
+
+And this isn't just teaching. I'm still active in the field. Earlier this year, one of my team members stopped a $300,000 fraudulent wire transfer. That's what cybersecurity professionals do every day. And that's what I train people to do.
+
+I've worked at Deloitte. EY. Shell. I serve as ISC2 Chapter President and sit on their Global Advisory Board. I received the CIO Choice Award this year. I don't say any of this to impress you. I say it so you know that what you're going to hear on April 11 comes from someone who's still in the room — not someone who read about it."</div>
+    </div>
+
+    <div class="script-block">
+      <div class="script-timing">6:30 -- 7:00</div>
+      <div class="script-section-title">The Ask</div>
+      <div class="script-text">"Here's what I need from you.
+
+Show up live. Not the replay — live. The LinkedIn audit exercise only works in real time. I'll be looking at profiles and giving feedback on the spot. That doesn't translate to a recording.
+
+Bring one thing: a laptop or tablet with LinkedIn open. That's it.
+
+One more thing. This briefing costs $27. That's deliberate. I've run free sessions before. 200 people register, 24 show up. When people invest even a small amount, they take it seriously. They do the exercises. They ask better questions. The $27 is not about revenue — it's about making sure everyone in the room actually wants to be there.
+
+See you on April 11."</div>
+    </div>
+
+    <div class="script-notes">
+      <h4>Production Notes</h4>
+      <ul>
+        <li><strong>Record once.</strong> This video is reusable for every future briefing. Only the date needs updating.</li>
+        <li><strong>Delivery:</strong> Send via email immediately after registration (GHL automation). Embed on the thank-you page. Send again 2 days before the briefing as a reminder.</li>
+        <li><strong>Hosting:</strong> Upload to YouTube as unlisted. Fast load, easy to embed, no hosting costs.</li>
+        <li><strong>Wardrobe:</strong> Professional but not corporate. Blazer or button-down. The viewer is an IT professional in a polo — meet them one step above, not three.</li>
+        <li><strong>Background:</strong> Clean. Bookshelf or office setting. Nothing distracting.</li>
+        <li><strong>Delivery style:</strong> Direct to camera. No teleprompter stiffness — DJ should read through the script 2-3 times, then deliver from memory using bullet points on a monitor behind the camera. The goal is conversational authority, not recitation.</li>
+        <li><strong>No B-roll needed.</strong> This is a trust video, not a brand video. DJ talking directly to the viewer is the entire point.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 11: FULL EMAIL SEQUENCE ═══════════════ -->
+<section id="emailseq">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 11</div>
+      <h2>Full Email Sequence (18 Emails)</h2>
+      <p>Complete 3-week sequence from April 2-18. Ready for Agresh to build in GHL. Briefing: April 11, 11 AM EST. Accelerator: $997. CISO Track: $4,999-$7,000.</p>
+    </div>
+
+    <!-- Sequence Map -->
+    <div class="seq-flow"><span class="flow-phase">PHASE 1: Reactivation</span> (April 2-4) — 4 segment-specific emails
+    <span class="flow-arrow">|</span>
+<span class="flow-phase">PHASE 2: Value</span> (April 5-7) — 2 emails to engaged contacts
+    <span class="flow-arrow">|</span>
+<span class="flow-phase">PHASE 3: Briefing Invite</span> (April 8-10) — 2 emails to engaged contacts
+    <span class="flow-arrow">|</span>
+<span class="flow-phase">PHASE 4: Pre-Briefing</span> (triggered by registration) — 5 emails
+    <span class="flow-arrow">|</span>
+<span class="flow-phase">PHASE 5: Post-Briefing</span> (April 11-18) — 5 emails by outcome
+
+<strong style="color:var(--text);">Total: 18 emails  |  All bodies: 150-250 words</strong></div>
+
+    <!-- ═══ PHASE 1 ═══ -->
+    <div class="phase-block">
+      <div class="phase-header">
+        <span class="phase-num">P1</span>
+        <span class="phase-title">Phase 1: Reactivation</span>
+        <span class="phase-dates">April 2-4</span>
+      </div>
+
+      <!-- Email 1A -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">1A</span>
+          <span class="seq-title">Applicants (6 people)</span>
+          <span class="seq-meta">Apr 2, 8 AM EST</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Segment</span><span class="seq-detail-value">Contacts tagged <code>tqa-applied</code> who never received follow-up</span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-reactivation-april-sent</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"Your application was reviewed"</strong> — Implies action was taken. Triggers curiosity. Professional tone.</li>
+            <li><strong>"DJ here — I reviewed your application"</strong> — Personal. First-name from-field doubles open rate on small lists.</li>
+            <li><strong>"Following up on your cybersecurity application"</strong> — Straightforward. No tricks. Signals real follow-up.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">DJ reviewed your application personally. Here is what happens next.</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>You applied to work with me on your cybersecurity career transition. My team should have followed up sooner. That is on me, and I want to make it right.</p>
+            <p>I reviewed your application. You took a step that most IT professionals think about for months and never take. That matters.</p>
+            <p>Here is where things stand. On April 11, I am running a live career briefing — 90 minutes on the cybersecurity transition framework I have built across 28 years and 400+ organizations. I cover the hiring process from the inside, because I have been the one making hiring decisions at Deloitte, EY, and Shell.</p>
+            <p>Because you already applied, I want you in that room. $27 holds your seat.</p>
+            <p>If you want to talk before then, reply to this email. I will make time.</p>
+            <p class="email-sig">-- DJ Naronikar<br>28-Year CISO | Deloitte, EY, Shell, Central Bank of India</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">CTA Button</span><span class="seq-detail-value email-cta-line">Reserve My Seat → [BRIEFING_LINK]</span></div>
+        </div>
+      </div>
+
+      <!-- Email 1B -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">1B</span>
+          <span class="seq-title">Attended March 19 (6 people)</span>
+          <span class="seq-meta">Apr 2, 8 PM EST</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Segment</span><span class="seq-detail-value">Contacts tagged <code>tqa-attended-march19</code></span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-reactivation-april-sent</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"You showed up on March 19"</strong> — Acknowledges their investment. Positions them as committed.</li>
+            <li><strong>"What changed since the March session"</strong> — Implies improvement. Creates curiosity.</li>
+            <li><strong>"You were 1 of 24"</strong> — Exclusivity framing. 24 out of 146 registered.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">You showed up when most did not. The April 11 session is rebuilt from that feedback.</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>146 people registered for the March 19 session. 24 showed up. You were one of them.</p>
+            <p>Since then, I took the feedback from that session and rebuilt the format. The April 11 career briefing is different in three ways.</p>
+            <p>First, the salary roadmap is sharper. I break down the exact numbers for going from $85K-$105K IT to $150K+ cybersecurity — by role, by metro, by timeline.</p>
+            <p>Second, I walk through the Rob G. case study in full. He was a chef with zero tech background. He is now a $120K cybersecurity analyst. Your IT experience puts you years ahead of where he started.</p>
+            <p>Third, the Q&A is built into the session, not tacked on at the end. You will get your questions answered.</p>
+            <p>April 11. 11 AM EST. $27.</p>
+            <p>You already proved you are serious. This is the next step.</p>
+            <p class="email-sig">-- DJ Naronikar<br>28-Year CISO | 400+ organizations across 8 countries</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">CTA Button</span><span class="seq-detail-value email-cta-line">Register — $27 → [BRIEFING_LINK]</span></div>
+        </div>
+      </div>
+
+      <!-- Email 1C -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">1C</span>
+          <span class="seq-title">Hot No-Shows (54 people)</span>
+          <span class="seq-meta">Apr 3, 12 PM EST</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Segment</span><span class="seq-detail-value">Contacts tagged <code>tqa-registered-march19</code> + <code>tqa-hot</code> who did NOT attend</span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-reactivation-april-sent</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"You registered for a reason"</strong> — Empathetic. Acknowledges intent without guilt.</li>
+            <li><strong>"The salary gap is still there"</strong> — Data-driven hook. Reminds of the problem.</li>
+            <li><strong>"Life got in the way. The math did not change."</strong> — Empathy first, then rational case.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">You signed up for a reason. That reason is still there.</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>You registered for my March 19 cybersecurity career session. You did not make it. No judgment — schedules shift and life gets in the way.</p>
+            <p>But here is what has not changed.</p>
+            <p>The Bureau of Labor Statistics data is clear: cybersecurity professionals earn $136,000 on average. General IT sits around $105,000. Over a decade, that gap compounds to roughly $800,000 in lost earnings. Every year you stay in an IT role when you are ready for cybersecurity, the cost grows.</p>
+            <p>On April 11, I am running a live career briefing. Ninety minutes. The cybersecurity transition framework I have built across 28 years as a CISO at Deloitte, EY, Shell, and the Central Bank of India.</p>
+            <p>$27 to attend. Not because the content is worth $27 — organizations pay me $2,000-$3,000 a day for this. The $27 is a filter. It keeps the room to people who are ready to move.</p>
+            <p>You already raised your hand once.</p>
+            <p class="email-sig">-- DJ Naronikar</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">CTA Button</span><span class="seq-detail-value email-cta-line">Register — $27 → [BRIEFING_LINK]</span></div>
+        </div>
+      </div>
+
+      <!-- Email 1D -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">1D</span>
+          <span class="seq-title">Warm/Cold/Old (34 people)</span>
+          <span class="seq-meta">Apr 4, 9 AM EST</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Segment</span><span class="seq-detail-value">Contacts tagged <code>tqa-warm</code>, <code>tqa-cold</code>, or <code>tqa-old-lead</code></span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-reactivation-april-sent</code></span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">No open 7d</span><span class="seq-detail-value">Apply tag <code>tqa-inactive-remove</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"Still considering cybersecurity?"</strong> — Direct question. Invites a yes or no.</li>
+            <li><strong>"Should I keep sending you these?"</strong> — Pattern interrupt. Shows respect.</li>
+            <li><strong>"One question, then I will leave you alone"</strong> — Honest framing. Low-pressure.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">One question. Reply YES or I will remove you. No hard feelings.</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>I respect your time, so I will be direct.</p>
+            <p>You expressed interest in cybersecurity career transitions at some point. I do not know if that is still relevant to you. I would rather ask than keep emailing someone who has moved on.</p>
+            <p>One data point: there are 470,000 unfilled cybersecurity positions in the United States right now. The average salary is $136,000 and growing 8% year over year. If you have IT experience, the transition window is wide open.</p>
+            <p>On April 11, I am running a live career briefing. $27. Ninety minutes of the transition framework I have built across 28 years as a CISO.</p>
+            <p>If you are in:<br><strong class="email-cta-line">[Yes — Reserve My Seat ($27)] → [BRIEFING_LINK]</strong></p>
+            <p>If you are out:<br><strong>[Remove me from this list] → unsubscribe</strong></p>
+            <p>No hard feelings either way. I would rather talk to 10 people who want this than email 100 who do not.</p>
+            <p class="email-sig">-- DJ Naronikar</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">Primary CTA</span><span class="seq-detail-value email-cta-line">Yes, I Am Interested → [BRIEFING_LINK]</span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">Secondary</span><span class="seq-detail-value">Remove Me → unsubscribe link</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ PHASE 2 ═══ -->
+    <div class="phase-block">
+      <div class="phase-header">
+        <span class="phase-num">P2</span>
+        <span class="phase-title">Phase 2: Value</span>
+        <span class="phase-dates">April 5-7</span>
+      </div>
+
+      <!-- Email 2A -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">2A</span>
+          <span class="seq-title">The 3 certifications that actually matter</span>
+          <span class="seq-meta">Apr 5, 10 AM EST</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Audience</span><span class="seq-detail-value">Everyone who opened OR clicked any Phase 1 email</span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-value-sequence-sent</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"The 3 certifications that actually get you hired"</strong> — Specific number + outcome.</li>
+            <li><strong>"I have reviewed 5,000 cybersecurity resumes. Here is what I look for."</strong> — Authority + specificity.</li>
+            <li><strong>"Which cybersecurity certs to get (and which to skip)"</strong> — Binary framing. Saves them money.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">After 28 years of reviewing resumes, these are the 3 certifications worth your time and money.</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>IT professionals ask me this more than anything: which certifications should I get?</p>
+            <p>After 28 years of reviewing cybersecurity resumes — and sitting on hiring panels at Deloitte, EY, and Shell — here is what I tell them.</p>
+            <p><strong>Get these three, in this order:</strong></p>
+            <p><strong>1. CompTIA Security+ ($404 exam).</strong> This is your entry ticket. HR departments use it as a checkbox filter. Without it, your resume does not get past the automated screening. The good news: if you have IT experience, most of the material will feel familiar. Study time: 4-8 weeks.</p>
+            <p><strong>2. CISSP ($749 exam).</strong> This is the salary changer. CISSP holders earn 22% more on average than non-certified peers. Note: ISC2 just cut the experience waiver list in half as of April 2026 — CEH, CISA, and OSCP no longer qualify. Security+ still does. That is another reason to get Security+ first.</p>
+            <p><strong>3. One domain-specific cert.</strong> CCSP for cloud security. CISM for governance. CEH for penetration testing. Pick based on where you want to land.</p>
+            <p><strong>What to skip:</strong> SANS/GIAC courses. Excellent training, terrible ROI for career changers at $8,000-$9,000 per course. Wait until your employer pays for them.</p>
+            <p>If you want to hear more about the transition path, I am doing a live career briefing on April 11.</p>
+            <p class="email-sig">-- DJ Naronikar</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">CTA Button</span><span class="seq-detail-value email-cta-line">Learn More About the April 11 Briefing → [BRIEFING_LINK]</span></div>
+        </div>
+      </div>
+
+      <!-- Email 2B -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">2B</span>
+          <span class="seq-title">What a hiring CISO sees on your LinkedIn</span>
+          <span class="seq-meta">Apr 7, 10 AM EST</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Audience</span><span class="seq-detail-value">Everyone who opened OR clicked any Phase 1 email</span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-value-sequence-sent</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"What a hiring CISO sees on your LinkedIn"</strong> — Specific and slightly uncomfortable.</li>
+            <li><strong>"3 things I look for on a candidate's LinkedIn (and 3 that get you skipped)"</strong> — Numbered + binary.</li>
+            <li><strong>"Your LinkedIn is costing you interviews"</strong> — Direct. Creates urgency to act.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">After hiring cybersecurity teams for 28 years, here is what stands out on LinkedIn — and what gets you passed over.</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>When I am reviewing candidates for a cybersecurity role, I open their LinkedIn before I open their resume. Here is what I look for.</p>
+            <p><strong>3 things that get my attention:</strong></p>
+            <p><strong>1. A headline that states what you do, not your title.</strong> "Helping organizations reduce security risk through infrastructure hardening" beats "Senior Systems Administrator at [Company]" every time.</p>
+            <p><strong>2. A summary that shows you think about security.</strong> Even if your current role is IT, your About section should reference how your work connects to organizational risk.</p>
+            <p><strong>3. Certifications listed with completion dates.</strong> Not "studying for CISSP." Completed. With dates. It shows follow-through.</p>
+            <p><strong>3 things that get you skipped:</strong></p>
+            <p>1. A generic headline with no differentiation.<br>2. No summary section at all — 40% of the profiles I review leave this blank.<br>3. Endorsements and skills that are all IT with zero security-adjacent terms.</p>
+            <p>I cover LinkedIn positioning in depth at the April 11 career briefing. Bring your profile open — I do live audits.</p>
+            <p class="email-sig">-- DJ Naronikar</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">CTA Button</span><span class="seq-detail-value email-cta-line">Join the April 11 Briefing → [BRIEFING_LINK]</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ PHASE 3 ═══ -->
+    <div class="phase-block">
+      <div class="phase-header">
+        <span class="phase-num">P3</span>
+        <span class="phase-title">Phase 3: Briefing Invite</span>
+        <span class="phase-dates">April 8-10</span>
+      </div>
+
+      <!-- Email 3A -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">3A</span>
+          <span class="seq-title">Direct Invitation</span>
+          <span class="seq-meta">Apr 8, 10 AM EST</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Audience</span><span class="seq-detail-value">Engaged with Phase 1 or 2 + NOT tagged <code>tqa-briefing-registrant</code></span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-briefing-invite-sent</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"April 11: Cybersecurity Career Briefing"</strong> — Clean. Reads like a calendar invite.</li>
+            <li><strong>"Live career briefing — April 11 at 11 AM EST"</strong> — Adds the time. Creates mental commitment.</li>
+            <li><strong>"90 minutes that could change your career trajectory"</strong> — Outcome-focused. No hype.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">April 11, 11 AM EST. 90 minutes. $27. What the cybersecurity career path actually looks like from the hiring side.</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>On April 11 at 11 AM EST, I am running a live cybersecurity career briefing. Here is what it covers.</p>
+            <p><strong>The market reality.</strong> 470,000 unfilled positions. $136,000 average salary. Where the openings are and which roles are growing fastest.</p>
+            <p><strong>The transition framework.</strong> The step-by-step path from IT to cybersecurity — not theory, but the actual moves I have seen work across 400+ organizations and 28 years of hiring.</p>
+            <p><strong>The certification roadmap.</strong> Which 3 to get, in what order, and which to skip entirely.</p>
+            <p><strong>The hidden job market.</strong> How to bypass the "3-5 years experience required" filter that stops most IT professionals cold.</p>
+            <p><strong>Live Q&A.</strong> Bring your questions. Bring your LinkedIn profile open.</p>
+            <p>$27 to attend. I cap attendance at 50 people so I can answer questions properly.</p>
+            <p class="email-sig">-- DJ Naronikar<br>28-Year CISO | Deloitte, EY, Shell</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">CTA Button</span><span class="seq-detail-value email-cta-line">Reserve My Seat — $27 → [BRIEFING_LINK]</span></div>
+        </div>
+      </div>
+
+      <!-- Email 3B -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">3B</span>
+          <span class="seq-title">Day-Before Reminder (Registrants Only)</span>
+          <span class="seq-meta">Apr 10, 6 PM EST</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Segment</span><span class="seq-detail-value">Contacts tagged <code>tqa-briefing-registrant</code></span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-briefing-reminder-sent</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"Tomorrow at 11 AM EST"</strong> — Short. Clear. Feels like a colleague reminder.</li>
+            <li><strong>"Your briefing is tomorrow — here is what to bring"</strong> — Adds value to the reminder.</li>
+            <li><strong>"See you tomorrow, {{First Name}}"</strong> — Personal. Casual. High open rate.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">April 11, 11 AM EST. Bring your laptop and your LinkedIn profile open.</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>Quick reminder — the cybersecurity career briefing is tomorrow.</p>
+            <p><strong>Date:</strong> April 11, 2026<br><strong>Time:</strong> 11:00 AM EST<br><strong>Where:</strong> Zoom (link below)<br><strong>Duration:</strong> 90 minutes</p>
+            <p><strong>What to bring:</strong></p>
+            <p>- Your laptop or computer (not just your phone — you will want to take notes)<br>- Your LinkedIn profile open in a separate tab (I do live profile audits during the Q&A)<br>- Any specific questions about your career situation</p>
+            <p><strong>Zoom Link:</strong> [ZOOM_LINK]</p>
+            <p>I will be on 5 minutes early. See you there.</p>
+            <p class="email-sig">-- DJ</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">CTA Button</span><span class="seq-detail-value email-cta-line">Open Zoom Link → [ZOOM_LINK]</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ PHASE 4 ═══ -->
+    <div class="phase-block">
+      <div class="phase-header">
+        <span class="phase-num">P4</span>
+        <span class="phase-title">Phase 4: Pre-Briefing</span>
+        <span class="phase-dates">Triggered by Registration</span>
+      </div>
+
+      <!-- Email 4A -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">4A</span>
+          <span class="seq-title">Confirmation (Immediate)</span>
+          <span class="seq-meta">Immediately after payment</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Trigger</span><span class="seq-detail-value">Immediately after payment confirmation</span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-briefing-confirmed</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"You are confirmed — April 11 Briefing"</strong> — Clear confirmation. Inbox-scannable.</li>
+            <li><strong>"Confirmed: your seat for the career briefing"</strong> — Formal. Professional.</li>
+            <li><strong>"You are in, {{First Name}}"</strong> — Personal. Feels like acceptance.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">You are confirmed for April 11. Here is your Zoom link and what to expect.</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>You are confirmed for the Cybersecurity Career Briefing on April 11 at 11 AM EST.</p>
+            <p><strong>Your Zoom link:</strong> [ZOOM_LINK]<br>(Save this — I will also send it the morning of.)</p>
+            <p><strong>What to expect:</strong></p>
+            <p>- 80 minutes of structured content on the cybersecurity career path<br>- 10 minutes of live Q&A<br>- No upsell during the session. I will mention my program once at the end for anyone who wants to go deeper. The briefing stands on its own.</p>
+            <p><strong>Before April 11</strong>, I am going to send you a few emails with content that will make the briefing more valuable. Think of them as pre-reading.</p>
+            <p>First up: a short video where I introduce myself and explain my approach. It is 7 minutes. Worth watching before the session.</p>
+            <p class="email-cta-line"><strong>[Watch the Trust Video] → [TRUST_VIDEO_LINK]</strong></p>
+            <p>See you on the 11th.</p>
+            <p class="email-sig">-- DJ Naronikar</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">CTA Button</span><span class="seq-detail-value email-cta-line">Watch the Pre-Briefing Video → [TRUST_VIDEO_LINK]</span></div>
+        </div>
+      </div>
+
+      <!-- Email 4B -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">4B</span>
+          <span class="seq-title">Day 1: The 3 Biggest Mistakes</span>
+          <span class="seq-meta">24 hours after 4A</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Trigger</span><span class="seq-detail-value">24 hours after Email 4A</span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-prebriefing-day1</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"Before the briefing: the 3 biggest mistakes"</strong> — Numbered + "mistakes" framing.</li>
+            <li><strong>"What IT professionals get wrong about cybersecurity careers"</strong> — Corrective authority.</li>
+            <li><strong>"Read this before April 11"</strong> — Assignment-like urgency.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">These 3 mistakes cost IT professionals months and thousands of dollars. I see them constantly.</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>Before the briefing, I want to share the three biggest mistakes I see IT professionals make when pivoting to cybersecurity. I have watched these play out hundreds of times.</p>
+            <p><strong>Mistake 1: Starting with the wrong certification.</strong> Most people default to whatever Google recommends. They spend $8,000 on a SANS course or six months on a cert that does not move the needle for their specific career path.</p>
+            <p><strong>Mistake 2: Applying for jobs the wrong way.</strong> IT professionals send resumes that speak IT language to cybersecurity hiring managers. The resume is not wrong — it is untranslated.</p>
+            <p><strong>Mistake 3: Ignoring the hidden job market.</strong> The majority of cybersecurity hires at the senior level happen through referrals and network placement, not Indeed or LinkedIn job postings.</p>
+            <p>I cover all three of these in depth on April 11.</p>
+            <p class="email-sig">-- DJ</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">CTA Button</span><span class="seq-detail-value email-cta-line">Add the Briefing to My Calendar → [CALENDAR_LINK]</span></div>
+        </div>
+      </div>
+
+      <!-- Email 4C -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">4C</span>
+          <span class="seq-title">Day 2: Rob's Story (Social Proof)</span>
+          <span class="seq-meta">48 hours after 4A</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Trigger</span><span class="seq-detail-value">48 hours after Email 4A</span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-prebriefing-day2</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"From chef to $120K cybersecurity analyst"</strong> — Specific, surprising contrast.</li>
+            <li><strong>"He had zero IT background. He is earning $120K in cybersecurity."</strong> — Demands explanation.</li>
+            <li><strong>"Rob's story (and why your IT background puts you ahead)"</strong> — Relatability + comparison.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">If a chef can make this transition, what does that say about your chances with years of IT experience?</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>I want to tell you about Rob G.</p>
+            <p>Rob came to me with zero technical background. He was a chef. No IT certifications. No networking experience. No security background whatsoever.</p>
+            <p>I walked him through the same framework I will cover on April 11. We identified his transferable skills — analytical thinking, process discipline, attention to detail under pressure. We mapped those to a specific cybersecurity domain. We built his certification path and his positioning strategy.</p>
+            <p>Rob is now a cybersecurity analyst earning $120,000 a year.</p>
+            <p>Here is why I am telling you this: your IT background puts you significantly ahead of where Rob started. The cybersecurity transition for an IT professional is not starting over — it is repositioning skills you already have.</p>
+            <p>Rob's path took longer because he was building from scratch. Your path is shorter because you are building from a foundation.</p>
+            <p>On April 11, I break down exactly how that repositioning works.</p>
+            <p class="email-sig">-- DJ</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">CTA Button</span><span class="seq-detail-value email-cta-line">I Will Be There — April 11 → [ZOOM_LINK]</span></div>
+        </div>
+      </div>
+
+      <!-- Email 4D -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">4D</span>
+          <span class="seq-title">Day 3: AI Makes Cybersecurity More Urgent</span>
+          <span class="seq-meta">72 hours after 4A</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Trigger</span><span class="seq-detail-value">72 hours after Email 4A</span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-prebriefing-day3</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"Why AI makes cybersecurity more urgent, not less"</strong> — Counterintuitive framing.</li>
+            <li><strong>"AI is coming for IT roles. It is creating cybersecurity roles."</strong> — Binary contrast.</li>
+            <li><strong>"The IT roles that are disappearing (and what replaces them)"</strong> — Direct relevance.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">AI is automating IT helpdesk and sysadmin tasks. Cybersecurity hiring is accelerating. The data is clear.</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>Here is something most IT professionals are not thinking about clearly enough.</p>
+            <p>AI is automating tier-1 IT tasks faster than most people expected. Helpdesk ticket routing, basic network monitoring, system provisioning, password resets — these are being handled by AI agents at an increasing number of organizations. IT support roles are flat. Some are declining.</p>
+            <p>At the same time, AI is creating an entirely new category of cybersecurity threats. Deepfake phishing attacks surged 148% this year. AI-generated business email compromise incidents are up 37%, according to the FBI.</p>
+            <p>The result: IT roles are compressing. Cybersecurity roles are expanding. There are 470,000 unfilled positions in the US alone, and 53% of employers are increasing starting pay for cybersecurity talent in 2026.</p>
+            <p>This is not a scare tactic. It is Bureau of Labor Statistics data and FBI reporting. The question is not whether the shift is happening. It is whether you position yourself on the right side of it.</p>
+            <p>That is what April 11 is about.</p>
+            <p class="email-sig">-- DJ</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">CTA Button</span><span class="seq-detail-value email-cta-line">See You on April 11 → [ZOOM_LINK]</span></div>
+        </div>
+      </div>
+
+      <!-- Email 4E -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">4E</span>
+          <span class="seq-title">Morning of Briefing</span>
+          <span class="seq-meta">Apr 11, 8 AM EST</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Segment</span><span class="seq-detail-value">Contacts tagged <code>tqa-briefing-registrant</code></span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-briefing-morning-reminder</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"We are live in 3 hours"</strong> — Urgent, time-specific.</li>
+            <li><strong>"11 AM EST today — your Zoom link"</strong> — Functional. Gives the link.</li>
+            <li><strong>"Briefing is today, {{First Name}}"</strong> — Personal. Short. High open rate.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">April 11 career briefing starts at 11 AM EST. Your Zoom link is below. Bring your LinkedIn open.</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>The cybersecurity career briefing starts at 11 AM EST today.</p>
+            <p><strong>Zoom Link:</strong> [ZOOM_LINK]</p>
+            <p><strong>3 things to have ready:</strong><br>1. Your laptop or desktop (not just your phone)<br>2. Your LinkedIn profile open in a separate tab<br>3. One question about your specific career situation</p>
+            <p>I will be on 5 minutes early. See you in the room.</p>
+            <p class="email-sig">-- DJ</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">CTA Button</span><span class="seq-detail-value email-cta-line">Join the Briefing Now → [ZOOM_LINK]</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ PHASE 5 ═══ -->
+    <div class="phase-block">
+      <div class="phase-header">
+        <span class="phase-num">P5</span>
+        <span class="phase-title">Phase 5: Post-Briefing</span>
+        <span class="phase-dates">April 11-18</span>
+      </div>
+
+      <!-- Email 5A -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">5A</span>
+          <span class="seq-title">Same Day -- Attendees Only</span>
+          <span class="seq-meta">Apr 11, 1:30 PM EST</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Segment</span><span class="seq-detail-value">Contacts tagged <code>tqa-briefing-attended</code></span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-post-briefing-sent</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"Thanks for being in the room"</strong> — Warm. No sales pressure.</li>
+            <li><strong>"Briefing recap and next steps"</strong> — Functional. Useful follow-up.</li>
+            <li><strong>"What we covered today"</strong> — Clean. Invites re-engagement.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">A recap of today's key points and the one link you need if you want to go further.</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>Thank you for being in the room today. I know 90 minutes is a real commitment, and I do not take that lightly.</p>
+            <p>Here is a quick recap of what we covered:</p>
+            <p>- <strong>The market data:</strong> 470,000 unfilled positions, $136,000 average salary, 18-22% annual job growth<br>- <strong>The 3-cert path:</strong> Security+ first, CISSP second, one domain specialty third<br>- <strong>The hidden job market:</strong> Why 60%+ of senior cybersecurity hires happen off public job boards<br>- <strong>The resume translation:</strong> How to reframe IT experience in security language<br>- <strong>The LinkedIn positioning:</strong> What hiring CISOs actually look for</p>
+            <p>If you want to do this transition with me — structured, guided, with a clear 90-day path — I have two programs.</p>
+            <p><strong>The Accelerator ($997):</strong> 90-day structured program. Weekly assignments. AI career assistant. Community access. Resume and LinkedIn rewrite. Certification roadmap.</p>
+            <p><strong>The CISO Track ($4,999-$7,000):</strong> Everything in the Accelerator plus direct mentorship with me, employer introductions, and placement support.</p>
+            <p>No pressure. No deadline today. Just the link if you want it.</p>
+            <p class="email-sig">-- DJ</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">CTA Button</span><span class="seq-detail-value email-cta-line">Apply to the Accelerator → [ACCELERATOR_LINK]</span></div>
+        </div>
+      </div>
+
+      <!-- Email 5B -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">5B</span>
+          <span class="seq-title">Day 1 After -- CISSP Waiver Update</span>
+          <span class="seq-meta">Apr 12, 10 AM EST</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Segment</span><span class="seq-detail-value"><code>tqa-briefing-attended</code> + NOT tagged <code>tqa-accelerator-applied</code></span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-post-briefing-day1</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"One thing from the briefing I want you to think about"</strong> — Creates curiosity. Low pressure.</li>
+            <li><strong>"The number that stuck with me after yesterday"</strong> — Personal framing from DJ.</li>
+            <li><strong>"Something I did not have time to cover yesterday"</strong> — Exclusivity. New info.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">There was one data point from the briefing that I want you to sit with.</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>After yesterday's briefing, I want to highlight one thing I could not spend enough time on.</p>
+            <p>The CISSP experience waiver list was cut in half as of April 1, 2026. ISC2 removed CEH, CISA, CRISC, and OSCP from the approved waiver list. Security+ survived the cut. This means the certification path I outlined yesterday — Security+ first, then CISSP — just became more important, not less.</p>
+            <p>Here is why this matters to you specifically. If you are planning to pursue CISSP (and you should — it is a 22% salary increase on average), the pathway through Security+ is now one of the cleanest routes to satisfy the experience waiver requirement. Waiting means the landscape may shift again.</p>
+            <p>If you want structured guidance through this transition — the certification path, the resume rewrite, the positioning strategy — the Accelerator is designed for exactly that.</p>
+            <p class="email-sig">-- DJ</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">CTA Button</span><span class="seq-detail-value email-cta-line">Learn About the Accelerator → [ACCELERATOR_LINK]</span></div>
+        </div>
+      </div>
+
+      <!-- Email 5C -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">5C</span>
+          <span class="seq-title">Day 3 -- Enrollment Closing</span>
+          <span class="seq-meta">Apr 14, 10 AM EST</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Segment</span><span class="seq-detail-value"><code>tqa-briefing-attended</code> + NOT tagged <code>tqa-accelerator-applied</code></span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-post-briefing-day3</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"Enrollment closes Friday for this cohort"</strong> — Real scarcity. DJ caps cohorts.</li>
+            <li><strong>"3 seats left in the April cohort"</strong> — Specific number. Only use if accurate.</li>
+            <li><strong>"I am closing the April group on Friday"</strong> — Personal. First-person.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">The April Accelerator cohort closes Friday. After that, the next one starts in 6 weeks.</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>I am closing enrollment for the April Accelerator cohort on Friday.</p>
+            <p>This is not a marketing tactic. I cap each cohort because I personally review every member's career plan, certification roadmap, and LinkedIn profile.</p>
+            <p><strong>Here is what the Accelerator includes:</strong></p>
+            <p>- 90-day structured career transition plan (week by week)<br>- AI-powered career assistant for real-time guidance<br>- Resume translation from IT to cybersecurity language<br>- LinkedIn profile audit and rewrite framework<br>- Certification roadmap (personalized to your background)<br>- Community of IT professionals making the same transition<br>- Direct access to me via the program platform</p>
+            <p>$997. Payment plans available.</p>
+            <p>If the timing is not right, I understand. The next cohort starts in approximately 6 weeks. Reply to this email and I will make sure you hear about it first.</p>
+            <p class="email-sig">-- DJ</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">CTA Button</span><span class="seq-detail-value email-cta-line">Apply Before Friday → [ACCELERATOR_LINK]</span></div>
+        </div>
+      </div>
+
+      <!-- Email 5D -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">5D</span>
+          <span class="seq-title">Day 5 -- April Cohort Closed</span>
+          <span class="seq-meta">Apr 16, 10 AM EST</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Segment</span><span class="seq-detail-value"><code>tqa-briefing-attended</code> + NOT tagged <code>tqa-accelerator-applied</code></span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-post-briefing-closed</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"April cohort is closed"</strong> — Short. Definitive. Triggers loss aversion.</li>
+            <li><strong>"Doors closed — here is what happens next"</strong> — Closure + forward motion.</li>
+            <li><strong>"Next cohort starts in June"</strong> — Informational. No pressure.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">The April Accelerator cohort is full. Here is how to be first for the next one.</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>The April Accelerator cohort is now closed.</p>
+            <p>If you were on the fence, I understand. A career transition is not a small decision, and I would rather you join when you are ready than rush into it.</p>
+            <p>Here is what happens next: the next cohort starts in approximately 6 weeks. If you want to be first to know when applications open, reply to this email with "NEXT" and I will add you to the priority list.</p>
+            <p>In the meantime, two things you can do right now that cost nothing:<br>1. Start studying for Security+ (Professor Messer's free YouTube course is excellent)<br>2. Rewrite your LinkedIn headline using the framework from the briefing</p>
+            <p>When you are ready, I will be here.</p>
+            <p class="email-sig">-- DJ</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">CTA</span><span class="seq-detail-value">Reply "NEXT" to Join the Waitlist (reply-based, no button link needed)</span></div>
+        </div>
+      </div>
+
+      <!-- Email 5E -->
+      <div class="seq-card">
+        <div class="seq-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="seq-id">5E</span>
+          <span class="seq-title">No-Shows (Did Not Attend)</span>
+          <span class="seq-meta">Apr 12, 8 PM EST</span>
+          <span class="seq-toggle">&#9662;</span>
+        </div>
+        <div class="seq-body">
+          <div class="seq-detail-row"><span class="seq-detail-label">Segment</span><span class="seq-detail-value"><code>tqa-briefing-registrant</code> + NOT tagged <code>tqa-briefing-attended</code></span></div>
+          <div class="seq-detail-row"><span class="seq-detail-label">GHL Tag</span><span class="seq-detail-value"><code>tqa-briefing-noshow</code></span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Subject Line Options</div>
+          <ol class="seq-subjects">
+            <li><strong>"You registered but could not make it"</strong> — No guilt. Keeps the door open.</li>
+            <li><strong>"One takeaway from yesterday's briefing"</strong> — Gives value despite not attending.</li>
+            <li><strong>"Missed April 11? Here is the key insight."</strong> — Direct. Rewards opening.</li>
+          </ol>
+          <div class="seq-detail-row"><span class="seq-detail-label">Preview Text</span><span class="seq-detail-value">No worries about missing it. Here is the one thing attendees said was most valuable.</span></div>
+          <div class="email-sub-label" style="margin-top:16px;">Email Body</div>
+          <div class="seq-email-body">
+            <p>{{First Name}},</p>
+            <p>You registered for yesterday's career briefing but could not make it. No worries — I know schedules shift.</p>
+            <p>Here is the one takeaway that generated the most discussion in the room.</p>
+            <p>ISC2 cut the CISSP experience waiver list in half as of April 1, 2026. Certifications like CEH, CISA, and OSCP no longer qualify as waiver credits. Security+ is one of the few that survived. This means the certification sequencing I teach — Security+ first, then CISSP — is now more than a recommendation. It is the most efficient path left.</p>
+            <p>That was 5 minutes of a 90-minute session. I run these periodically.</p>
+            <p>If you want to know about the next one, reply to this email and I will make sure you are first to hear about it.</p>
+            <p class="email-sig">-- DJ</p>
+          </div>
+          <div class="seq-detail-row" style="margin-top:12px;"><span class="seq-detail-label">CTA</span><span class="seq-detail-value">Reply to Get Notified About the Next Briefing (reply-based)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GHL Implementation Notes -->
+    <div style="margin-top:40px;">
+      <h3 style="font-size:18px;font-weight:700;color:#fff;margin-bottom:16px;">GHL Implementation Notes for Agresh</h3>
+
+      <div class="card" style="margin-bottom:20px;">
+        <div class="email-sub-label">Tag Reference</div>
+        <table class="person-table">
+          <thead><tr><th>Tag</th><th>Applied When</th></tr></thead>
+          <tbody>
+            <tr><td>tqa-reactivation-april-sent</td><td>Any Phase 1 email sent</td></tr>
+            <tr><td>tqa-value-sequence-sent</td><td>Any Phase 2 email sent</td></tr>
+            <tr><td>tqa-briefing-invite-sent</td><td>Phase 3 invite sent</td></tr>
+            <tr><td>tqa-briefing-registrant</td><td>Contact pays $27 and registers</td></tr>
+            <tr><td>tqa-briefing-confirmed</td><td>Confirmation email sent</td></tr>
+            <tr><td>tqa-prebriefing-day1</td><td>Pre-briefing email 1 sent</td></tr>
+            <tr><td>tqa-prebriefing-day2</td><td>Pre-briefing email 2 sent</td></tr>
+            <tr><td>tqa-prebriefing-day3</td><td>Pre-briefing email 3 sent</td></tr>
+            <tr><td>tqa-briefing-morning-reminder</td><td>Morning-of reminder sent</td></tr>
+            <tr><td>tqa-briefing-attended</td><td>Contact attended (manual tag by Agresh after session)</td></tr>
+            <tr><td>tqa-briefing-reminder-sent</td><td>Day-before reminder sent</td></tr>
+            <tr><td>tqa-post-briefing-sent</td><td>Same-day thank you sent</td></tr>
+            <tr><td>tqa-post-briefing-day1</td><td>Day 1 follow-up sent</td></tr>
+            <tr><td>tqa-post-briefing-day3</td><td>Day 3 scarcity email sent</td></tr>
+            <tr><td>tqa-post-briefing-closed</td><td>Doors closed email sent</td></tr>
+            <tr><td>tqa-briefing-noshow</td><td>Registered but did not attend</td></tr>
+            <tr><td>tqa-accelerator-applied</td><td>Contact applied to Accelerator</td></tr>
+            <tr><td>tqa-inactive-remove</td><td>No engagement after Phase 1 — candidate for list removal</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-bottom:20px;">
+        <div class="email-sub-label">Workflow Structure</div>
+        <table class="person-table">
+          <thead><tr><th>Workflow</th><th>Trigger</th><th>Emails</th></tr></thead>
+          <tbody>
+            <tr><td>1. Reactivation</td><td>Manual (Agresh initiates per segment)</td><td>4 emails, Apr 2-4</td></tr>
+            <tr><td>2. Value Nurture</td><td>Opened or clicked Phase 1</td><td>2 emails, Apr 5 + 7</td></tr>
+            <tr><td>3. Briefing Invite</td><td>Engaged Phase 1/2, not registered</td><td>2 emails, Apr 8 + 10</td></tr>
+            <tr><td>4. Pre-Briefing</td><td>Tagged <code>tqa-briefing-registrant</code></td><td>5 emails on delay</td></tr>
+            <tr><td>5. Post-Briefing</td><td>Apr 11 end of session</td><td>5 emails by outcome</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="email-sub-label">Links to Replace Before Building</div>
+        <table class="person-table">
+          <thead><tr><th>Placeholder</th><th>Replace With</th></tr></thead>
+          <tbody>
+            <tr><td>[BRIEFING_LINK]</td><td>Registration/payment page URL</td></tr>
+            <tr><td>[ACCELERATOR_LINK]</td><td>Accelerator application page URL</td></tr>
+            <tr><td>[ZOOM_LINK]</td><td>April 11 Zoom meeting link</td></tr>
+            <tr><td>[TRUST_VIDEO_LINK]</td><td>DJ's pre-briefing trust video URL</td></tr>
+            <tr><td>[CALENDAR_LINK]</td><td>Google Calendar / .ics add-to-calendar link</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 12: LINKEDIN POSTS ═══════════════ -->
+<section id="liposts">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 12</div>
+      <h2>LinkedIn Posts (10 Posts)</h2>
+      <p>April 2-14, 2026. Post daily on business days, skip weekends. DJ reviews, edits, and posts. CTA comments go separately, not in the post body.</p>
+    </div>
+
+    <!-- Content Mix Summary -->
+    <div class="li-summary-grid">
+      <div class="li-summary-card">
+        <div class="li-summary-num">5</div>
+        <div class="li-summary-label">Fear / News</div>
+      </div>
+      <div class="li-summary-card">
+        <div class="li-summary-num">3</div>
+        <div class="li-summary-label">Career Proof</div>
+      </div>
+      <div class="li-summary-card">
+        <div class="li-summary-num">1</div>
+        <div class="li-summary-label">DJ Authority</div>
+      </div>
+      <div class="li-summary-card">
+        <div class="li-summary-num">1</div>
+        <div class="li-summary-label">Behind the Scenes</div>
+      </div>
+    </div>
+
+    <!-- Post 1 -->
+    <div class="li-post-card">
+      <div class="li-post-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="li-post-num">#1</span>
+        <div class="li-post-info">
+          <div class="li-post-title">ISC2 Cuts CISSP Waiver List</div>
+          <div class="li-post-meta">Wednesday, April 2</div>
+        </div>
+        <span class="li-post-cat li-cat-fear">Fear/News</span>
+        <span class="li-post-toggle">&#9662;</span>
+      </div>
+      <div class="li-post-body">
+        <div class="li-post-text">ISC2 just cut the CISSP experience waiver list in half.
+
+As of April 1, 2026, CEH, CISA, CRISC, and OSCP no longer qualify as waiver credits for the CISSP experience requirement. The list went from roughly 50 approved certifications to 25.
+
+If you are an IT professional planning your cybersecurity certification path, this changes your sequencing strategy.
+
+Here is what it means in practice. Security+ survived the cut. It is now one of the cleanest routes to satisfy the CISSP waiver requirement. If you have been debating whether to start with Security+ or skip straight to CISSP, that decision just got made for you.
+
+The people most affected are mid-career IT professionals who invested in CEH or CISA specifically because it counted toward CISSP eligibility. That pathway is now closed. They will need to either accumulate the full five years of direct experience or pursue one of the remaining waiver-eligible certifications.
+
+I have been reviewing cybersecurity resumes for 28 years. CISSP remains the single most requested certification in job postings globally — 70,000+ US listings reference it right now. The destination has not changed. The route to get there just narrowed.
+
+If you are planning your certification path, start with Security+. Then CISSP. Then one domain specialty. That sequence works regardless of what ISC2 does next.</div>
+        <div class="li-post-hashtags">#Cybersecurity #CISSP #SecurityPlus #CareerTransition</div>
+        <p style="font-size:12px;color:var(--text-dim);">No CTA on this post.</p>
+      </div>
+    </div>
+
+    <!-- Post 2 -->
+    <div class="li-post-card">
+      <div class="li-post-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="li-post-num">#2</span>
+        <div class="li-post-info">
+          <div class="li-post-title">The $800K Salary Gap</div>
+          <div class="li-post-meta">Thursday, April 3</div>
+        </div>
+        <span class="li-post-cat li-cat-career">Career Proof</span>
+        <span class="li-post-toggle">&#9662;</span>
+      </div>
+      <div class="li-post-body">
+        <div class="li-post-text">The average cybersecurity salary in the United States is $135,969.
+
+In San Jose, it is $175,520. In Washington D.C., $158,000. In Dallas, $142,000.
+
+The average IT support salary nationally is $105,000.
+
+Over 10 years, that gap compounds to roughly $800,000 in lost lifetime earnings. That is not a motivational number. That is Bureau of Labor Statistics data run through a compound growth model at 8% annual cybersecurity salary growth versus 2-3% for general IT.
+
+Here is what makes that number worse: 53% of employers are increasing starting pay for cybersecurity talent in 2026. The gap is not holding steady. It is accelerating.
+
+I have been on the hiring side of this equation for 28 years. At Deloitte. At EY. At Shell. I have set compensation bands for cybersecurity teams across 8 countries. The salary premium for cybersecurity over general IT is not a trend. It is structural. It reflects the fact that there are 470,000 unfilled cybersecurity positions in the US and the supply of qualified professionals is not keeping up.
+
+If you are an IT professional earning $85K-$120K and wondering whether the transition to cybersecurity is worth the effort, the math answers that question. It answered it 5 years ago. The only variable is how long you wait.</div>
+        <div class="li-post-hashtags">#Cybersecurity #CareerGrowth #SalaryData #ITCareers</div>
+        <div class="li-post-cta-note"><strong>CTA (post as a comment):</strong> "If you are an IT professional considering the move to cybersecurity, I am running a live career briefing on April 11 where I walk through the transition framework. Link in my featured section."</div>
+      </div>
+    </div>
+
+    <!-- Post 3 -->
+    <div class="li-post-card">
+      <div class="li-post-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="li-post-num">#3</span>
+        <div class="li-post-info">
+          <div class="li-post-title">Aflac: 22.7M Records Lost</div>
+          <div class="li-post-meta">Friday, April 4</div>
+        </div>
+        <span class="li-post-cat li-cat-fear">Fear/News</span>
+        <span class="li-post-toggle">&#9662;</span>
+      </div>
+      <div class="li-post-body">
+        <div class="li-post-text">Aflac lost the personal data of 22.7 million people this year.
+
+Not 22,700. Twenty-two point seven million customers, beneficiaries, employees, and agents. In a single breach.
+
+A Japanese semiconductor company — Advantest Corporation — detected a ransomware attack in February and had to isolate entire segments of its IT environment. CarGurus had 1.7 million accounts exposed. The University of Mississippi Medical Center had to close clinics after ransomware took down their electronic health records.
+
+These are not edge cases. BlackFog's State of Ransomware 2026 report shows nearly 6,500 ransomware incidents in 2025, with 57 new ransomware groups emerging in a single year. The average recovery cost per attack is now $4.88 million.
+
+Every one of these organizations had IT teams. They needed cybersecurity teams.
+
+This is the core of what I try to communicate when people ask me about the cybersecurity job market. The 470,000 unfilled positions are not an abstract statistic. They represent real organizations that do not have enough people to detect, respond to, and prevent attacks like the ones above.
+
+Healthcare. Financial services. Manufacturing. Government. The sectors being hit hardest are also the sectors hiring most aggressively.
+
+The talent shortage is not theoretical. It is measured in breaches.</div>
+        <div class="li-post-hashtags">#Cybersecurity #DataBreach #Ransomware #InfoSec</div>
+        <p style="font-size:12px;color:var(--text-dim);">No CTA on this post.</p>
+      </div>
+    </div>
+
+    <!-- Post 4 -->
+    <div class="li-post-card">
+      <div class="li-post-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="li-post-num">#4</span>
+        <div class="li-post-info">
+          <div class="li-post-title">Chef to $120K Cybersecurity</div>
+          <div class="li-post-meta">Monday, April 7</div>
+        </div>
+        <span class="li-post-cat li-cat-career">Career Proof</span>
+        <span class="li-post-toggle">&#9662;</span>
+      </div>
+      <div class="li-post-body">
+        <div class="li-post-text">I mentored a chef into a $120,000 cybersecurity career.
+
+Not an IT professional. A chef. Zero technical background. No certifications. No networking experience. No prior exposure to information security.
+
+We started with a skills audit. Analytical thinking — he could break down complex recipes and kitchen operations into process flows. Attention to detail under pressure — self-explanatory if you have worked a commercial kitchen. Process discipline and documentation — health code compliance is not that different from regulatory compliance in cybersecurity.
+
+Those transferable skills mapped directly to Governance, Risk, and Compliance. GRC is the cybersecurity domain that requires the least technical coding and the most structured thinking. It is also one of the highest-paying paths, with GRC managers earning $130,000 and up.
+
+From there, the path was concrete. Security+ certification. Then CISM. Then targeted applications to GRC analyst roles with the resume rewritten in security language. He had an offer within 5 months.
+
+Here is what I tell IT professionals who ask me about this story: you are starting from a stronger position than he was. You already understand networks, systems, and enterprise infrastructure. The cybersecurity transition for an IT professional is not starting over. It is repositioning skills you already have.
+
+Rob had further to go. He still got there. You have less distance to cover.</div>
+        <div class="li-post-hashtags">#Cybersecurity #CareerChange #GRC #CyberCareers</div>
+        <div class="li-post-cta-note"><strong>CTA (post as a comment):</strong> "I walk through the complete IT-to-cybersecurity transition framework in a live briefing on April 11. Details in my featured section."</div>
+      </div>
+    </div>
+
+    <!-- Post 5 -->
+    <div class="li-post-card">
+      <div class="li-post-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="li-post-num">#5</span>
+        <div class="li-post-info">
+          <div class="li-post-title">AI Phishing Up 148%</div>
+          <div class="li-post-meta">Tuesday, April 8</div>
+        </div>
+        <span class="li-post-cat li-cat-fear">Fear/News</span>
+        <span class="li-post-toggle">&#9662;</span>
+      </div>
+      <div class="li-post-body">
+        <div class="li-post-text">AI-generated phishing attacks increased 148% this year.
+
+That is not a projection. It is a measurement from security incident tracking data in 2026. The FBI's Internet Crime Complaint Center documented a 37% rise in AI-assisted business email compromise attacks, including deepfake voice clones of executives authorizing wire transfers.
+
+Here is what changed. Large language models can now scan a target's LinkedIn profile, company news, and public communications to generate phishing messages that match the writing style and context of real colleagues. These are not the "Dear Sir, please click this link" emails from 2015. These are grammatically perfect, contextually aware messages that reference real projects, real deadlines, and real organizational language.
+
+By mid-2026, autonomous attack systems are expected to generate and send personalized phishing at scale — scraping organizational data and crafting unique messages for each target without human involvement.
+
+The average cost of an AI-powered cyberattack is $5.72 million per incident. Up 13% from last year.
+
+This is the paradox that defines the cybersecurity job market right now. AI is making attacks more sophisticated, which is making defense more critical, which is making cybersecurity professionals more valuable. The same technology displacing some IT roles is creating demand for security professionals who understand how to detect and respond to AI-driven threats.
+
+Every new attack vector is a job posting.</div>
+        <div class="li-post-hashtags">#Cybersecurity #AIThreats #Phishing #CyberDefense</div>
+        <div class="li-post-cta-note"><strong>CTA (post as a comment):</strong> "I cover how AI is reshaping both the threat landscape and the career landscape in my April 11 career briefing. For IT professionals considering cybersecurity. Link in featured section."</div>
+      </div>
+    </div>
+
+    <!-- Post 6 -->
+    <div class="li-post-card">
+      <div class="li-post-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="li-post-num">#6</span>
+        <div class="li-post-info">
+          <div class="li-post-title">AI Policy for a Central Bank</div>
+          <div class="li-post-meta">Wednesday, April 9</div>
+        </div>
+        <span class="li-post-cat li-cat-authority">DJ Authority</span>
+        <span class="li-post-toggle">&#9662;</span>
+      </div>
+      <div class="li-post-body">
+        <div class="li-post-text">Last year I wrote the artificial intelligence policy for a central bank in the Middle East.
+
+That policy is now the standard for every financial institution operating under that country's regulatory framework. Every bank, every investment firm, every fintech startup in that jurisdiction must comply with a framework I built.
+
+I share this not to impress you but to explain something about cybersecurity that most IT professionals miss entirely.
+
+The highest-paying cybersecurity roles are not the ones where you write code or run penetration tests. The highest-paying roles are the ones where you write policies that entire industries must follow.
+
+Governance, Risk, and Compliance is the cybersecurity domain that sits closest to the executive table. It is where a CISO spends most of their time. When I was CISO at Shell, the board did not ask me to explain firewall configurations. They asked me to explain risk exposure, regulatory compliance gaps, and the financial impact of security decisions.
+
+GRC professionals start at $80,000. GRC managers earn $130,000 and up. CISOs — which is GRC at the highest level — earn $220,000 to $530,000 depending on the organization.
+
+In 28 years across 400+ organizations and 8 countries, I have watched the industry evolve from "the IT security team" to a board-level strategic function. The professionals who positioned themselves for governance and compliance early are the ones earning half a million dollars today.
+
+The technical roles matter. But the governance roles lead.</div>
+        <div class="li-post-hashtags">#Cybersecurity #CISO #GRC #CareerPath #Leadership</div>
+        <p style="font-size:12px;color:var(--text-dim);">No CTA on this post.</p>
+      </div>
+    </div>
+
+    <!-- Post 7 -->
+    <div class="li-post-card">
+      <div class="li-post-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="li-post-num">#7</span>
+        <div class="li-post-info">
+          <div class="li-post-title">3 New State Privacy Laws</div>
+          <div class="li-post-meta">Thursday, April 10</div>
+        </div>
+        <span class="li-post-cat li-cat-fear">Fear/News</span>
+        <span class="li-post-toggle">&#9662;</span>
+      </div>
+      <div class="li-post-body">
+        <div class="li-post-text">Three new US state privacy laws took effect on January 1, 2026.
+
+Indiana, Kentucky, and Rhode Island now enforce comprehensive data privacy requirements. That brings the total to over 20 states with active privacy legislation.
+
+At the same time, the EU AI Act's high-risk system rules are expected to take effect in August 2026, creating the first binding regulatory framework for artificial intelligence oversight in Europe. And CISA delayed its CIRCIA final rule to May 2026, which will require critical infrastructure entities to report cyber incidents within 72 hours and ransomware payments within 24 hours.
+
+What does this mean for the cybersecurity job market?
+
+Every new regulation creates compliance requirements. Every compliance requirement creates roles. Privacy officers. GRC analysts. Compliance auditors. AI governance specialists — a role that barely existed 18 months ago.
+
+The companies subject to these regulations — healthcare, finance, critical infrastructure, technology — are now legally required to staff up their security and compliance functions. Not recommended. Required.
+
+When I assess an organization's security posture, regulatory compliance is always the first area I examine. It is the area with the most immediate consequences if it is neglected. Fines. Lawsuits. Board-level liability.
+
+For IT professionals, this regulatory wave is opening thousands of cybersecurity positions that do not require deep technical security experience. They require structured thinking, documentation skills, and an understanding of how compliance frameworks work. Skills that translate directly from IT operations.</div>
+        <div class="li-post-hashtags">#Cybersecurity #Privacy #AIGovernance #Compliance #Regulation</div>
+        <div class="li-post-cta-note"><strong>CTA (post as a comment):</strong> "Tomorrow I am hosting a live career briefing for IT professionals considering cybersecurity. Covers the transition framework, certification path, and hiring landscape. April 11, 11 AM EST. Link in my featured section."</div>
+      </div>
+    </div>
+
+    <!-- Post 8 -->
+    <div class="li-post-card">
+      <div class="li-post-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="li-post-num">#8</span>
+        <div class="li-post-info">
+          <div class="li-post-title">Certification ROI Stacking</div>
+          <div class="li-post-meta">Friday, April 11 (Briefing Day)</div>
+        </div>
+        <span class="li-post-cat li-cat-career">Career Proof</span>
+        <span class="li-post-toggle">&#9662;</span>
+      </div>
+      <div class="li-post-body">
+        <div class="li-post-text">CompTIA Security+ holders earn 11% more than their non-certified peers.
+
+CISSP holders earn 22% more.
+
+Cloud security certifications — CCSP, AWS Security Specialty — add up to 25%.
+
+Stack all three and you are looking at a compensation premium that compounds every year for the rest of your career. On a $120,000 base, that is the difference between $120K and $155K in year one. Over a decade, it is hundreds of thousands of dollars.
+
+But here is what most certification advice gets wrong: sequencing matters more than selection.
+
+I have reviewed over 5,000 cybersecurity resumes across 28 years. The professionals who advance fastest are not the ones with the most certifications. They are the ones who got the right certifications in the right order for their specific career target.
+
+Security+ first. It is $404 and takes 4-8 weeks of study for an IT professional. It satisfies HR screening filters and it remains on the CISSP experience waiver list after ISC2's April 2026 cut.
+
+CISSP second. It is the single most referenced certification in cybersecurity job postings — 70,000+ US listings right now. It signals senior-level thinking.
+
+Then one domain specialty based on where you want to land. CCSP for cloud. CISM for governance. CEH for offensive security.
+
+Three certifications. Twelve to eighteen months. A fundamentally different career trajectory.
+
+The order matters. Do not start with the expensive one. Start with the one that opens the door.</div>
+        <div class="li-post-hashtags">#Cybersecurity #Certifications #CISSP #SecurityPlus #CareerDevelopment</div>
+        <p style="font-size:12px;color:var(--text-dim);">No CTA on this post (briefing is today -- anyone interested already knows).</p>
+      </div>
+    </div>
+
+    <!-- Post 9 -->
+    <div class="li-post-card">
+      <div class="li-post-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="li-post-num">#9</span>
+        <div class="li-post-info">
+          <div class="li-post-title">Healthcare + Professional Services Under Attack</div>
+          <div class="li-post-meta">Monday, April 13</div>
+        </div>
+        <span class="li-post-cat li-cat-fear">Fear/News</span>
+        <span class="li-post-toggle">&#9662;</span>
+      </div>
+      <div class="li-post-body">
+        <div class="li-post-text">Professional services and healthcare are the two most-attacked sectors in 2026.
+
+Not technology companies. Not banks. Consulting firms, law firms, accounting practices, hospitals, and medical centers.
+
+The University of Mississippi Medical Center had to close clinics after a ransomware attack in February. Clinics. Closed. Patients redirected to other facilities because the electronic health records system was down and care had to be administered manually.
+
+This is not a data theft story. This is a patient care story. Ransomware is no longer just an IT problem. It is a safety problem.
+
+Professional services firms are targeted because they hold sensitive client data across multiple industries — one breach yields financial records, legal documents, strategic plans, and personal information from dozens of client organizations simultaneously.
+
+Healthcare is targeted because hospitals pay ransoms. When the choice is between paying attackers and sending patients to other facilities, most organizations pay. Attackers know this.
+
+The cybersecurity talent shortage is not abstract in these sectors. It is measured in closed clinics, exposed patient records, and compromised client files. These organizations are hiring urgently because the alternative is operational shutdown.
+
+If you are an IT professional considering cybersecurity, understand this: the hiring urgency in healthcare and professional services is not driven by budget cycles or growth plans. It is driven by the fact that people are getting hurt and organizations are getting shut down.
+
+That kind of urgency does not slow down.</div>
+        <div class="li-post-hashtags">#Cybersecurity #Healthcare #Ransomware #InfoSec #CyberCareers</div>
+        <p style="font-size:12px;color:var(--text-dim);">No CTA on this post.</p>
+      </div>
+    </div>
+
+    <!-- Post 10 -->
+    <div class="li-post-card">
+      <div class="li-post-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="li-post-num">#10</span>
+        <div class="li-post-info">
+          <div class="li-post-title">Behind the Scenes: The Real Questions</div>
+          <div class="li-post-meta">Tuesday, April 14</div>
+        </div>
+        <span class="li-post-cat li-cat-bts">Behind the Scenes</span>
+        <span class="li-post-toggle">&#9662;</span>
+      </div>
+      <div class="li-post-body">
+        <div class="li-post-text">I spent last Friday on a Zoom call with 50 IT professionals who each paid $27 to hear me talk about cybersecurity careers for 90 minutes.
+
+Nobody asked me about blockchain. Nobody asked about the metaverse. Nobody asked about any of the technology trends that dominate LinkedIn feeds.
+
+They asked how to rewrite their resume so a security hiring manager would actually read it. They asked which certifications are worth the money and which are a waste. They asked whether their 8 years in systems administration actually counted for anything in cybersecurity.
+
+These are real questions from real people making real career decisions. And what struck me — again, after 28 years — is how much bad information is out there.
+
+People spending $8,000 on SANS courses when they have not taken the $404 Security+ exam yet. People listing "studying for CISSP" on their LinkedIn when the exam requires five years of professional experience. People applying to SOC analyst roles with resumes that speak entirely in IT infrastructure language and wondering why they never hear back.
+
+The information gap is as big as the talent gap. And in some ways, it is more harmful. Because the talent is there. Hundreds of thousands of IT professionals have the skills. They just do not have the map.
+
+That is what I am building. The map.</div>
+        <div class="li-post-hashtags">#Cybersecurity #CareerTransition #BehindTheScenes</div>
+        <p style="font-size:12px;color:var(--text-dim);">No CTA on this post.</p>
+      </div>
+    </div>
+
+    <!-- Posting Notes -->
+    <div class="card" style="margin-top:32px;">
+      <div class="email-sub-label">Posting Notes for DJ</div>
+      <ul style="font-size:14px;color:var(--text-muted);padding-left:20px;line-height:1.8;">
+        <li><strong>Post timing:</strong> Publish between 7-9 AM EST. LinkedIn's algorithm favors early-morning posts.</li>
+        <li><strong>CTA placement:</strong> The 4 posts with CTAs should have the CTA as a COMMENT posted immediately after publishing, not in the body.</li>
+        <li><strong>Engagement:</strong> After posting, spend 15 minutes engaging with comments on other people's cybersecurity/IT career posts.</li>
+        <li><strong>Hashtags:</strong> 3-5 per post, placed at the bottom. Do not use more than 5.</li>
+        <li><strong>No images needed:</strong> Text-only posts by design. LinkedIn algorithm gives text-only posts equal or better reach in B2B.</li>
+        <li><strong>Featured section:</strong> Before April 2, update your LinkedIn Featured section to include the briefing registration link.</li>
+        <li><strong>Post 10 timing:</strong> References briefing as "last Friday." Adjust wording if briefing date shifts.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 13: ACTION ITEMS ═══════════════ -->
+<section id="actions">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 13</div>
       <h2>What DJ Needs To Do</h2>
       <p>Your specific tasks. Everything else is handled. Complete these to launch on schedule.</p>
     </div>
@@ -2445,11 +4336,14 @@ email sequence       to next briefing</div>
         <li>Copy-paste the unified bios to all platforms (Section 3 above). LinkedIn, YouTube, Facebook, Twitter/X, Telegram, Spotify. Estimated time: 45-60 minutes.</li>
         <li>Reactivate your Sales Navigator subscription (~$99/mo). The entire LinkedIn DM funnel depends on it.</li>
         <li>Create Stripe payment links: $27 Career Briefing + $997 Accelerator (one-time) + $347 x 3 payment plan. Connect to the registration and offer pages.</li>
-        <li>Record the 7-minute pre-class trust video. Camera on, talking directly to registrants. Introduce yourself, preview what April 11 covers, build anticipation.</li>
+        <li>Record the 7-minute trust video using the provided script (Section 10 above). Upload as unlisted to YouTube. Share the link so Agresh can wire it into the confirmation email and thank-you page.</li>
         <li>WhatsApp the 6 applicants with the Sprint offer. These are people who already applied and never heard back -- personal message from you closes the loop.</li>
         <li>Approve the ad creatives for Shreyas (Section 7 above). He needs green light to launch the 5 variants with $500 test budget.</li>
         <li>Approve the reactivation emails for Agresh (Section 6 above). Choose one subject line per email and confirm he should send.</li>
         <li>Review the $997 Accelerator offer page. Confirm pricing, payment plan structure, and program details are accurate before it goes live.</li>
+        <li>Review and approve WhatsApp messages for 12 warm leads (Section 8 above). Personalize the bracketed lines and send to the 6 applicants and 6 attendees.</li>
+        <li>Approve the 18-email sequence for Agresh to build in GHL (Section 11 above). Choose one subject line per email. Confirm segment assignments and send dates.</li>
+        <li>Review 10 LinkedIn posts -- edit and start posting April 2 (Section 12 above). Update your Featured section with the briefing link before the first post.</li>
       </ol>
     </div>
 
@@ -2464,10 +4358,40 @@ email sequence       to next briefing</div>
 
 <!-- ═══════════════ JAVASCRIPT ═══════════════ -->
 <script>
-// Open first slide by default so DJ sees the format
 document.addEventListener('DOMContentLoaded', function() {
-  const firstSlide = document.querySelector('.slide-card');
+  // Open first slide by default so DJ sees the format
+  var firstSlide = document.querySelector('.slide-card');
   if (firstSlide) firstSlide.classList.add('open');
+
+  // Open first email sequence card so DJ sees the format
+  var firstSeq = document.querySelector('.seq-card');
+  if (firstSeq) firstSeq.classList.add('open');
+
+  // Open first LinkedIn post card
+  var firstLi = document.querySelector('.li-post-card');
+  if (firstLi) firstLi.classList.add('open');
+
+  // Click-to-copy for WhatsApp message blocks
+  document.querySelectorAll('.wa-msg-block').forEach(function(block) {
+    block.style.cursor = 'pointer';
+    block.addEventListener('click', function() {
+      var pre = this.querySelector('pre');
+      if (!pre) return;
+      var text = pre.textContent;
+      navigator.clipboard.writeText(text).then(function() {
+        var hint = block.querySelector('.copy-hint');
+        if (hint) {
+          var original = hint.textContent;
+          hint.textContent = 'COPIED!';
+          hint.style.color = '#10b981';
+          setTimeout(function() {
+            hint.textContent = original;
+            hint.style.color = '';
+          }, 2000);
+        }
+      });
+    });
+  });
 });
 </script>
 
