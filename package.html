@@ -1,0 +1,2475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TQA Relaunch Package — April 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0e1a;
+  --card: #131929;
+  --border: #1e2a42;
+  --gold: #f59e0b;
+  --green: #10b981;
+  --blue: #3b82f6;
+  --red: #ef4444;
+  --purple: #8b5cf6;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --surface: #0f1525;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Sticky Nav ── */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(10, 14, 26, 0.94);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 20px;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  height: 56px;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-link {
+  white-space: nowrap;
+  padding: 6px 12px;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+.nav-link:hover { color: #fff; background: rgba(255,255,255,0.06); }
+.nav-brand {
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: -0.3px;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+.nav-action {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ── Layout ── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+section:last-of-type { border-bottom: none; }
+
+/* ── Hero ── */
+.hero {
+  text-align: center;
+  padding: 88px 24px 72px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(245,158,11,0.3);
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: clamp(30px, 5vw, 52px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin-bottom: 18px;
+  background: linear-gradient(135deg, #fff 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: clamp(15px, 2vw, 20px);
+  color: var(--text-muted);
+  max-width: 660px;
+  margin: 0 auto 20px;
+  font-weight: 400;
+}
+.hero-meta {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.hero-meta span { margin: 0 6px; }
+
+/* ── Section Headers ── */
+.section-header { margin-bottom: 40px; }
+.section-number {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.section-header h2 {
+  font-size: clamp(24px, 3.5vw, 38px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.section-header p {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 680px;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 0.3s, transform 0.2s;
+}
+.card:hover {
+  border-color: rgba(245,158,11,0.3);
+  transform: translateY(-1px);
+}
+
+/* ── Live Pages Grid ── */
+.pages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+.page-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.page-card .card { height: 100%; }
+.page-card .page-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.page-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fff;
+}
+.page-card .page-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.page-card .page-url {
+  font-size: 12px;
+  color: var(--blue);
+  word-break: break-all;
+}
+
+/* ── Slide Cards ── */
+.slides-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.slide-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.slide-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+}
+.slide-header:hover { background: rgba(255,255,255,0.02); }
+.slide-num {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.2);
+  border-radius: 8px;
+  min-width: 48px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.slide-title {
+  font-size: 17px;
+  font-weight: 700;
+  flex: 1;
+}
+.slide-time {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.slide-toggle {
+  font-size: 18px;
+  color: var(--text-dim);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+.slide-card.open .slide-toggle { transform: rotate(180deg); }
+.slide-body {
+  display: none;
+  padding: 24px;
+}
+.slide-card.open .slide-body { display: block; }
+.slide-section {
+  margin-bottom: 20px;
+}
+.slide-section:last-child { margin-bottom: 0; }
+.slide-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.slide-section p, .slide-section li {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.slide-section ul {
+  padding-left: 20px;
+}
+.slide-section li { margin-bottom: 4px; }
+.slide-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+  font-size: 13px;
+}
+.slide-table th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.2);
+}
+.slide-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(30,42,66,0.5);
+  color: var(--text-muted);
+}
+.slide-quote {
+  font-size: 14px;
+  color: var(--text);
+  font-style: italic;
+  border-left: 3px solid var(--gold);
+  padding-left: 16px;
+  margin: 12px 0;
+}
+
+/* ── Slide Deck Summary ── */
+.deck-summary {
+  margin-top: 32px;
+  overflow-x: auto;
+}
+.deck-summary table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.deck-summary th {
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.2);
+}
+.deck-summary td {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(30,42,66,0.5);
+  color: var(--text-muted);
+}
+.deck-summary tr:last-child td {
+  font-weight: 700;
+  color: var(--gold);
+}
+
+/* ── Bio Cards ── */
+.bio-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.bio-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.bio-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+}
+.bio-header:hover { background: rgba(255,255,255,0.02); }
+.bio-platform {
+  font-size: 16px;
+  font-weight: 700;
+}
+.bio-limit {
+  font-size: 12px;
+  color: var(--text-dim);
+  font-weight: 500;
+}
+.bio-toggle {
+  font-size: 18px;
+  color: var(--text-dim);
+  transition: transform 0.3s;
+}
+.bio-card.open .bio-toggle { transform: rotate(180deg); }
+.bio-body {
+  display: none;
+  padding: 24px;
+}
+.bio-card.open .bio-body { display: block; }
+.bio-text-block {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.bio-text-block pre {
+  font-family: 'Inter', monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.bio-text-block .copy-hint {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.bio-sub-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 16px 0 8px;
+}
+.bio-note {
+  font-size: 13px;
+  color: var(--text-dim);
+  font-style: italic;
+  margin-top: 12px;
+}
+
+/* ── Brand Guide ── */
+.brand-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+.brand-block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+}
+.brand-block h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #fff;
+}
+.brand-block p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.brand-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 13px;
+}
+.brand-table th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.15);
+}
+.brand-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(30,42,66,0.5);
+  color: var(--text-muted);
+}
+.brand-quote {
+  font-size: 15px;
+  color: var(--text);
+  border-left: 3px solid var(--gold);
+  padding: 12px 16px;
+  margin: 12px 0;
+  background: rgba(245,158,11,0.04);
+  border-radius: 0 8px 8px 0;
+}
+.word-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 640px) {
+  .word-grid { grid-template-columns: 1fr; }
+}
+.word-block h4 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.word-block.use h4 { color: var(--green); }
+.word-block.avoid h4 { color: var(--red); }
+.word-list {
+  list-style: none;
+  padding: 0;
+}
+.word-list li {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(30,42,66,0.4);
+}
+.word-list li span {
+  display: block;
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+.brand-arch {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+.arch-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+}
+.arch-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.arch-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.arch-card .arch-role {
+  font-size: 12px;
+  color: var(--text-dim);
+  font-style: italic;
+}
+.content-mix-bar {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 32px;
+  margin: 12px 0;
+}
+.mix-seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* ── DM Strategy ── */
+.dm-section {
+  margin-bottom: 32px;
+}
+.dm-section h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #fff;
+}
+.dm-msg {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.dm-msg-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.dm-msg-when {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+.dm-msg pre {
+  font-family: 'Inter', monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.dm-note {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-top: 8px;
+}
+.avatar-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.avatar-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.filter-grid {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 8px 16px;
+  font-size: 13px;
+}
+.filter-grid dt {
+  color: var(--text-dim);
+  font-weight: 600;
+}
+.filter-grid dd {
+  color: var(--text-muted);
+}
+@media (max-width: 600px) {
+  .filter-grid { grid-template-columns: 1fr; }
+}
+.workflow-visual {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-top: 16px;
+  font-family: 'Inter', monospace;
+  font-size: 13px;
+  line-height: 2;
+  color: var(--text-muted);
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+/* ── Reactivation Emails ── */
+.email-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.email-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.email-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.email-header:hover { background: rgba(255,255,255,0.02); }
+.email-seg-info {
+  flex: 1;
+  min-width: 200px;
+}
+.email-seg-name {
+  font-size: 16px;
+  font-weight: 700;
+}
+.email-seg-count {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+.email-send-info {
+  text-align: right;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.email-toggle {
+  font-size: 18px;
+  color: var(--text-dim);
+  transition: transform 0.3s;
+}
+.email-card.open .email-toggle { transform: rotate(180deg); }
+.email-body {
+  display: none;
+  padding: 24px;
+}
+.email-card.open .email-body { display: block; }
+.email-sub-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.email-subjects {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+.email-subjects li {
+  font-size: 14px;
+  color: var(--text-muted);
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(30,42,66,0.4);
+}
+.email-subjects li strong {
+  color: var(--text);
+}
+.email-copy-block {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-top: 12px;
+}
+.email-copy-block p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+.email-copy-block .email-cta-line {
+  font-weight: 600;
+  color: var(--gold);
+}
+.email-copy-block .email-sig {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+/* ── Send Schedule Summary ── */
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 24px;
+}
+.schedule-table th {
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.15);
+}
+.schedule-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(30,42,66,0.5);
+  color: var(--text-muted);
+}
+
+/* ── Ad Cards ── */
+.ad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.ad-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.ad-card-head {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.ad-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.ad-card-head h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+.ad-card-body {
+  padding: 20px 24px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.ad-body-text {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: 16px;
+}
+.ad-cta {
+  display: inline-block;
+  background: var(--gold);
+  color: #000;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-align: center;
+  align-self: flex-start;
+}
+
+/* ── Action Items ── */
+.action-section {
+  background: linear-gradient(135deg, rgba(245,158,11,0.08) 0%, rgba(16,185,129,0.05) 100%);
+  border: 2px solid rgba(245,158,11,0.25);
+  border-radius: 16px;
+  padding: 40px;
+}
+@media (max-width: 640px) {
+  .action-section { padding: 24px; }
+}
+.action-list {
+  list-style: none;
+  padding: 0;
+  counter-reset: action;
+}
+.action-list li {
+  counter-increment: action;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(245,158,11,0.12);
+  font-size: 15px;
+  color: var(--text);
+}
+.action-list li:last-child { border-bottom: none; }
+.action-list li::before {
+  content: counter(action);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  background: var(--gold);
+  color: #000;
+  font-weight: 800;
+  font-size: 14px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 48px 24px;
+  border-top: 1px solid var(--border);
+}
+.footer p {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.footer .footer-note {
+  color: var(--gold);
+  font-weight: 500;
+  font-size: 12px;
+  max-width: 600px;
+  margin: 12px auto 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .pages-grid { grid-template-columns: 1fr; }
+  .ad-grid { grid-template-columns: 1fr; }
+  .brand-arch { grid-template-columns: 1fr; }
+  .filter-grid { grid-template-columns: 1fr; }
+  section { padding: 48px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav class="top-nav">
+  <div class="nav-inner">
+    <span class="nav-brand">TQA Package</span>
+    <a href="#pages" class="nav-link">Pages</a>
+    <a href="#slides" class="nav-link">Slides</a>
+    <a href="#bios" class="nav-link">Bios</a>
+    <a href="#brand" class="nav-link">Brand</a>
+    <a href="#linkedin" class="nav-link">LinkedIn DMs</a>
+    <a href="#emails" class="nav-link">Emails</a>
+    <a href="#ads" class="nav-link">Ads</a>
+    <a href="#actions" class="nav-link nav-action">Action Items</a>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <div class="hero-label">Complete Delivery Package</div>
+  <h1>TQA Relaunch Package</h1>
+  <p class="hero-sub">Everything for the April 11 Career Briefing -- Review, Approve, Execute</p>
+  <p class="hero-meta">April 2, 2026 <span>|</span> Prepared by Dylan Ewing</p>
+</header>
+
+<!-- ═══════════════ SECTION 1: LIVE PAGES ═══════════════ -->
+<section id="pages">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 01</div>
+      <h2>Live Pages</h2>
+      <p>All deployed and ready. Click any card to open the page.</p>
+    </div>
+    <div class="pages-grid">
+
+      <a href="https://dmanwadefreedom.github.io/tqa-jumpstart/blueprint.html" target="_blank" class="page-card">
+        <div class="card">
+          <div class="page-num">Page 01</div>
+          <h3>Blueprint</h3>
+          <p class="page-desc">Full 90-day relaunch strategy -- diagnostics, ads, timeline, and team assignments.</p>
+          <span class="page-url">dmanwadefreedom.github.io/tqa-jumpstart/blueprint.html</span>
+        </div>
+      </a>
+
+      <a href="https://dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html" target="_blank" class="page-card">
+        <div class="card">
+          <div class="page-num">Page 02</div>
+          <h3>Career Briefing Registration</h3>
+          <p class="page-desc">$27 entry to the April 11 live career briefing. Registration and payment page.</p>
+          <span class="page-url">dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html</span>
+        </div>
+      </a>
+
+      <a href="https://dmanwadefreedom.github.io/tqa-jumpstart/accelerator.html" target="_blank" class="page-card">
+        <div class="card">
+          <div class="page-num">Page 03</div>
+          <h3>$997 Accelerator</h3>
+          <p class="page-desc">The 90-day program offer page. Full program details, pricing, and application.</p>
+          <span class="page-url">dmanwadefreedom.github.io/tqa-jumpstart/accelerator.html</span>
+        </div>
+      </a>
+
+      <a href="https://dmanwadefreedom.github.io/tqa-jumpstart/hq.html" target="_blank" class="page-card">
+        <div class="card">
+          <div class="page-num">Page 04</div>
+          <h3>Launch HQ</h3>
+          <p class="page-desc">Command center with lead data, timeline, and operational status for the team.</p>
+          <span class="page-url">dmanwadefreedom.github.io/tqa-jumpstart/hq.html</span>
+        </div>
+      </a>
+
+      <a href="https://dmanwadefreedom.github.io/tqa-jumpstart/quiz.html" target="_blank" class="page-card">
+        <div class="card">
+          <div class="page-num">Page 05</div>
+          <h3>Career Quiz</h3>
+          <p class="page-desc">Secondary lead-capture entry point. Qualifies prospects before the briefing invite.</p>
+          <span class="page-url">dmanwadefreedom.github.io/tqa-jumpstart/quiz.html</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 2: CAREER BRIEFING SLIDES ═══════════════ -->
+<section id="slides">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 02</div>
+      <h2>Career Briefing Slides</h2>
+      <p>17-slide deck for April 11. Total runtime: 85-90 minutes. Format: Career Briefing -- DJ teaches for 80 minutes, one mention of his program, then Q&amp;A. Click any slide to expand.</p>
+    </div>
+
+    <div class="slides-grid">
+
+      <!-- Slide 1 -->
+      <div class="slide-card">
+        <div class="slide-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="slide-num">01</div>
+          <div class="slide-title">Title</div>
+          <div class="slide-time">1 min</div>
+          <div class="slide-toggle">&#9662;</div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-section">
+            <div class="slide-section-label">On Screen</div>
+            <ul>
+              <li>"Cybersecurity Career Briefing"</li>
+              <li>DJ Naronikar | 28-Year CISO</li>
+              <li>April 11, 2026</li>
+              <li>The Quantum Achievers logo (small, bottom corner)</li>
+            </ul>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Speaker Notes</div>
+            <p class="slide-quote">"Good evening. My name is DJ Naronikar. I've spent 28 years in cybersecurity, most of it hiring and building security teams. Tonight I'm going to walk you through exactly how the cybersecurity job market works right now, what actually gets people hired, and where IT professionals fit into it. No pitch. Just the briefing I'd give my own team."</p>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Visual Notes</div>
+            <p>Clean, dark background. White text. No animation. No tagline. Just the title, name, date.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide-card">
+        <div class="slide-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="slide-num">02</div>
+          <div class="slide-title">DJ's Credentials</div>
+          <div class="slide-time">2 min</div>
+          <div class="slide-toggle">&#9662;</div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-section">
+            <div class="slide-section-label">On Screen</div>
+            <ul>
+              <li>CISO and vCISO -- Australia, Middle East, EU, India, USA</li>
+              <li>(ISC)2 Chapter President -- Melbourne and Global Advisory Board</li>
+              <li>CIO Choice Award 2026</li>
+              <li>28 years, 400+ organizations, 8 countries</li>
+              <li>Former: Deloitte, EY, Shell</li>
+            </ul>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Speaker Notes</div>
+            <p class="slide-quote">"Quick background so you know who you're listening to. I've been a CISO and virtual CISO across eight countries. I've sat on hiring panels at Deloitte, EY, and Shell. I currently serve as ISC2 Chapter President for Melbourne and sit on their Global Advisory Board. Earlier this year I received the CIO Choice Award. I've personally assessed the security posture of over 400 organizations. I tell you this not to impress you, but so you understand that what I'm about to share comes from the hiring side of the table. I know what gets people in the door because I've been the one opening it."</p>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Visual Notes</div>
+            <p>Headshot of DJ (professional). Bullet points appear one at a time. No logos unless DJ has explicit permission -- if not, text only.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide-card">
+        <div class="slide-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="slide-num">03</div>
+          <div class="slide-title">The Market Right Now</div>
+          <div class="slide-time">3 min</div>
+          <div class="slide-toggle">&#9662;</div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-section">
+            <div class="slide-section-label">On Screen</div>
+            <ul>
+              <li>600,000+ unfilled cybersecurity positions in the US (2026)</li>
+              <li>Average cybersecurity salary: $136,000 (up 8% year over year)</li>
+              <li>Job growth: 18-22% annually</li>
+              <li>IT support roles: flat or declining</li>
+              <li>Sources: StationX 2026 Report, Robert Half Salary Guide, ElectroIQ</li>
+            </ul>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Speaker Notes</div>
+            <p class="slide-quote">"Let me give you the numbers as they stand today. There are over 600,000 unfilled cybersecurity positions in the United States right now. Not projected. Right now. The average salary across all cybersecurity roles is $136,000, and that number has grown 8% year over year. Meanwhile, traditional IT support roles -- helpdesk, sysadmin, tier-1 network ops -- are flat. Some are declining. The market is telling you something. The question is whether you're listening."</p>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Visual Notes</div>
+            <p>Large numbers. Each stat gets its own line with generous spacing. Source citations at the bottom in smaller text.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide-card">
+        <div class="slide-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="slide-num">04</div>
+          <div class="slide-title">The Pressure on IT Professionals</div>
+          <div class="slide-time">4 min</div>
+          <div class="slide-toggle">&#9662;</div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-section">
+            <div class="slide-section-label">On Screen</div>
+            <ul>
+              <li>AI is automating tier-1 and tier-2 IT support tasks</li>
+              <li>H-1B holders face 3x higher layoff vulnerability in generalist IT roles</li>
+              <li>Helpdesk and sysadmin positions are being consolidated across industries</li>
+              <li>The salary gap between IT and cybersecurity widens every year</li>
+              <li>Cybersecurity roles tied to specialized skills are harder to eliminate</li>
+            </ul>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Speaker Notes</div>
+            <p class="slide-quote">"I want to be clear about something. This is not a scare tactic. These are structural changes happening across the industry. AI tooling is handling tickets and monitoring that used to require a full team. Companies are consolidating their IT support into smaller groups or outsourcing entirely. If you're on an H-1B visa in a generalist IT role, you're in a statistically more vulnerable position -- not because you're less capable, but because the role itself is easier to eliminate. Cybersecurity is different. It's specialized. It's regulated. And it's growing. A security role ties your value to something companies legally cannot cut corners on."</p>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Visual Notes</div>
+            <p>Clean bullet list. No red warning icons. Optional: a simple two-line chart showing IT support (flat) vs cybersecurity (rising) over the last 5 years.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="slide-card">
+        <div class="slide-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="slide-num">05</div>
+          <div class="slide-title">The Salary Reality (10-Year View)</div>
+          <div class="slide-time">4 min</div>
+          <div class="slide-toggle">&#9662;</div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-section">
+            <div class="slide-section-label">On Screen</div>
+            <table class="slide-table">
+              <thead><tr><th>Current Role</th><th>Current Salary</th><th>Cyber Equivalent</th><th>Cyber Salary</th></tr></thead>
+              <tbody>
+                <tr><td>IT Support</td><td>$42-58K</td><td>SOC Analyst</td><td>$65-95K</td></tr>
+                <tr><td>Network Admin</td><td>$55-72K</td><td>Network Security Engineer</td><td>$85-130K</td></tr>
+                <tr><td>Sysadmin</td><td>$60-80K</td><td>Security Ops Manager</td><td>$110-150K</td></tr>
+                <tr><td>IT Manager</td><td>$70-90K</td><td>CISO / Security Architect</td><td>$180-250K</td></tr>
+              </tbody>
+            </table>
+            <p style="margin-top:12px;font-size:14px;color:var(--text);font-weight:600;">"Over 10 years, the cumulative gap is $500,000 to $800,000. Same person. Different career path."</p>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Speaker Notes</div>
+            <p class="slide-quote">"This is the table I show every IT professional who asks me whether the switch is worth it. Look at where you are now. Look at the cybersecurity equivalent of your current role. Now multiply that difference by ten years. We're not talking about a small bump. We're talking about half a million to eight hundred thousand dollars over a career. And the cybersecurity side has a higher ceiling. The IT side has a hard cap -- you hit it at year five or six, and it barely moves after that. The cybersecurity side keeps climbing because the demand keeps climbing."</p>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Visual Notes</div>
+            <p>Full-width table. Clean columns. The bottom quote in a larger font, set apart from the table.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="slide-card">
+        <div class="slide-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="slide-num">06</div>
+          <div class="slide-title">Why 70% Who Try Alone Fail</div>
+          <div class="slide-time">4 min</div>
+          <div class="slide-toggle">&#9662;</div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-section">
+            <div class="slide-section-label">On Screen</div>
+            <ul>
+              <li>1. Wrong certifications, wrong order</li>
+              <li>2. Resume that doesn't speak cybersecurity</li>
+              <li>3. Invisible to the hidden job market (70% of roles are never posted publicly)</li>
+              <li>4. No one in their corner when it gets hard</li>
+            </ul>
+            <p style="margin-top:12px;font-size:14px;color:var(--text);">"These are the four things that determine whether someone makes the transition or stays stuck."</p>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Speaker Notes</div>
+            <p class="slide-quote">"I've watched this pattern repeat for two decades. Someone decides to move into cybersecurity. They're smart, they're motivated. And then they spend six months studying for the wrong certification. Or they send out 50 applications with an IT resume that no cybersecurity hiring manager responds to. Or they only apply on Indeed and LinkedIn, which means they're competing for 30% of the available jobs while 70% get filled through referrals and direct outreach. Or they hit a wall at month three -- everyone does -- and there's no one to tell them they're closer than they think. Any one of these will stall a transition. Two or more and most people give up."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7 -->
+      <div class="slide-card">
+        <div class="slide-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="slide-num">07</div>
+          <div class="slide-title">The 4 Things That Get You Hired</div>
+          <div class="slide-time">5 min</div>
+          <div class="slide-toggle">&#9662;</div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-section">
+            <div class="slide-section-label">On Screen</div>
+            <ul>
+              <li>1. The right certification -- Security+ first, then specialize</li>
+              <li>2. A resume that speaks cybersecurity, not IT</li>
+              <li>3. A LinkedIn profile that recruiters actually find</li>
+              <li>4. Interview answers that demonstrate security thinking</li>
+            </ul>
+            <p style="margin-top:12px;font-size:14px;color:var(--text);">"Everything else is noise. These four things move the needle."</p>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Speaker Notes</div>
+            <p class="slide-quote">"If someone asked me to boil down 28 years of hiring into four things, this is it. First: get Security+ certified. Not because it teaches you everything -- it doesn't -- but because HR departments use it as a checkbox. Without it, your resume doesn't make it past the filter. Second: rewrite your resume in cybersecurity language. You already have relevant experience, but it's buried under IT terminology that security teams don't scan for. Third: fix your LinkedIn. Recruiters search by keywords. If your profile says 'IT Support Specialist,' you're invisible to every cybersecurity recruiter on the platform. Fourth: learn to answer interview questions like a security professional."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8 -->
+      <div class="slide-card">
+        <div class="slide-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="slide-num">08</div>
+          <div class="slide-title">LIVE EXERCISE: Job Posting Analysis</div>
+          <div class="slide-time">12 min</div>
+          <div class="slide-toggle">&#9662;</div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-section">
+            <div class="slide-section-label">On Screen</div>
+            <ul>
+              <li>"Open LinkedIn right now."</li>
+              <li>Search: <strong>Cybersecurity Incident Analyst</strong></li>
+              <li>Step 1: Look at the Required Skills section. Underline anything that maps to your current IT role.</li>
+              <li>Step 2: Check the salary range.</li>
+              <li>Step 3: Read the experience requirements.</li>
+            </ul>
+            <p style="margin-top:12px;font-size:14px;color:var(--text);">"You have more qualifications than you think. The gap is positioning, not skill."</p>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Speaker Notes</div>
+            <p class="slide-quote">"I want everyone to do this with me right now. Open LinkedIn on your phone or your laptop. Search for 'Cybersecurity Incident Analyst.' Pick any posting in the results. Now look at the Required Skills section. I want you to underline -- mentally or physically -- every single skill listed that you already do in your current IT role. Network monitoring? You do that. Incident triage? You do that when a server goes down. Log analysis? You've been reading logs for years. Now check the salary range on that posting. Compare it to what you're making. Now read the experience requirements. Most of these say two to four years. You have that. The gap between you and this job is not skill. It's positioning."</p>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Visual Notes</div>
+            <p>Simple instructional layout. Large step numbers. The closing quote is the takeaway. DJ pauses here -- gives the room 3-4 minutes to actually do the exercise.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9 -->
+      <div class="slide-card">
+        <div class="slide-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="slide-num">09</div>
+          <div class="slide-title">The Certification Question</div>
+          <div class="slide-time">5 min</div>
+          <div class="slide-toggle">&#9662;</div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-section">
+            <div class="slide-section-label">Which Ones Matter</div>
+            <ul>
+              <li>Security+ ($404) -- Your entry ticket. HR uses it as a filter.</li>
+              <li>CISSP ($749) -- The salary changer. 25% average pay increase.</li>
+              <li>One specialization: CCSP (cloud), CEH (pen testing), or CISM (GRC)</li>
+            </ul>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Which Ones to Skip</div>
+            <ul>
+              <li>Generic bootcamp certificates with no employer recognition</li>
+              <li>SANS/GIAC at $8,000+ -- excellent training, but wait until your employer pays</li>
+            </ul>
+            <p style="margin-top:12px;font-size:14px;color:var(--text);font-weight:600;">"Spend $1,200 on the right three certifications. Not $8,000 on the wrong one."</p>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Speaker Notes</div>
+            <p class="slide-quote">"Security+ is your entry ticket. It costs $404. It's not the most advanced cert, but it's the one that gets your resume past automated screening. CISSP is the salary changer. Data consistently shows a 25% average pay increase for CISSP holders. Then pick one specialization based on where you want to go. That's it. Three certifications. Roughly $1,200 total in exam fees. Do not spend $8,000 on SANS training out of your own pocket. Let your employer pay for it once you're in a security role."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10 -->
+      <div class="slide-card">
+        <div class="slide-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="slide-num">10</div>
+          <div class="slide-title">The Career Path</div>
+          <div class="slide-time">4 min</div>
+          <div class="slide-toggle">&#9662;</div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-section">
+            <div class="slide-section-label">Cybersecurity Track</div>
+            <ul>
+              <li>Today: IT Support -- $50-65K</li>
+              <li>Month 4: Entry Cybersecurity (SOC Analyst, Security Admin) -- $65-95K</li>
+              <li>Year 2: Security Engineer -- $110-140K</li>
+              <li>Year 4+: Manager / Architect / vCISO -- $180-250K+</li>
+            </ul>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">IT Track (Staying Put)</div>
+            <ul>
+              <li>Today: $52K</li>
+              <li>Year 5: $62K</li>
+              <li>Year 10: $70K</li>
+              <li>Capped by design.</li>
+            </ul>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Speaker Notes</div>
+            <p class="slide-quote">"Let me show you two timelines. On the left is the cybersecurity track. If you start your transition today, get Security+ within three to four months, and land an entry-level security role, you're looking at $65 to $95K in year one. By year two you move into engineering roles at $110 to $140K. By year four, you're in management or architecture at $180 to $250K or more. Now look at the IT track. Same person, same work ethic, same intelligence. Completely different outcome based on which track you're on."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11 -->
+      <div class="slide-card">
+        <div class="slide-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="slide-num">11</div>
+          <div class="slide-title">The Resume Problem</div>
+          <div class="slide-time">5 min</div>
+          <div class="slide-toggle">&#9662;</div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-section">
+            <div class="slide-section-label">Side-by-Side Comparison</div>
+            <table class="slide-table">
+              <thead><tr><th>IT Resume (Before)</th><th>Cybersecurity Resume (After)</th></tr></thead>
+              <tbody>
+                <tr><td>"Managed network infrastructure for 200+ users"</td><td>"Implemented network security monitoring across 200+ endpoints"</td></tr>
+                <tr><td>"Resolved helpdesk tickets"</td><td>"Triaged and responded to security incidents"</td></tr>
+                <tr><td>"Maintained firewall rules"</td><td>"Configured and enforced firewall access control policies"</td></tr>
+                <tr><td>"Monitored system logs"</td><td>"Performed log analysis for threat detection and anomaly identification"</td></tr>
+                <tr><td>"Installed software patches"</td><td>"Executed vulnerability remediation through patch management"</td></tr>
+              </tbody>
+            </table>
+            <p style="margin-top:12px;font-size:14px;color:var(--text);font-weight:600;">"The ones that get interviews aren't better. They're translated."</p>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Speaker Notes</div>
+            <p class="slide-quote">"This is the part that frustrates me the most, because it's so fixable. Look at the left column. That's what most IT professionals write on their resume. It's accurate. It's honest. And it gets zero callbacks from cybersecurity hiring managers. Now look at the right column. Same person. Same job. Same experience. Different language. You're not lying. You're not exaggerating. You're translating your experience into the language that the hiring side of the table actually uses. This single change is the highest-ROI thing you can do this week."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12 -->
+      <div class="slide-card">
+        <div class="slide-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="slide-num">12</div>
+          <div class="slide-title">LIVE EXERCISE: LinkedIn Audit</div>
+          <div class="slide-time">14 min</div>
+          <div class="slide-toggle">&#9662;</div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-section">
+            <div class="slide-section-label">On Screen</div>
+            <ul>
+              <li>"Let's look at a real LinkedIn profile."</li>
+              <li>What a hiring CISO sees in the first 10 seconds</li>
+              <li>The 3 changes that would make me reach out</li>
+            </ul>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Speaker Notes</div>
+            <p class="slide-quote">"I'd like a volunteer. Someone willing to let me pull up their LinkedIn profile right now and tell you exactly what I see as a hiring CISO. No judgment -- this is how you learn what actually matters."</p>
+            <p style="margin-top:12px;font-size:13px;color:var(--text-muted);">DJ pulls up the volunteer's profile. If no one volunteers live, he uses a pre-prepared anonymized example. He walks through the profile in real time, covers: headline fix, summary rewrite, skills section additions. Takes questions from the volunteer. Shows the room good vs. bad.</p>
+            <p class="slide-quote" style="margin-top:12px;">"This is the kind of review that changes outcomes. One conversation. Fifteen minutes. And suddenly recruiters can find you."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13 -->
+      <div class="slide-card">
+        <div class="slide-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="slide-num">13</div>
+          <div class="slide-title">The Hidden Job Market</div>
+          <div class="slide-time">5 min</div>
+          <div class="slide-toggle">&#9662;</div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-section">
+            <div class="slide-section-label">On Screen</div>
+            <ul>
+              <li>70% of cybersecurity roles are filled through referrals, direct outreach, and recruiter pipelines</li>
+              <li>Job boards represent only 30% of the market</li>
+              <li>How to access the other 70%:
+                <ul style="margin-top:6px;">
+                  <li>LinkedIn keyword targeting (be findable)</li>
+                  <li>CISO and security leader networking (ISC2 chapters, local meetups, ISACA)</li>
+                  <li>Direct outreach to hiring managers (not HR, not recruiters -- the actual manager)</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Speaker Notes</div>
+            <p class="slide-quote">"When I have an open security role on my team, I don't post it on Indeed first. I ask my network. I check LinkedIn. I look at who's been active in the ISC2 chapter. By the time the role gets posted publicly -- if it gets posted at all -- I've usually already got three strong candidates. This is how 70% of cybersecurity hiring works. Three things get you there. One: make your LinkedIn findable. Two: show up to cybersecurity community events. Three: reach out directly to hiring managers. A thoughtful, short message from someone who's done their homework gets read. I read every one that comes to me."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14 -->
+      <div class="slide-card">
+        <div class="slide-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="slide-num">14</div>
+          <div class="slide-title">The Interview Shift</div>
+          <div class="slide-time">5 min</div>
+          <div class="slide-toggle">&#9662;</div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-section">
+            <div class="slide-section-label">Question: "Tell me about a time you identified a security vulnerability."</div>
+            <table class="slide-table">
+              <thead><tr><th>Person A (Self-Taught)</th><th>Person B (Trained)</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>"I found that our firewall rules were outdated and some ports were open that shouldn't have been. I updated the rules and closed the ports."<br><br><em style="color:var(--red);">Outcome: Screened out at round 2.</em></td>
+                  <td>"During a routine access review, I identified that 12 network ports were exposed beyond operational requirements. I assessed the risk -- lateral movement potential if an attacker gained initial access -- prioritized the highest-risk ports, implemented updated ACLs, and documented the change in our risk register. I also recommended a quarterly port review process to prevent recurrence."<br><br><em style="color:var(--green);">Outcome: Offer extended.</em></td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="margin-top:12px;font-size:14px;color:var(--text);font-weight:600;">"The difference is not experience. It's framing."</p>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Speaker Notes</div>
+            <p class="slide-quote">"Person A leads with what they did. It's a fine answer. But it sounds like IT troubleshooting. Person B leads with threat thinking. They assessed risk. They prioritized. They documented. They recommended a process improvement. Person B didn't have more experience. They had better framing. That's trainable. It takes practice, not years of experience."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15 -->
+      <div class="slide-card">
+        <div class="slide-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="slide-num">15</div>
+          <div class="slide-title">Questions</div>
+          <div class="slide-time">18 min</div>
+          <div class="slide-toggle">&#9662;</div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-section">
+            <div class="slide-section-label">On Screen</div>
+            <p>"Questions." / "Ask me anything about the transition. I've been on the hiring side for 28 years."</p>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Speaker Notes</div>
+            <p class="slide-quote">"That's the briefing. Now I'd like to hear from you. Ask me anything -- about certifications, your specific situation, the job market, interview preparation, salary negotiation, visa considerations, anything. There's no time pressure. I'm here to answer."</p>
+            <p style="margin-top:8px;font-size:13px;color:var(--text-dim);">DJ takes live questions. No rush. This is where trust is built. He answers directly, references his own hiring experience, gives specific advice where possible.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16 -->
+      <div class="slide-card">
+        <div class="slide-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="slide-num">16</div>
+          <div class="slide-title">What's Next</div>
+          <div class="slide-time">1 min</div>
+          <div class="slide-toggle">&#9662;</div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-section">
+            <div class="slide-section-label">On Screen</div>
+            <ul>
+              <li>"I run a 90-Day Cybersecurity Career Accelerator."</li>
+              <li>"It's the structured version of everything I covered today."</li>
+              <li>Resume rewrite. LinkedIn optimization. Interview prep. Certification roadmap. Bi-weekly calls with me.</li>
+              <li>Link in chat.</li>
+            </ul>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Speaker Notes</div>
+            <p class="slide-quote">"Before we close, one thing. I run a 90-Day Cybersecurity Career Accelerator. It's the structured version of everything I just walked you through. If what I covered tonight resonated and you want the structured path, the link is in the chat. That's it. Thank you for being here tonight."</p>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Visual Notes</div>
+            <p>Clean, single slide. No pricing. No "apply now" button. No stacking graphic. No bonuses. No countdown timer. No scarcity language. Just the description, the link, and nothing else.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 17 -->
+      <div class="slide-card">
+        <div class="slide-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="slide-num">17</div>
+          <div class="slide-title">Contact</div>
+          <div class="slide-time">30 sec</div>
+          <div class="slide-toggle">&#9662;</div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-section">
+            <div class="slide-section-label">On Screen</div>
+            <ul>
+              <li>thequantumachievers.com</li>
+              <li>DJ Naronikar -- LinkedIn (with URL or QR code)</li>
+              <li>thequantumachievers@gmail.com</li>
+            </ul>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Speaker Notes</div>
+            <p class="slide-quote">"If you'd like to connect, here's where to find me. Thank you."</p>
+          </div>
+          <div class="slide-section">
+            <div class="slide-section-label">Visual Notes</div>
+            <p>Clean contact slide. Same dark background as Slide 1 for visual bookending. Optional: QR code to DJ's LinkedIn profile.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /slides-grid -->
+
+    <!-- Deck Summary -->
+    <div class="deck-summary">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--text-muted);">Deck Summary</h3>
+      <table>
+        <thead>
+          <tr><th>Slide</th><th>Title</th><th>Time</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Title</td><td>1 min</td></tr>
+          <tr><td>2</td><td>DJ's Credentials</td><td>2 min</td></tr>
+          <tr><td>3</td><td>The Market Right Now</td><td>3 min</td></tr>
+          <tr><td>4</td><td>The Pressure on IT Professionals</td><td>4 min</td></tr>
+          <tr><td>5</td><td>The Salary Reality (10-Year View)</td><td>4 min</td></tr>
+          <tr><td>6</td><td>Why 70% Who Try Alone Fail</td><td>4 min</td></tr>
+          <tr><td>7</td><td>The 4 Things That Get You Hired</td><td>5 min</td></tr>
+          <tr><td>8</td><td>LIVE EXERCISE: Job Posting Analysis</td><td>12 min</td></tr>
+          <tr><td>9</td><td>The Certification Question</td><td>5 min</td></tr>
+          <tr><td>10</td><td>The Career Path</td><td>4 min</td></tr>
+          <tr><td>11</td><td>The Resume Problem</td><td>5 min</td></tr>
+          <tr><td>12</td><td>LIVE EXERCISE: LinkedIn Audit</td><td>14 min</td></tr>
+          <tr><td>13</td><td>The Hidden Job Market</td><td>5 min</td></tr>
+          <tr><td>14</td><td>The Interview Shift</td><td>5 min</td></tr>
+          <tr><td>15</td><td>Questions</td><td>18 min</td></tr>
+          <tr><td>16</td><td>What's Next</td><td>1 min</td></tr>
+          <tr><td>17</td><td>Contact</td><td>0.5 min</td></tr>
+          <tr><td colspan="2"><strong>TOTAL</strong></td><td><strong>~87 min</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="brand-block" style="margin-top:32px;">
+      <h3>Design Notes for Slide Builder</h3>
+      <p><strong>Tone:</strong> Corporate briefing. Think McKinsey, not marketing webinar.</p>
+      <p><strong>Color palette:</strong> Dark navy or charcoal background. White and light gray text. One accent color (steel blue or teal) used sparingly.</p>
+      <p><strong>Typography:</strong> Clean sans-serif. Headings in medium weight, not bold. No ALL CAPS except the title slide.</p>
+      <p><strong>Imagery:</strong> Minimal. No stock photos of people at computers. No padlock icons. Data visualizations or clean diagrams only.</p>
+      <p><strong>Animations:</strong> None. Simple cuts or subtle fades.</p>
+      <p style="margin-top:12px;"><strong>What to avoid:</strong> Exclamation marks, words like "amazing/incredible/game-changing/transform/unleash," emoji of any kind, testimonial slides, pricing/bonuses/stacking, "limited spots" language, anything that looks like an infomercial.</p>
+      <p style="margin-top:8px;"><strong>What this deck should feel like:</strong> A senior executive walked into a room, shared exactly what he knows, answered questions honestly, and mentioned at the end that he runs a program if anyone wants help. That's it. The authority of the content IS the selling mechanism.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 3: UNIFIED BIOS ═══════════════ -->
+<section id="bios">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 03</div>
+      <h2>Unified Bios</h2>
+      <p>Copy-paste ready bios for every platform. Click to expand. Core message: "I help IT professionals break into cybersecurity careers in 90 days." Always lead with what DJ does for them, not his credentials. Always end with a CTA. Always "Apply" -- never "Enroll" or "Buy."</p>
+    </div>
+
+    <div class="bio-grid">
+
+      <!-- LinkedIn Profile -->
+      <div class="bio-card">
+        <div class="bio-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="bio-platform">LinkedIn Profile</div>
+            <div class="bio-limit">9K followers</div>
+          </div>
+          <div class="bio-toggle">&#9662;</div>
+        </div>
+        <div class="bio-body">
+          <div class="bio-sub-label">Headline (220 char limit)</div>
+          <div class="bio-text-block">
+            <span class="copy-hint">Copy-paste</span>
+            <pre>I help IT professionals break into cybersecurity careers in 90 days | 28-Year CISO (Deloitte, EY, Shell) | 400+ orgs across 8 countries | Founder, The Quantum Achievers | Host, Cyber Caffeine Podcast</pre>
+          </div>
+          <div class="bio-sub-label">About Section (2,600 char limit)</div>
+          <div class="bio-text-block">
+            <span class="copy-hint">Copy-paste</span>
+            <pre>If you're an IT professional wondering whether cybersecurity is the right move -- it is. And the path is more structured than you think.
+
+I've spent 28 years in cybersecurity leadership -- CISO at Deloitte, EY, Shell, and across 400+ organizations in 8 countries. I've hired hundreds of cybersecurity professionals. I know exactly what gets someone from IT into a cybersecurity career.
+
+That's why I built The Quantum Achievers (TQA) -- a 90-day career transition program specifically for IT professionals ready to move into cybersecurity.
+
+Here's what makes it different:
+
+-- It's built by someone who's been the hiring manager. I don't teach theory. I teach what actually gets you hired.
+
+-- It's structured around real career intelligence -- not certifications alone. Certs matter, but they're one piece. Positioning, networking, interview strategy, and understanding the landscape matter more.
+
+-- It works in 90 days. Not "someday." Not "when you finish 47 courses." 90 days with a clear, structured path.
+
+WHO THIS IS FOR:
+- Systems administrators, network engineers, cloud engineers, DevOps professionals, IT project managers, and database administrators with 4-15 years of experience
+- IT professionals earning $85K-$140K who know they're capable of more
+- Anyone in IT who keeps hearing "cybersecurity is the future" but doesn't know how to make the switch
+
+WHO THIS IS NOT FOR:
+- Career changers with zero IT background
+- People looking for a shortcut or a certificate mill
+- Anyone not willing to put in focused work for 90 days
+
+WHAT PEOPLE SAY:
+"DJ doesn't just teach cybersecurity -- he gives you the career intelligence to actually land in the right role." -- Rob G.
+
+"Working with DJ changed my entire trajectory. His experience across industries gives him a perspective no course can match." -- Sunit Suri
+
+Ready to explore the path?
+Apply here: thequantumachievers.com
+
+I also host the Cyber Caffeine podcast -- weekly briefings on cybersecurity careers, industry shifts, and what's actually happening in the field.
+
+For enterprise consulting and advisory: Ascend International Advisory (separate from TQA).</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- LinkedIn Newsletter -->
+      <div class="bio-card">
+        <div class="bio-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="bio-platform">LinkedIn Newsletter</div>
+            <div class="bio-limit">~1,000 subscribers | 300 char limit</div>
+          </div>
+          <div class="bio-toggle">&#9662;</div>
+        </div>
+        <div class="bio-body">
+          <div class="bio-text-block">
+            <span class="copy-hint">Copy-paste</span>
+            <pre>Weekly career intelligence for IT professionals exploring cybersecurity. Industry shifts, hiring trends, career strategies, and insider perspective from a 28-year CISO who's hired hundreds of security professionals. By DJ Naronikar.</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- YouTube -->
+      <div class="bio-card">
+        <div class="bio-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="bio-platform">YouTube</div>
+            <div class="bio-limit">@dhananjayanaronikar | 1,000 char limit</div>
+          </div>
+          <div class="bio-toggle">&#9662;</div>
+        </div>
+        <div class="bio-body">
+          <div class="bio-sub-label">Channel Description</div>
+          <div class="bio-text-block">
+            <span class="copy-hint">Copy-paste</span>
+            <pre>I help IT professionals break into cybersecurity careers in 90 days.
+
+28 years as CISO at Deloitte, EY, Shell. 400+ organizations. 8 countries. CIO Choice Award winner.
+
+On this channel:
+- Cybersecurity career transition strategies
+- Industry briefings and threat landscape updates
+- What hiring managers actually look for
+- Live career audits and Q&A
+
+New videos every week.
+
+Apply to The Quantum Achievers (90-day career transition program): thequantumachievers.com
+
+Listen to Cyber Caffeine podcast on Spotify.</pre>
+          </div>
+          <div class="bio-sub-label">About Tab (longer form)</div>
+          <div class="bio-text-block">
+            <span class="copy-hint">Copy-paste</span>
+            <pre>DJ Naronikar | 28-Year CISO | Cybersecurity Career Strategist
+
+I've spent nearly three decades in cybersecurity leadership -- CISO roles at Deloitte, EY, Shell, and across 400+ organizations in 8 countries. CIO Choice Award recipient.
+
+Now I help IT professionals break into cybersecurity careers through The Quantum Achievers (TQA) -- a structured 90-day career transition program.
+
+This channel covers:
+- Career intelligence for IT-to-cybersecurity transitions
+- Weekly industry briefings and threat analysis
+- Interview strategies and positioning advice
+- Live LinkedIn and resume audits
+- Behind-the-scenes from the cybersecurity industry
+
+For weekly audio briefings, find Cyber Caffeine on Spotify and Apple Podcasts.
+
+APPLY: thequantumachievers.com
+PODCAST: Cyber Caffeine (Spotify)</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Facebook Page -->
+      <div class="bio-card">
+        <div class="bio-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="bio-platform">Facebook Page (CISO360)</div>
+            <div class="bio-limit">255 char short description</div>
+          </div>
+          <div class="bio-toggle">&#9662;</div>
+        </div>
+        <div class="bio-body">
+          <div class="bio-sub-label">Short Description</div>
+          <div class="bio-text-block">
+            <span class="copy-hint">Copy-paste</span>
+            <pre>Cybersecurity career intelligence from DJ Naronikar -- 28-year CISO (Deloitte, EY, Shell). Industry briefings, career strategies, and hiring insights for IT professionals exploring cybersecurity. Home of the Cyber Caffeine podcast.</pre>
+          </div>
+          <div class="bio-sub-label">Long Description</div>
+          <div class="bio-text-block">
+            <span class="copy-hint">Copy-paste</span>
+            <pre>CISO360 is the thought leadership platform from DJ Naronikar -- covering cybersecurity from the perspective of a 28-year industry veteran.
+
+What you'll find here:
+- Weekly cybersecurity briefings and industry analysis
+- Career intelligence for IT professionals considering cybersecurity
+- Hiring trends and what CISOs actually look for in candidates
+- Insights from working across 400+ organizations in 8 countries
+
+CISO360 is the content arm. For DJ's 90-day cybersecurity career transition program, visit thequantumachievers.com.
+
+For the podcast: Cyber Caffeine (available on Spotify, Apple Podcasts, and YouTube).</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Facebook Group -->
+      <div class="bio-card">
+        <div class="bio-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="bio-platform">Facebook Group (CISO360)</div>
+            <div class="bio-limit">1,700 members</div>
+          </div>
+          <div class="bio-toggle">&#9662;</div>
+        </div>
+        <div class="bio-body">
+          <div class="bio-text-block">
+            <span class="copy-hint">Copy-paste</span>
+            <pre>A community for IT professionals exploring or advancing in cybersecurity careers.
+
+Run by DJ Naronikar -- 28-year CISO veteran (Deloitte, EY, Shell), CIO Choice Award winner, and founder of The Quantum Achievers.
+
+What this group is for:
+- Cybersecurity career questions and transitions
+- Industry news and threat briefings
+- Networking with professionals across the field
+- Job market insights and hiring trends
+- Weekly posts from DJ with career intelligence
+
+What this group is NOT for:
+- Selling courses or services (other than official TQA announcements)
+- Spam, link dumps, or self-promotion without context
+- Generic IT support questions
+
+For DJ's 90-day cybersecurity career transition program: thequantumachievers.com
+For weekly audio briefings: Cyber Caffeine podcast on Spotify</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Twitter/X Personal -->
+      <div class="bio-card">
+        <div class="bio-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="bio-platform">Twitter/X (Personal)</div>
+            <div class="bio-limit">160 char limit</div>
+          </div>
+          <div class="bio-toggle">&#9662;</div>
+        </div>
+        <div class="bio-body">
+          <div class="bio-sub-label">Primary (158 chars)</div>
+          <div class="bio-text-block">
+            <span class="copy-hint">Copy-paste</span>
+            <pre>I help IT pros break into cybersecurity in 90 days. 28-yr CISO (Deloitte, EY, Shell). 400+ orgs, 8 countries. Founder @TQA. Host, Cyber Caffeine podcast.</pre>
+          </div>
+          <div class="bio-sub-label">Fallback if @TQA not claimed (159 chars)</div>
+          <div class="bio-text-block">
+            <span class="copy-hint">Copy-paste</span>
+            <pre>I help IT pros break into cybersecurity in 90 days. 28-yr CISO (Deloitte, EY, Shell). 400+ orgs, 8 countries. Founder, The Quantum Achievers.</pre>
+          </div>
+          <p class="bio-note">Link field: thequantumachievers.com | Location: Dubai | Global</p>
+        </div>
+      </div>
+
+      <!-- Twitter/X CISO360 -->
+      <div class="bio-card">
+        <div class="bio-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="bio-platform">Twitter/X (CISO360)</div>
+            <div class="bio-limit">160 char limit</div>
+          </div>
+          <div class="bio-toggle">&#9662;</div>
+        </div>
+        <div class="bio-body">
+          <div class="bio-text-block">
+            <span class="copy-hint">Copy-paste</span>
+            <pre>Cybersecurity career intelligence. Industry briefings. Hiring insights. From 28-yr CISO DJ Naronikar. Podcast: Cyber Caffeine. Program: thequantumachievers.com</pre>
+          </div>
+          <p class="bio-note">Link field: thequantumachievers.com</p>
+        </div>
+      </div>
+
+      <!-- Telegram -->
+      <div class="bio-card">
+        <div class="bio-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="bio-platform">Telegram (TQA Community)</div>
+            <div class="bio-limit">75 subscribers</div>
+          </div>
+          <div class="bio-toggle">&#9662;</div>
+        </div>
+        <div class="bio-body">
+          <div class="bio-text-block">
+            <span class="copy-hint">Copy-paste</span>
+            <pre>The Quantum Achievers -- Cybersecurity Career Transition Community
+
+Live updates, career briefings, and insider content from DJ Naronikar (28-year CISO, Deloitte/EY/Shell).
+
+What you get here:
+- Early access to new content and briefings
+- Career transition tips and strategies
+- Direct updates on TQA program openings
+- Community Q&A
+
+This is for IT professionals serious about breaking into cybersecurity.
+
+Apply to the 90-day program: thequantumachievers.com
+Full content: youtube.com/@dhananjayanaronikar
+Podcast: Cyber Caffeine on Spotify</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spotify -->
+      <div class="bio-card">
+        <div class="bio-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="bio-platform">Spotify (Cyber Caffeine Podcast)</div>
+            <div class="bio-limit">4,000 char limit</div>
+          </div>
+          <div class="bio-toggle">&#9662;</div>
+        </div>
+        <div class="bio-body">
+          <div class="bio-text-block">
+            <span class="copy-hint">Copy-paste</span>
+            <pre>Cyber Caffeine is your weekly cybersecurity career briefing -- hosted by DJ Naronikar, a 28-year CISO veteran who's worked across Deloitte, EY, Shell, and 400+ organizations in 8 countries.
+
+Each episode covers:
+- Cybersecurity career strategies for IT professionals making the transition
+- Industry shifts, threat landscape updates, and what they mean for your career
+- What hiring managers and CISOs actually look for in candidates
+- Real talk on certifications, positioning, and landing your first security role
+- Interviews with cybersecurity leaders and professionals who've made the switch
+
+Who this is for:
+Systems administrators, network engineers, cloud engineers, DevOps professionals, and IT managers who are exploring cybersecurity as their next career move.
+
+Who this is NOT for:
+People looking for deep technical exploit breakdowns. This is a career intelligence show, not a pentest tutorial.
+
+New episodes weekly.
+
+Want the structured path? Apply to The Quantum Achievers -- DJ's 90-day cybersecurity career transition program: thequantumachievers.com</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- LinkedIn Showcase -->
+      <div class="bio-card">
+        <div class="bio-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="bio-platform">LinkedIn Showcase (Cyber Caffeine)</div>
+            <div class="bio-limit">6 followers | 200 char tagline</div>
+          </div>
+          <div class="bio-toggle">&#9662;</div>
+        </div>
+        <div class="bio-body">
+          <div class="bio-sub-label">Tagline</div>
+          <div class="bio-text-block">
+            <span class="copy-hint">Copy-paste</span>
+            <pre>Weekly cybersecurity career briefings from DJ Naronikar -- 28-year CISO veteran. Industry shifts, hiring insights, and career strategies for IT professionals exploring cybersecurity.</pre>
+          </div>
+          <div class="bio-sub-label">About Section</div>
+          <div class="bio-text-block">
+            <span class="copy-hint">Copy-paste</span>
+            <pre>Cyber Caffeine is the podcast and content arm of DJ Naronikar's cybersecurity ecosystem.
+
+Weekly episodes cover:
+- Cybersecurity career transition strategies
+- Industry briefings and threat analysis
+- Hiring trends and what CISOs look for
+- Interviews with security leaders
+
+Hosted by DJ Naronikar -- 28 years as CISO at Deloitte, EY, Shell, and across 400+ organizations in 8 countries. CIO Choice Award winner.
+
+Listen on Spotify, Apple Podcasts, and YouTube.
+
+For DJ's 90-day cybersecurity career transition program: thequantumachievers.com
+For thought leadership content: follow CISO360</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ascend -->
+      <div class="bio-card">
+        <div class="bio-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="bio-platform">Ascend International Advisory (Dubai)</div>
+            <div class="bio-limit">100+ LinkedIn followers | No change needed</div>
+          </div>
+          <div class="bio-toggle">&#9662;</div>
+        </div>
+        <div class="bio-body">
+          <p style="font-size:14px;color:var(--text-muted);">Leave as-is. Ascend is DJ's B2B consulting firm. It serves a different audience (enterprise clients, not career transitioners). Do not cross-brand with TQA, CISO360, or Cyber Caffeine. The only acceptable reference: DJ's personal LinkedIn About section can mention "For enterprise consulting and advisory: Ascend International Advisory" as a single line at the bottom.</p>
+        </div>
+      </div>
+
+    </div><!-- /bio-grid -->
+
+    <!-- Implementation Checklist -->
+    <div class="brand-block" style="margin-top:32px;">
+      <h3>Implementation Checklist</h3>
+      <table class="brand-table">
+        <thead><tr><th>#</th><th>Platform</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>LinkedIn Profile</td><td>Update headline + About section</td></tr>
+          <tr><td>2</td><td>LinkedIn Newsletter</td><td>Update description</td></tr>
+          <tr><td>3</td><td>YouTube</td><td>Update channel description + About</td></tr>
+          <tr><td>4</td><td>Facebook Page (CISO360)</td><td>Update About section</td></tr>
+          <tr><td>5</td><td>Facebook Group (CISO360)</td><td>Update group description</td></tr>
+          <tr><td>6</td><td>Twitter/X Personal</td><td>Update bio + link</td></tr>
+          <tr><td>7</td><td>Twitter/X CISO360</td><td>Update bio + link</td></tr>
+          <tr><td>8</td><td>Telegram</td><td>Update channel description</td></tr>
+          <tr><td>9</td><td>Spotify</td><td>Update show description</td></tr>
+          <tr><td>10</td><td>LinkedIn Showcase</td><td>Update tagline + About</td></tr>
+          <tr><td>11</td><td>Ascend International</td><td>No change</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:12px;font-size:13px;color:var(--text-dim);">Time estimate: 45-60 minutes to update all platforms if bios are copy-pasted directly. Who does this: DJ (he has the login credentials). Agresh can handle Telegram and YouTube if given access.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 4: BRAND GUIDE ═══════════════ -->
+<section id="brand">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 04</div>
+      <h2>Brand Guide</h2>
+      <p>The rules for consistent TQA brand execution across all platforms and content.</p>
+    </div>
+
+    <div class="brand-grid">
+
+      <!-- Core Message -->
+      <div class="brand-block">
+        <h3>Core Message</h3>
+        <div class="brand-quote">I help IT professionals break into cybersecurity careers in 90 days.</div>
+        <p style="margin-top:12px;"><strong>Where it goes:</strong> First line of every bio, profile, and About section. Opening statement in webinar intros, podcast intros, and video hooks. Above the fold on thequantumachievers.com. Email signature. LinkedIn headline (first phrase).</p>
+        <p style="margin-top:8px;"><strong>Supporting proof (in this order):</strong></p>
+        <ol style="padding-left:20px;font-size:14px;color:var(--text-muted);">
+          <li>"28 years as CISO at Deloitte, EY, Shell"</li>
+          <li>"400+ organizations, 8 countries"</li>
+          <li>"CIO Choice Award"</li>
+        </ol>
+        <p style="margin-top:8px;font-weight:600;color:var(--gold);font-size:13px;">Never lead with the proof. The proof supports the promise.</p>
+      </div>
+
+      <!-- Voice Rules -->
+      <div class="brand-block">
+        <h3>Voice Rules</h3>
+        <table class="brand-table">
+          <thead><tr><th>Trait</th><th>Sounds Like</th><th>Does NOT Sound Like</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--gold);font-weight:600;">Authoritative</td><td>"Here's what actually happens in hiring."</td><td>"I think maybe this could work."</td></tr>
+            <tr><td style="color:var(--gold);font-weight:600;">Experienced</td><td>"In 28 years across 400+ orgs, I've seen this pattern."</td><td>"According to research..."</td></tr>
+            <tr><td style="color:var(--gold);font-weight:600;">Direct</td><td>"This is the path. Here's step one."</td><td>"There are many approaches you might consider."</td></tr>
+            <tr><td style="color:var(--gold);font-weight:600;">No-fluff</td><td>Short paragraphs. One idea per sentence.</td><td>Long academic explanations.</td></tr>
+            <tr><td style="color:var(--gold);font-weight:600;">Culturally aware</td><td>References global experience naturally.</td><td>Patronizing. Over-explaining cultural context.</td></tr>
+            <tr><td style="color:var(--gold);font-weight:600;">Calm confidence</td><td>States facts without hype. Lets the record speak.</td><td>Shouting. Urgency language. Exclamation marks.</td></tr>
+            <tr><td style="color:var(--gold);font-weight:600;">Career-focused</td><td>"Your next role." "The path." "90 days."</td><td>"Passive income." "Financial freedom."</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:12px;font-size:13px;color:var(--text-dim);font-style:italic;">The voice test: Read the copy out loud. Does it sound like a senior CISO giving you career advice over coffee? If yes, it passes. If it sounds like a YouTube ad, rewrite it.</p>
+      </div>
+
+      <!-- Words to Use / Avoid -->
+      <div class="brand-block">
+        <h3>Words to Use / Words to Avoid</h3>
+        <div class="word-grid">
+          <div class="word-block use">
+            <h4>Use These</h4>
+            <ul class="word-list">
+              <li>Career intelligence<span>Strategic, not academic</span></li>
+              <li>Briefing<span>Military/executive tone</span></li>
+              <li>Transition<span>Accurate for IT-to-cyber</span></li>
+              <li>Accelerator<span>Speed + structure, not a course</span></li>
+              <li>Structured path<span>Concrete, not vague</span></li>
+              <li>Career audit<span>Specific, tangible</span></li>
+              <li>Positioning<span>What DJ actually teaches</span></li>
+              <li>Hiring manager perspective<span>DJ's unique angle</span></li>
+              <li>Apply<span>Frames TQA as selective</span></li>
+              <li>Industry veteran<span>Accurate, dignified</span></li>
+            </ul>
+          </div>
+          <div class="word-block avoid">
+            <h4>Never Use</h4>
+            <ul class="word-list">
+              <li>Masterclass<span>Overused. Sounds like Udemy.</span></li>
+              <li>Webinar<span>Use "briefing" or "live session"</span></li>
+              <li>Transform / Transformation<span>Vague coaching language</span></li>
+              <li>Unlock / Discover<span>Peak guru-speak</span></li>
+              <li>Hustle / Grind<span>Not DJ's brand</span></li>
+              <li>Game-changer / Revolutionary<span>Empty hype</span></li>
+              <li>Secrets<span>DJ sells experience, not secrets</span></li>
+              <li>Guru / Expert (self-referential)<span>Let others say it</span></li>
+              <li>Limited spots / Doors closing<span>No fake scarcity</span></li>
+              <li>Enroll / Buy / Purchase<span>Always "Apply"</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Brand Architecture -->
+      <div class="brand-block">
+        <h3>Brand Architecture</h3>
+        <div class="brand-arch">
+          <div class="arch-card">
+            <h4>The Quantum Achievers (TQA)</h4>
+            <p>90-day cybersecurity career transition program</p>
+            <p class="arch-role">This IS the product. Everything points here.</p>
+          </div>
+          <div class="arch-card">
+            <h4>CISO360</h4>
+            <p>Thought leadership content brand</p>
+            <p class="arch-role">Content funnel. Builds awareness. Feeds audience to TQA.</p>
+          </div>
+          <div class="arch-card">
+            <h4>Cyber Caffeine</h4>
+            <p>Podcast</p>
+            <p class="arch-role">Content arm of CISO360/TQA. Awareness + nurture.</p>
+          </div>
+          <div class="arch-card">
+            <h4>Ascend International Advisory</h4>
+            <p>B2B consulting firm (Dubai)</p>
+            <p class="arch-role">Completely separate. Never cross-brand with TQA.</p>
+          </div>
+        </div>
+        <p style="margin-top:16px;font-size:13px;color:var(--text-muted);">Flow: CISO360 (awareness) &rarr; Cyber Caffeine (nurture) &rarr; TQA (conversion) &rarr; thequantumachievers.com (apply). Ascend sits outside this funnel entirely.</p>
+      </div>
+
+      <!-- Content Mix -->
+      <div class="brand-block">
+        <h3>Content Mix</h3>
+        <div class="content-mix-bar">
+          <div class="mix-seg" style="width:50%;background:var(--red);">Fear/News 50%</div>
+          <div class="mix-seg" style="width:25%;background:var(--green);">Career Proof 25%</div>
+          <div class="mix-seg" style="width:15%;background:var(--blue);">DJ Authority 15%</div>
+          <div class="mix-seg" style="width:10%;background:var(--purple);">BTS 10%</div>
+        </div>
+        <table class="brand-table">
+          <thead><tr><th>Category</th><th>%</th><th>Description</th><th>CTA</th></tr></thead>
+          <tbody>
+            <tr><td>Fear / News</td><td>50%</td><td>Threats, breaches, industry shifts, "why cybersecurity careers are booming"</td><td>None -- pure value</td></tr>
+            <tr><td>Career Proof</td><td>25%</td><td>Success stories, salary data, career path breakdowns</td><td>Soft -- "Comment if this is you"</td></tr>
+            <tr><td>DJ Authority</td><td>15%</td><td>DJ's experience, behind-the-scenes, industry opinions</td><td>Link to podcast or YouTube</td></tr>
+            <tr><td>Behind the Scenes</td><td>10%</td><td>Dubai life, travel, personal moments, conferences</td><td>None -- humanizes DJ</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div><!-- /brand-grid -->
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 5: LINKEDIN DM STRATEGY ═══════════════ -->
+<section id="linkedin">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 05</div>
+      <h2>LinkedIn DM Strategy</h2>
+      <p>Sales Navigator targeting, 3-message DM sequence, and GHL workflow overview. Prerequisites: DJ must reactivate Sales Navigator (~$99/mo) and update his LinkedIn profile first.</p>
+    </div>
+
+    <!-- Target Avatar -->
+    <div class="dm-section">
+      <h3>Target Avatar: "Raj"</h3>
+      <div class="avatar-card">
+        <h4>Who to Target</h4>
+        <dl class="filter-grid">
+          <dt>Current role</dt><dd>Sysadmin, Network Admin, Cloud Engineer, DevOps, IT Project Manager, DBA, Senior IT Support</dd>
+          <dt>Experience</dt><dd>4-15 years in IT</dd>
+          <dt>Salary range</dt><dd>$85K-$140K</dd>
+          <dt>Geography</dt><dd>US metro areas (Dallas-Fort Worth, SF Bay Area, Seattle, Chicago, NJ, NYC, Atlanta, Houston, Raleigh-Durham, Washington D.C.)</dd>
+          <dt>Company size</dt><dd>201+ employees (mid-market to enterprise)</dd>
+          <dt>Years in role</dt><dd>2+ years (long enough to feel the ceiling)</dd>
+          <dt>Motivation</dt><dd>Knows cybersecurity pays more, has better job security, and is growing -- but doesn't know HOW to make the switch</dd>
+        </dl>
+      </div>
+      <div class="avatar-card">
+        <h4>Key Sales Navigator Filters</h4>
+        <dl class="filter-grid">
+          <dt>Job title keywords</dt><dd>administrator, engineer, manager, support, DevOps, cloud, infrastructure, database</dd>
+          <dt>Exclude titles</dt><dd>CISO, security analyst, cybersecurity, penetration tester, SOC, information security, security engineer</dd>
+          <dt>Industry</dt><dd>Technology, Financial Services, Banking, Insurance, Healthcare, Government, IT Consulting</dd>
+          <dt>Connection degree</dt><dd>2nd and 3rd degree</dd>
+          <dt>Daily limit</dt><dd>20-25 connection requests per day (never exceed)</dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- DM Sequence -->
+    <div class="dm-section">
+      <h3>The 3-Message DM Sequence</h3>
+
+      <div class="dm-msg">
+        <div class="dm-msg-label">Message 1 -- Connection Request Note</div>
+        <div class="dm-msg-when">Sent with the connection request | 300 char limit | Goal: get the connection accepted</div>
+        <pre>Hi [Name] -- I'm DJ Naronikar, 28-year CISO (Deloitte, EY, Shell). I work with IT professionals exploring cybersecurity careers. Noticed your background in [their field]. Happy to connect.</pre>
+        <p class="dm-note">No mention of TQA. No link. No pitch. No question. No exclamation marks.</p>
+      </div>
+
+      <div class="dm-msg">
+        <div class="dm-msg-label">Message 2 -- Value First</div>
+        <div class="dm-msg-when">3 days after connection accepted | Under 500 chars | Goal: start a conversation</div>
+        <pre>Thanks for connecting, [Name].
+
+Quick question -- have you considered cybersecurity as a career path?
+
+With your [their field] background, the transition is more structured than most people think. The skills transfer directly -- it's more about positioning and knowing the landscape than starting over.
+
+I put together a breakdown on this:
+[link to YouTube video or LinkedIn article]
+
+No pitch -- just thought it might be relevant given your background.</pre>
+        <p class="dm-note">Don't mention the program. Don't mention price. Don't use urgency language.</p>
+      </div>
+
+      <div class="dm-msg">
+        <div class="dm-msg-label">Message 3 -- Soft CTA</div>
+        <div class="dm-msg-when">7 days after Message 2 | ONLY if they engaged (replied, clicked, liked, or viewed DJ's profile) | Under 600 chars</div>
+        <pre>Hey [Name] -- glad the [video/article] was useful.
+
+I'm running a live career briefing on [date] -- 90 minutes on the cybersecurity career path for IT professionals.
+
+We cover:
+- The actual transition roadmap (not just "get certified")
+- What hiring managers look for
+- A live LinkedIn profile audit
+
+$27 to attend. Here are the details: [link to briefing page]
+
+No pressure. If the timing doesn't work, I do these monthly.</pre>
+        <p class="dm-note">NEVER send Message 3 to someone who didn't engage with Message 2. They go to the cold list.</p>
+      </div>
+    </div>
+
+    <!-- GHL Workflow Overview -->
+    <div class="dm-section">
+      <h3>GHL Workflow Overview (Simplified)</h3>
+      <div class="workflow-visual">LinkedIn Connection Accepted
+        |
+   [GHL Contact Created]
+   Tag: tqa-linkedin-dm-funnel
+        |
+   Wait 3 days
+        |
+   [Notification: Send Message 2]
+   DJ sends manually via LinkedIn
+        |
+   Wait 7 days
+        |
+   [Check Engagement]
+        |
+   +--- Engaged? ---+
+   |  YES            |  NO
+   v                 v
+Send Message 3    Tag: tqa-linkedin-cold
+Tag: tqa-engaged  Move to Long-Term Nurture
+        |
+   [Check Registration]
+        |
+   +--- Registered? ---+
+   |  YES               |  NO
+   v                    v
+Tag: tqa-briefing    Wait 14 days
+Enter pre-class      Re-invite once
+email sequence       to next briefing</div>
+      <p style="margin-top:12px;font-size:13px;color:var(--text-dim);">Full GHL spec (pipelines, tags, step-by-step build instructions, and metrics) is documented in the LinkedIn DM Strategy source file for Agresh.</p>
+    </div>
+
+    <!-- Prerequisites -->
+    <div class="dm-section">
+      <h3>Prerequisites (Before Launching)</h3>
+      <div class="brand-block" style="margin-top:0;">
+        <ul style="list-style:none;padding:0;">
+          <li style="padding:8px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text-muted);">DJ must reactivate Sales Navigator subscription (~$99/mo)</li>
+          <li style="padding:8px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text-muted);">DJ's LinkedIn profile must be updated (see Bios section above)</li>
+          <li style="padding:8px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text-muted);">GHL account confirmed (TQA location)</li>
+          <li style="padding:8px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text-muted);">Briefing registration page must be live with working payment</li>
+          <li style="padding:8px 0;font-size:14px;color:var(--text-muted);">At least one YouTube video or LinkedIn article published covering IT-to-cybersecurity transition (needed for Message 2)</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 6: REACTIVATION EMAILS ═══════════════ -->
+<section id="emails">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 06</div>
+      <h2>Reactivation Emails</h2>
+      <p>4 segments, 100 contacts total. Each email targets a different relationship stage. All driving to the April 11 Career Briefing ($27 entry).</p>
+    </div>
+
+    <!-- Send Schedule Summary -->
+    <table class="schedule-table" style="margin-bottom:32px;">
+      <thead><tr><th>Email</th><th>Segment</th><th>Count</th><th>Send Date</th><th>Time (ET)</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Applicants (applied, no follow-up)</td><td>6</td><td>Tue Apr 1</td><td>10:00 AM</td></tr>
+        <tr><td>2</td><td>Attended March 19 (showed up, no purchase)</td><td>6</td><td>Wed Apr 2</td><td>8:00 PM</td></tr>
+        <tr><td>3</td><td>Hot No-Shows (registered hot, didn't attend)</td><td>54</td><td>Thu Apr 3</td><td>12:00 PM</td></tr>
+        <tr><td>4</td><td>Warm / Cold / Old (mixed engagement)</td><td>34</td><td>Fri Apr 4</td><td>9:00 AM</td></tr>
+      </tbody>
+    </table>
+
+    <div class="email-grid">
+
+      <!-- Email 1 -->
+      <div class="email-card">
+        <div class="email-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="email-seg-info">
+            <div class="email-seg-name">Email 1: Applicants</div>
+            <div class="email-seg-count">6 people who applied, never got follow-up</div>
+          </div>
+          <div class="email-send-info">Tue Apr 1 | 10:00 AM ET</div>
+          <div class="email-toggle">&#9662;</div>
+        </div>
+        <div class="email-body">
+          <div class="email-sub-label">Subject Line Options</div>
+          <ul class="email-subjects">
+            <li><strong>"Your application -- DJ here"</strong> -- Personal, curiosity-driven</li>
+            <li><strong>"I owe you a response"</strong> -- Pattern interrupt. Accountability framing</li>
+            <li><strong>"You applied. I dropped the ball."</strong> -- Radical honesty. Disarms skepticism</li>
+          </ul>
+          <div class="email-sub-label">Email Body</div>
+          <div class="email-copy-block">
+            <p>{{First Name}},</p>
+            <p>I owe you a straight answer.</p>
+            <p>You applied to work with me on your cybersecurity career transition -- and my team didn't follow up the way we should have. That's on me.</p>
+            <p>I reviewed your application personally. You took a step most people won't. I don't take that lightly.</p>
+            <p>Here's what I want to do about it.</p>
+            <p>On April 11, I'm running a live masterclass where I'll break down the exact framework I've used across 400+ organizations to build cybersecurity careers from scratch -- the same one that helped a former chef land a $120K analyst role.</p>
+            <p>You're getting priority access before anyone else sees this.</p>
+            <p class="email-cta-line">$7 reserves your seat: Register for April 11 Masterclass</p>
+            <p>And if you want to talk before then -- reply to this email. I'll personally make time.</p>
+            <p class="email-sig">-- DJ Naronikar<br>28-Year CISO | Deloitte, EY, Shell, Central Bank of India</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email 2 -->
+      <div class="email-card">
+        <div class="email-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="email-seg-info">
+            <div class="email-seg-name">Email 2: Attended March 19</div>
+            <div class="email-seg-count">6 people who showed up but didn't buy</div>
+          </div>
+          <div class="email-send-info">Wed Apr 2 | 8:00 PM ET</div>
+          <div class="email-toggle">&#9662;</div>
+        </div>
+        <div class="email-body">
+          <div class="email-sub-label">Subject Line Options</div>
+          <ul class="email-subjects">
+            <li><strong>"You were 1 of 24 (out of 146)"</strong> -- Exclusivity with real data</li>
+            <li><strong>"What changed since March 19"</strong> -- Implies improvement</li>
+            <li><strong>"The 83% who skipped missed this"</strong> -- Social proof by subtraction</li>
+          </ul>
+          <div class="email-sub-label">Email Body</div>
+          <div class="email-copy-block">
+            <p>{{First Name}},</p>
+            <p>146 people registered for my March 19 session. 24 actually showed up.</p>
+            <p>You were one of them. That tells me something about you.</p>
+            <p>Since then, I've taken the feedback from that session and rebuilt the program around what people actually need -- not theory, but the step-by-step career transition framework.</p>
+            <p>Here's what changed:</p>
+            <ul style="color:var(--text-muted);font-size:14px;padding-left:20px;margin-bottom:12px;">
+              <li><strong style="color:var(--text);">Clearer salary roadmap</strong> -- exactly how to go from $85K-$105K IT to $150K+ cybersecurity</li>
+              <li><strong style="color:var(--text);">The Rob G. case study in full</strong> -- a former chef, zero tech background, now a $120K/year cybersecurity analyst</li>
+              <li><strong style="color:var(--text);">Live Q&A built into the session</strong> -- not tacked on at the end</li>
+            </ul>
+            <p>April 11 is the improved version. And it costs $7 to attend -- because I only want people in the room who are serious.</p>
+            <p class="email-cta-line">Claim your seat: Register for April 11 Masterclass</p>
+            <p>You already proved you're serious once. This is the next step.</p>
+            <p class="email-sig">-- DJ Naronikar<br>28-Year CISO | 400+ orgs across 8 countries</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email 3 -->
+      <div class="email-card">
+        <div class="email-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="email-seg-info">
+            <div class="email-seg-name">Email 3: Hot No-Shows</div>
+            <div class="email-seg-count">54 who registered, scored hot, didn't attend</div>
+          </div>
+          <div class="email-send-info">Thu Apr 3 | 12:00 PM ET</div>
+          <div class="email-toggle">&#9662;</div>
+        </div>
+        <div class="email-body">
+          <div class="email-sub-label">Subject Line Options</div>
+          <ul class="email-subjects">
+            <li><strong>"Your seat from March 19 -- still here"</strong> -- Continuity. Reminds them of their commitment</li>
+            <li><strong>"The $800K gap no one talks about"</strong> -- Salary data as hook</li>
+            <li><strong>"Life got in the way. The math didn't change."</strong> -- Empathetic + direct</li>
+          </ul>
+          <div class="email-sub-label">Email Body</div>
+          <div class="email-copy-block">
+            <p>{{First Name}},</p>
+            <p>You registered for my March 19 cybersecurity career session. Life happened. No judgment -- I get it.</p>
+            <p>But the reason you signed up hasn't gone away.</p>
+            <p>The math: cybersecurity professionals earn $150K+ on average. General IT sits around $105K. Over 10 years, that gap is roughly $800,000 in lost earnings. That's not a motivational line -- it's Bureau of Labor Statistics data.</p>
+            <p>On <strong>April 11</strong>, I'm running a live masterclass breaking down how to close that gap -- the same framework I've built across 28 years advising Deloitte, EY, Shell, and the Central Bank of India.</p>
+            <p>This time, it's $7 to attend. Not because the content is worth $7 -- companies pay me $2,000-$3,000 a day for this. The $7 is a filter. It keeps the room to 50 people who actually want to move.</p>
+            <p class="email-cta-line">50 seats. $7 entry: Register for April 11 Masterclass</p>
+            <p>You already raised your hand once. This is me holding the door open.</p>
+            <p class="email-sig">-- DJ Naronikar<br>28-Year CISO | Wrote AI policy adopted as national standard</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email 4 -->
+      <div class="email-card">
+        <div class="email-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="email-seg-info">
+            <div class="email-seg-name">Email 4: Warm / Cold / Old</div>
+            <div class="email-seg-count">34 people with mixed engagement</div>
+          </div>
+          <div class="email-send-info">Fri Apr 4 | 9:00 AM ET</div>
+          <div class="email-toggle">&#9662;</div>
+        </div>
+        <div class="email-body">
+          <div class="email-sub-label">Subject Line Options</div>
+          <ul class="email-subjects">
+            <li><strong>"Still interested in cybersecurity? (honest question)"</strong> -- Direct, no tricks</li>
+            <li><strong>"Should I keep sending you these?"</strong> -- Pattern interrupt. Respects inbox</li>
+            <li><strong>"Yes or no -- your call"</strong> -- Binary framing drives action</li>
+          </ul>
+          <div class="email-sub-label">Email Body</div>
+          <div class="email-copy-block">
+            <p>{{First Name}},</p>
+            <p>I respect your time, so I'll be direct.</p>
+            <p>You signed up to hear from me about cybersecurity career transitions at some point. I don't know if that's still relevant to you -- and I'd rather ask than assume.</p>
+            <p>One fact, then two buttons:</p>
+            <p><strong style="color:var(--text);">Cybersecurity job openings are projected to grow 33% through 2033.</strong> The talent shortage is real. If you have IT experience and want to make the jump, the window is wide open.</p>
+            <p>On <strong>April 11</strong>, I'm hosting a live masterclass ($7) where I break down the exact transition framework from my 28 years as a CISO at Deloitte, EY, Shell, and the Central Bank of India.</p>
+            <p class="email-cta-line">If you're in: Yes -- Register for April 11 ($7)</p>
+            <p style="font-size:13px;color:var(--text-dim);">If you're out: Remove me from this list</p>
+            <p>No hard feelings either way. I'd rather talk to 10 people who want this than email 100 who don't.</p>
+            <p class="email-sig">-- DJ Naronikar</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /email-grid -->
+
+    <p style="margin-top:24px;font-size:13px;color:var(--text-dim);">Notes: All emails use {{First Name}} merge tag -- ensure GHL contacts have first names populated. No fake testimonials, no manufactured urgency, no inflated claims. Rob G. story is real (former chef to $120K analyst). $7 positioning is a seriousness filter, not a discount.</p>
+
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 7: AD CREATIVES ═══════════════ -->
+<section id="ads">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 07</div>
+      <h2>Ad Creatives</h2>
+      <p>5 ad variants for Shreyas to run. $500 test budget ($100 per ad, 3-4 day test). Format: 4:5 vertical video/image. Bold captions. Serious, professional tone.</p>
+    </div>
+
+    <div class="ad-grid">
+
+      <div class="ad-card">
+        <div class="ad-card-head">
+          <div class="ad-num">Ad 1 -- Current Threat Hook</div>
+          <h4>"The Cybersecurity Hiring Gap Is Getting Worse"</h4>
+        </div>
+        <div class="ad-card-body">
+          <p class="ad-body-text">600,000 unfilled positions. Companies paying 40% premiums for qualified candidates. AI is accelerating the demand, not replacing it. I've been a CISO for 28 years -- Deloitte, EY, Shell. On April 11, I'm giving a career briefing for IT professionals who want to understand what's actually happening in this market and what to do about it. 90 minutes. $27. No recording.</p>
+          <span class="ad-cta">Register -- $27</span>
+        </div>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-card-head">
+          <div class="ad-num">Ad 2 -- Salary Data</div>
+          <h4>"IT Pay vs Cybersecurity Pay: The 10-Year Gap"</h4>
+        </div>
+        <div class="ad-card-body">
+          <p class="ad-body-text">IT support: $55K today, $70K in 10 years. Cybersecurity: $95K today, $200K+ in 10 years. Same person. Different career path. I'm DJ Naronikar. I've spent 28 years on the hiring side of cybersecurity. On April 11, I'm breaking down the exact career path -- certifications, salary progression, how to get hired -- in a live briefing. $27 entry. No pitch. Just the information you need.</p>
+          <span class="ad-cta">Register -- $27</span>
+        </div>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-card-head">
+          <div class="ad-num">Ad 3 -- Hidden Job Market</div>
+          <h4>"70% of Cybersecurity Jobs Are Never Posted"</h4>
+        </div>
+        <div class="ad-card-body">
+          <p class="ad-body-text">They're filled through referrals, direct outreach, and recruiters who already know the candidate. If you're applying through job boards, you're competing for 30% of the market. I've hired cybersecurity professionals for three decades. I know how the other 70% works. April 11, I'm sharing the playbook in a live briefing. 90 minutes. $27.</p>
+          <span class="ad-cta">Register -- $27</span>
+        </div>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-card-head">
+          <div class="ad-num">Ad 4 -- LinkedIn Audit</div>
+          <h4>"What a Hiring CISO Sees When They Look at Your LinkedIn"</h4>
+        </div>
+        <div class="ad-card-body">
+          <p class="ad-body-text">I've reviewed thousands of LinkedIn profiles as a hiring CISO. Most IT professionals trying to break into cybersecurity make the same 3 mistakes. On April 11, I'm doing a live career briefing for IT professionals -- including a live LinkedIn audit of one attendee's profile. You'll see exactly what gets you noticed and what gets you skipped. $27. No recording.</p>
+          <span class="ad-cta">Register -- $27</span>
+        </div>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-card-head">
+          <div class="ad-num">Ad 5 -- The Cert Question</div>
+          <h4>"You're Probably Studying for the Wrong Certification"</h4>
+        </div>
+        <div class="ad-card-body">
+          <p class="ad-body-text">I've reviewed over 5,000 cybersecurity resumes. The certification section is where most IT professionals waste thousands of dollars. Security+, CISSP, CEH, CISM, SANS -- I'll tell you which ones matter, in which order, based on 28 years of hiring. Live career briefing, April 11. $27.</p>
+          <span class="ad-cta">Register -- $27</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 8: ACTION ITEMS ═══════════════ -->
+<section id="actions">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 08</div>
+      <h2>What DJ Needs To Do</h2>
+      <p>Your specific tasks. Everything else is handled. Complete these to launch on schedule.</p>
+    </div>
+
+    <div class="action-section">
+      <ol class="action-list">
+        <li>Review and approve the Career Briefing slides (Section 2 above). Flag any content changes, reorder requests, or speaker note edits.</li>
+        <li>Copy-paste the unified bios to all platforms (Section 3 above). LinkedIn, YouTube, Facebook, Twitter/X, Telegram, Spotify. Estimated time: 45-60 minutes.</li>
+        <li>Reactivate your Sales Navigator subscription (~$99/mo). The entire LinkedIn DM funnel depends on it.</li>
+        <li>Create Stripe payment links: $27 Career Briefing + $997 Accelerator (one-time) + $347 x 3 payment plan. Connect to the registration and offer pages.</li>
+        <li>Record the 7-minute pre-class trust video. Camera on, talking directly to registrants. Introduce yourself, preview what April 11 covers, build anticipation.</li>
+        <li>WhatsApp the 6 applicants with the Sprint offer. These are people who already applied and never heard back -- personal message from you closes the loop.</li>
+        <li>Approve the ad creatives for Shreyas (Section 7 above). He needs green light to launch the 5 variants with $500 test budget.</li>
+        <li>Approve the reactivation emails for Agresh (Section 6 above). Choose one subject line per email and confirm he should send.</li>
+        <li>Review the $997 Accelerator offer page. Confirm pricing, payment plan structure, and program details are accurate before it goes live.</li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  <p>Built by Dylan Ewing | April 2026</p>
+  <p class="footer-note">All pages are live and ready. Stripe links and GHL webhooks need to be connected before launch.</p>
+</footer>
+
+<!-- ═══════════════ JAVASCRIPT ═══════════════ -->
+<script>
+// Open first slide by default so DJ sees the format
+document.addEventListener('DOMContentLoaded', function() {
+  const firstSlide = document.querySelector('.slide-card');
+  if (firstSlide) firstSlide.classList.add('open');
+});
+</script>
+
+</body>
+</html>
