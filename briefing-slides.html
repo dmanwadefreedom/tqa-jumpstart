@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity Career Briefing — DJ Naronikar</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0b0f1a;--bg2:#111827;--card:#1a1f2e;
+  --text:#e5e7eb;--dim:#6b7280;--accent:#38bdf8;
+  --gold:#f59e0b;--green:#10b981;--red:#ef4444;
+  --border:#1f2937;
+}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text)}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Slide container */
+.deck{position:relative;width:100vw;height:100vh}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:60px 80px;opacity:0;transition:opacity .3s}
+.slide.active{display:flex;opacity:1}
+
+/* Slide number */
+.slide-num{position:absolute;top:24px;right:32px;font-size:13px;color:var(--dim);font-weight:500;letter-spacing:1px}
+.slide-badge{position:absolute;top:24px;left:32px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--dim)}
+
+/* Typography */
+h1{font-size:clamp(32px,5vw,56px);font-weight:700;line-height:1.15;margin-bottom:16px;color:#fff}
+h2{font-size:clamp(26px,3.5vw,42px);font-weight:700;line-height:1.2;margin-bottom:20px;color:#fff}
+h3{font-size:clamp(18px,2vw,24px);font-weight:600;color:var(--accent);margin-bottom:12px;letter-spacing:1px;text-transform:uppercase}
+p{font-size:clamp(16px,1.5vw,20px);line-height:1.7;color:var(--text);max-width:900px}
+.subtitle{font-size:clamp(16px,1.8vw,22px);color:var(--dim);font-weight:400;margin-bottom:8px}
+.emphasis{font-size:clamp(18px,2vw,26px);color:var(--gold);font-weight:600;margin-top:24px;font-style:italic}
+.quote{border-left:3px solid var(--accent);padding-left:20px;margin:24px 0;font-style:italic;color:var(--dim);font-size:18px}
+
+/* Stats grid */
+.stats{display:flex;gap:24px;margin:32px 0;flex-wrap:wrap}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 24px;flex:1;min-width:180px}
+.stat-num{font-size:clamp(28px,4vw,48px);font-weight:800;color:#fff;line-height:1}
+.stat-label{font-size:14px;color:var(--dim);margin-top:8px;text-transform:uppercase;letter-spacing:1px;font-weight:500}
+.stat-note{font-size:13px;color:var(--dim);margin-top:4px}
+
+/* Bullet list */
+.bullets{list-style:none;padding:0;margin:20px 0}
+.bullets li{padding:10px 0 10px 28px;position:relative;font-size:clamp(15px,1.4vw,19px);line-height:1.6;color:var(--text)}
+.bullets li::before{content:"";position:absolute;left:0;top:18px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.bullets.red li::before{background:var(--red)}
+.bullets.gold li::before{background:var(--gold)}
+.bullets.green li::before{background:var(--green)}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;margin:24px 0}
+th{text-align:left;padding:12px 16px;font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--dim);border-bottom:1px solid var(--border);font-weight:600}
+td{padding:14px 16px;border-bottom:1px solid var(--border);font-size:clamp(14px,1.2vw,17px);color:var(--text)}
+.gain{color:var(--green);font-weight:700}
+
+/* Two column */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:24px 0}
+.col{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px}
+.col h4{font-size:16px;font-weight:700;margin-bottom:12px;color:#fff}
+.col.bad{border-color:rgba(239,68,68,.3)}
+.col.bad h4{color:var(--red)}
+.col.good{border-color:rgba(16,185,129,.3)}
+.col.good h4{color:var(--green)}
+.col p,.col .small{font-size:15px;line-height:1.7;color:var(--dim)}
+.col .outcome{margin-top:12px;font-weight:600;font-size:14px}
+
+/* Exercise banner */
+.exercise{background:linear-gradient(135deg,rgba(56,189,248,.08),rgba(245,158,11,.08));border:1px dashed var(--accent);border-radius:12px;padding:32px;margin:20px 0}
+.exercise h3{color:var(--accent);margin-bottom:16px}
+.exercise .steps{counter-reset:step}
+.exercise .steps li{counter-increment:step;padding-left:36px;position:relative;margin:12px 0;font-size:17px}
+.exercise .steps li::before{content:counter(step);position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--bg);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* Nav controls */
+.nav{position:fixed;bottom:24px;right:32px;display:flex;gap:8px;z-index:100}
+.nav button{width:44px;height:44px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.nav button:hover{background:var(--card);border-color:var(--dim)}
+.notes-toggle{position:fixed;bottom:24px;left:32px;height:44px;padding:0 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--dim);font-size:13px;font-weight:500;cursor:pointer;letter-spacing:1px;text-transform:uppercase}
+.notes-toggle:hover{color:var(--text)}
+.notes-toggle.on{color:var(--accent);border-color:var(--accent)}
+
+/* Speaker notes panel */
+.notes-panel{position:fixed;bottom:0;left:0;right:0;height:0;background:rgba(17,24,39,.95);border-top:1px solid var(--border);transition:height .3s;overflow:hidden;z-index:90;padding:0 32px}
+.notes-panel.open{height:180px;padding:20px 32px}
+.notes-panel p{font-size:14px;line-height:1.8;color:var(--dim);max-width:none}
+
+/* Progress bar */
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);transition:width .3s;z-index:100}
+
+/* Fullscreen hint */
+.fs-hint{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);font-size:12px;color:var(--dim);opacity:.5}
+
+@media(max-width:768px){
+  .slide{padding:32px 24px}
+  .two-col{grid-template-columns:1fr}
+  .stats{flex-direction:column}
+  .nav{bottom:12px;right:16px}
+  .notes-toggle{bottom:12px;left:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="deck" id="deck">
+
+<!-- SLIDE 1: Title -->
+<div class="slide active" data-notes="Good evening. My name is DJ Naronikar. I have spent 28 years in cybersecurity, most of it hiring and building security teams. Tonight I am going to walk you through exactly how the cybersecurity job market works right now, what actually gets people hired, and where IT professionals fit into it. No pitch. Just the briefing I would give my own team.">
+  <span class="slide-badge">The Quantum Achievers</span>
+  <span class="slide-num">1 / 17</span>
+  <h1>Cybersecurity Career Briefing</h1>
+  <p class="subtitle">DJ Naronikar | 28-Year CISO</p>
+  <p class="subtitle">April 11, 2026</p>
+</div>
+
+<!-- SLIDE 2: Credentials -->
+<div class="slide" data-notes="Quick background so you know who you are listening to. I have been a CISO and virtual CISO across eight countries. I have sat on hiring panels at Deloitte, EY, and Shell. I currently serve as ISC2 Chapter President for Melbourne and sit on their Global Advisory Board. Earlier this year I received the CIO Choice Award. I have personally assessed the security posture of over 400 organizations. I tell you this not to impress you, but so you understand that what I am about to share comes from the hiring side of the table. I know what gets people in the door because I have been the one opening it.">
+  <span class="slide-badge">TQA</span>
+  <span class="slide-num">2 / 17</span>
+  <h2>DJ Naronikar</h2>
+  <ul class="bullets">
+    <li>CISO and vCISO — Australia, Middle East, EU, India, USA</li>
+    <li>(ISC)2 Chapter President — Melbourne and Global Advisory Board</li>
+    <li>CIO Choice Award 2026</li>
+    <li>28 years, 400+ organizations, 8 countries</li>
+    <li>Former: Deloitte, EY, Shell</li>
+  </ul>
+</div>
+
+<!-- SLIDE 3: Market -->
+<div class="slide" data-notes="Let me give you the numbers as they stand today. There are over 600,000 unfilled cybersecurity positions in the United States right now. Not projected. Right now. The average salary across all cybersecurity roles is $136,000, and that number has grown 8% year over year. Meanwhile, traditional IT support roles — helpdesk, sysadmin, tier-1 network ops — are flat. Some are declining. The market is telling you something. The question is whether you are listening.">
+  <span class="slide-badge">TQA</span>
+  <span class="slide-num">3 / 17</span>
+  <h2>The Market Right Now</h2>
+  <div class="stats">
+    <div class="stat"><div class="stat-num">600K+</div><div class="stat-label">Unfilled Positions</div><div class="stat-note">United States, 2026</div></div>
+    <div class="stat"><div class="stat-num">$136K</div><div class="stat-label">Average Salary</div><div class="stat-note">Up 8% year over year</div></div>
+    <div class="stat"><div class="stat-num">18-22%</div><div class="stat-label">Job Growth</div><div class="stat-note">Annual (vs 5% average)</div></div>
+  </div>
+  <p style="font-size:13px;color:var(--dim);margin-top:12px">Sources: StationX 2026 Report, Robert Half Salary Guide, ElectroIQ</p>
+</div>
+
+<!-- SLIDE 4: Pressure -->
+<div class="slide" data-notes="I want to be clear about something. This is not a scare tactic. These are structural changes happening across the industry. AI tooling is handling tickets and monitoring that used to require a full team. Companies are consolidating their IT support into smaller groups or outsourcing entirely. If you are on an H-1B visa in a generalist IT role, you are in a statistically more vulnerable position — not because you are less capable, but because the role itself is easier to eliminate. Cybersecurity is different. It is specialized. It is regulated. And it is growing.">
+  <span class="slide-badge">TQA</span>
+  <span class="slide-num">4 / 17</span>
+  <h2>The Pressure on IT Professionals</h2>
+  <ul class="bullets red">
+    <li>AI is automating tier-1 and tier-2 IT support tasks</li>
+    <li>H-1B holders face 3x higher layoff vulnerability in generalist IT roles</li>
+    <li>Helpdesk and sysadmin positions are being consolidated across industries</li>
+    <li>The salary gap between IT and cybersecurity widens every year</li>
+  </ul>
+  <ul class="bullets green" style="margin-top:20px">
+    <li>Cybersecurity roles tied to specialized skills are harder to eliminate</li>
+    <li>A security role ties your visa to regulated, high-demand work</li>
+  </ul>
+</div>
+
+<!-- SLIDE 5: Salary Table -->
+<div class="slide" data-notes="This is the table I show every IT professional who asks me whether the switch is worth it. Look at where you are now. Look at the cybersecurity equivalent of your current role. Now multiply that difference by ten years. We are not talking about a small bump. We are talking about half a million to eight hundred thousand dollars over a career.">
+  <span class="slide-badge">TQA</span>
+  <span class="slide-num">5 / 17</span>
+  <h2>The Salary Reality</h2>
+  <table>
+    <tr><th>Current Role</th><th>IT Salary</th><th>Cyber Equivalent</th><th>Gain</th></tr>
+    <tr><td>IT Support</td><td>$42-58K</td><td>SOC Analyst — $65-95K</td><td class="gain">+$37K</td></tr>
+    <tr><td>Network Admin</td><td>$55-72K</td><td>Network Security Eng — $85-130K</td><td class="gain">+$58K</td></tr>
+    <tr><td>Sysadmin</td><td>$60-80K</td><td>Security Ops Mgr — $110-150K</td><td class="gain">+$70K</td></tr>
+    <tr><td>IT Manager</td><td>$70-90K</td><td>CISO / Architect — $180-250K</td><td class="gain">+$160K</td></tr>
+  </table>
+  <p class="emphasis">Over 10 years, the cumulative gap is $500,000 to $800,000.</p>
+</div>
+
+<!-- SLIDE 6: Why 70% Fail -->
+<div class="slide" data-notes="I have watched this pattern repeat for two decades. Someone decides to move into cybersecurity. They are smart, they are motivated. And then they spend six months studying for the wrong certification. Or they send out 50 applications with an IT resume that no cybersecurity hiring manager responds to. Or they only apply on Indeed and LinkedIn, which means they are competing for 30% of the available jobs. Or they hit a wall at month three and there is no one to tell them they are closer than they think.">
+  <span class="slide-badge">TQA</span>
+  <span class="slide-num">6 / 17</span>
+  <h2>Why 70% Who Try Alone Fail</h2>
+  <ul class="bullets gold">
+    <li>Wrong certifications, wrong order</li>
+    <li>Resume that does not speak cybersecurity</li>
+    <li>Invisible to the hidden job market — 70% of roles are never posted</li>
+    <li>No one in their corner when it gets hard</li>
+  </ul>
+  <p class="emphasis">These four things determine whether someone makes the transition or stays stuck.</p>
+</div>
+
+<!-- SLIDE 7: 4 Things -->
+<div class="slide" data-notes="If someone asked me to boil down 28 years of hiring into four things, this is it. First: get Security+ certified. Not because it teaches you everything — it does not — but because HR departments use it as a checkbox. Second: rewrite your resume in cybersecurity language. Third: fix your LinkedIn. Fourth: learn to answer interview questions like a security professional. The difference between someone who gets screened out and someone who gets the offer is usually how they frame their thinking, not what they know.">
+  <span class="slide-badge">TQA</span>
+  <span class="slide-num">7 / 17</span>
+  <h2>The 4 Things That Get You Hired</h2>
+  <ul class="bullets green">
+    <li>The right certification — Security+ first, then specialize</li>
+    <li>A resume that speaks cybersecurity, not IT</li>
+    <li>A LinkedIn profile that recruiters actually find</li>
+    <li>Interview answers that demonstrate security thinking</li>
+  </ul>
+  <p class="emphasis">Everything else is noise. These four things move the needle.</p>
+</div>
+
+<!-- SLIDE 8: Live Exercise 1 -->
+<div class="slide" data-notes="I want everyone to do this with me right now. Open LinkedIn on your phone or laptop. Search for Cybersecurity Incident Analyst. Pick any posting. Look at the Required Skills section. Underline every skill that you already do in your current IT role. Network monitoring? You do that. Log analysis? You have been reading logs for years. Now check the salary. Compare it to what you are making. The gap between you and this job is not skill. It is positioning.">
+  <span class="slide-badge">TQA</span>
+  <span class="slide-num">8 / 17</span>
+  <div class="exercise">
+    <h3>Live Exercise</h3>
+    <h2 style="margin-bottom:20px">Open LinkedIn. Search: "Cybersecurity Incident Analyst"</h2>
+    <ol class="steps">
+      <li>Find the Required Skills section. Underline anything that maps to your current IT role.</li>
+      <li>Check the salary range.</li>
+      <li>Read the experience requirements.</li>
+    </ol>
+  </div>
+  <p class="emphasis">You have more qualifications than you think. The gap is positioning, not skill.</p>
+</div>
+
+<!-- SLIDE 9: Certifications -->
+<div class="slide" data-notes="Certifications are the most over-complicated part of this transition, and they should not be. Security+ is your entry ticket. It costs $404. CISSP is the salary changer — 25% average pay increase. Then pick one specialization. Three certifications. Roughly $1,200 in exam fees. Do not spend $8,000 on SANS out of your own pocket. Let your employer pay for that once you are in a security role.">
+  <span class="slide-badge">TQA</span>
+  <span class="slide-num">9 / 17</span>
+  <h2>The Certification Question</h2>
+  <div class="two-col">
+    <div class="col good">
+      <h4>What matters</h4>
+      <ul class="bullets green">
+        <li>Security+ ($404) — HR uses it as a filter</li>
+        <li>CISSP ($749) — 25% average pay increase</li>
+        <li>One specialization: CCSP, CEH, or CISM</li>
+      </ul>
+    </div>
+    <div class="col bad">
+      <h4>What to skip</h4>
+      <ul class="bullets red">
+        <li>Generic bootcamp certificates</li>
+        <li>SANS/GIAC at $8,000+ (wait for employer)</li>
+      </ul>
+    </div>
+  </div>
+  <p class="emphasis">Spend $1,200 on the right three. Not $8,000 on the wrong one.</p>
+</div>
+
+<!-- SLIDE 10: Career Path -->
+<div class="slide" data-notes="Let me show you two timelines. The cybersecurity track goes from $65K to $250K over four years. The IT track goes from $52K to $70K over ten years. And that is the ceiling. It does not go higher because the market does not value the role higher. Same person, same intelligence. Completely different outcome based on which track you choose.">
+  <span class="slide-badge">TQA</span>
+  <span class="slide-num">10 / 17</span>
+  <h2>The Career Path</h2>
+  <div class="two-col">
+    <div class="col good">
+      <h4>Cybersecurity Track</h4>
+      <ul class="bullets green">
+        <li>Today: IT Support — $50-65K</li>
+        <li>Month 4: Entry Cyber — $65-95K</li>
+        <li>Year 2: Security Engineer — $110-140K</li>
+        <li>Year 4+: Manager/vCISO — $180-250K+</li>
+      </ul>
+    </div>
+    <div class="col bad">
+      <h4>IT Track (staying put)</h4>
+      <ul class="bullets red">
+        <li>Today: $52K</li>
+        <li>Year 5: $62K</li>
+        <li>Year 10: $70K</li>
+        <li>Capped by design.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 11: Resume -->
+<div class="slide" data-notes="This is the part that frustrates me most, because it is so fixable. Look at the left column — that is what most IT professionals write. It is accurate. It gets zero callbacks. Now look at the right column. Same person. Same experience. Different language. You are not lying. You are translating your experience into the language that hiring managers use. This single change is the highest-ROI thing you can do this week.">
+  <span class="slide-badge">TQA</span>
+  <span class="slide-num">11 / 17</span>
+  <h2>The Resume Problem</h2>
+  <table>
+    <tr><th>IT Resume (Before)</th><th>Cybersecurity Resume (After)</th></tr>
+    <tr><td style="color:var(--dim)">Managed network infrastructure for 200+ users</td><td>Implemented network security monitoring across 200+ endpoints</td></tr>
+    <tr><td style="color:var(--dim)">Resolved helpdesk tickets</td><td>Triaged and responded to security incidents</td></tr>
+    <tr><td style="color:var(--dim)">Maintained firewall rules</td><td>Configured and enforced firewall access control policies</td></tr>
+    <tr><td style="color:var(--dim)">Monitored system logs</td><td>Performed log analysis for threat detection</td></tr>
+    <tr><td style="color:var(--dim)">Installed software patches</td><td>Executed vulnerability remediation through patch management</td></tr>
+  </table>
+  <p class="emphasis">The resumes that get interviews are not better. They are translated.</p>
+</div>
+
+<!-- SLIDE 12: Live Exercise 2 -->
+<div class="slide" data-notes="I would like a volunteer. Someone willing to let me pull up their LinkedIn profile right now and tell you exactly what I see as a hiring CISO. No judgment — this is how you learn what actually matters. Here is what I notice in the first ten seconds. Your headline, your summary, your skills section. I will show you the three changes that would make me reach out to you as a recruiter.">
+  <span class="slide-badge">TQA</span>
+  <span class="slide-num">12 / 17</span>
+  <div class="exercise">
+    <h3>Live Exercise</h3>
+    <h2 style="margin-bottom:20px">LinkedIn Profile Audit</h2>
+    <p>What a hiring CISO sees in the first 10 seconds.</p>
+    <ol class="steps" style="margin-top:16px">
+      <li>The headline — does it say "cybersecurity" or just "IT"?</li>
+      <li>The summary — job description or career narrative?</li>
+      <li>The skills section — are cybersecurity keywords present?</li>
+    </ol>
+  </div>
+  <p class="emphasis">One conversation. Fifteen minutes. Recruiters can suddenly find you.</p>
+</div>
+
+<!-- SLIDE 13: Hidden Job Market -->
+<div class="slide" data-notes="Here is the part most people do not know. When I have an open security role on my team, I do not post it on Indeed first. I ask my network. I check LinkedIn. I look at who has been active in the ISC2 chapter. By the time the role gets posted publicly, I have usually already got three strong candidates. If you are only applying through job boards, you are competing for 30% of the available roles.">
+  <span class="slide-badge">TQA</span>
+  <span class="slide-num">13 / 17</span>
+  <h2>The Hidden Job Market</h2>
+  <div class="stats">
+    <div class="stat"><div class="stat-num">70%</div><div class="stat-label">Filled through referrals and direct outreach</div></div>
+    <div class="stat"><div class="stat-num">30%</div><div class="stat-label">Posted on job boards</div></div>
+  </div>
+  <h3 style="margin-top:24px">3 moves that get callbacks</h3>
+  <ul class="bullets">
+    <li>LinkedIn keyword targeting — be findable by recruiters</li>
+    <li>Security community presence — ISC2 chapters, ISACA, local meetups</li>
+    <li>Direct outreach to hiring managers — not HR, not recruiters, the actual CISO</li>
+  </ul>
+</div>
+
+<!-- SLIDE 14: Interview -->
+<div class="slide" data-notes="This is a real interview question I have asked hundreds of candidates. The answers split into two groups. Person A leads with what they did — it sounds like IT troubleshooting. Person B leads with threat thinking — they assessed risk, prioritized, documented, recommended. Person B did not have more experience. They had better framing. That is trainable.">
+  <span class="slide-badge">TQA</span>
+  <span class="slide-num">14 / 17</span>
+  <h2>The Interview Shift</h2>
+  <p style="color:var(--accent);font-weight:600;margin-bottom:20px">"Tell me about a time you identified a security vulnerability."</p>
+  <div class="two-col">
+    <div class="col bad">
+      <h4>Person A (Self-Taught)</h4>
+      <p>"I found that our firewall rules were outdated and some ports were open. I updated the rules and closed the ports."</p>
+      <p class="outcome" style="color:var(--red)">Screened out at round 2.</p>
+    </div>
+    <div class="col good">
+      <h4>Person B (Trained)</h4>
+      <p>"I identified 12 exposed ports beyond operational requirements. Assessed lateral movement risk, prioritized by severity, implemented updated ACLs, documented in the risk register, and recommended quarterly reviews."</p>
+      <p class="outcome" style="color:var(--green)">Offer extended.</p>
+    </div>
+  </div>
+  <p class="emphasis">The difference is not experience. It is framing.</p>
+</div>
+
+<!-- SLIDE 15: Questions -->
+<div class="slide" data-notes="That is the briefing. Now I would like to hear from you. Ask me anything — about certifications, your specific situation, the job market, interview preparation, salary negotiation, visa considerations, anything. There is no time pressure. I am here to answer.">
+  <span class="slide-badge">TQA</span>
+  <span class="slide-num">15 / 17</span>
+  <h1>Questions</h1>
+  <p class="subtitle">Ask me anything about the transition.</p>
+  <p class="subtitle">I have been on the hiring side for 28 years.</p>
+</div>
+
+<!-- SLIDE 16: What's Next -->
+<div class="slide" data-notes="Before we close, one thing. I run a 90-Day Cybersecurity Career Accelerator. It is the structured version of everything I just walked you through — the resume rewrite, the LinkedIn optimization, the interview prep, the certification roadmap, and bi-weekly calls with me directly. If what I covered tonight resonated and you want the structured path, the link is in the chat. That is it. Thank you for being here tonight.">
+  <span class="slide-badge">TQA</span>
+  <span class="slide-num">16 / 17</span>
+  <h2>What's Next</h2>
+  <p>I run a 90-Day Cybersecurity Career Accelerator. It is the structured version of everything I covered today.</p>
+  <p style="margin-top:16px;color:var(--dim)">Resume rewrite. LinkedIn optimization. Interview prep. Certification roadmap. Bi-weekly calls with me.</p>
+  <p style="margin-top:24px;color:var(--accent)">Link in the chat.</p>
+</div>
+
+<!-- SLIDE 17: Contact -->
+<div class="slide" data-notes="If you would like to connect, here is where to find me. Thank you.">
+  <span class="slide-badge">TQA</span>
+  <span class="slide-num">17 / 17</span>
+  <h1>Thank you.</h1>
+  <ul class="bullets" style="margin-top:24px">
+    <li>thequantumachievers.com</li>
+    <li>DJ Naronikar — LinkedIn</li>
+    <li>thequantumachievers@gmail.com</li>
+  </ul>
+</div>
+
+</div><!-- /deck -->
+
+<!-- Navigation -->
+<div class="nav">
+  <button onclick="prev()" title="Previous (Left Arrow)">&#8592;</button>
+  <button onclick="next()" title="Next (Right Arrow)">&#8594;</button>
+  <button onclick="toggleFS()" title="Fullscreen (F)">&#9744;</button>
+</div>
+<button class="notes-toggle" id="notesBtn" onclick="toggleNotes()">Notes</button>
+<div class="notes-panel" id="notesPanel"><p id="notesText"></p></div>
+<div class="fs-hint">Arrow keys to navigate | F for fullscreen | N for speaker notes</div>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+const progress=document.getElementById('progress');
+const notesPanel=document.getElementById('notesPanel');
+const notesText=document.getElementById('notesText');
+const notesBtn=document.getElementById('notesBtn');
+let current=0,notesOpen=false;
+
+function show(i){
+  if(i<0||i>=slides.length)return;
+  slides[current].classList.remove('active');
+  current=i;
+  slides[current].classList.add('active');
+  progress.style.width=((current+1)/slides.length*100)+'%';
+  if(notesOpen)notesText.textContent=slides[current].dataset.notes||'';
+}
+function next(){show(current+1)}
+function prev(){show(current-1)}
+function toggleNotes(){
+  notesOpen=!notesOpen;
+  notesPanel.classList.toggle('open',notesOpen);
+  notesBtn.classList.toggle('on',notesOpen);
+  if(notesOpen)notesText.textContent=slides[current].dataset.notes||'';
+}
+function toggleFS(){
+  if(!document.fullscreenElement)document.documentElement.requestFullscreen();
+  else document.exitFullscreen();
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' ')next();
+  else if(e.key==='ArrowLeft')prev();
+  else if(e.key==='f'||e.key==='F')toggleFS();
+  else if(e.key==='n'||e.key==='N')toggleNotes();
+});
+show(0);
+</script>
+</body>
+</html>
