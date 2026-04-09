@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>April 18 Launch Plan — Internal</title>
+<title>April 18 Career Briefing — Launch Plan</title>
 <meta name="robots" content="noindex, nofollow">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0f1114;--card:#181b20;--card-hover:#1e2228;
+  --bg:#0f1114;--card:#181b20;
   --gold:#c9a84c;--gold-dim:rgba(201,168,76,0.15);
   --green:#4ade80;--green-dim:rgba(74,222,128,0.12);
   --red:#ef4444;--red-dim:rgba(239,68,68,0.12);
@@ -20,32 +20,20 @@
 }
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
 a{color:var(--gold);text-decoration:none}
-
-/* header */
-.hdr{background:var(--card);border-bottom:1px solid var(--border);padding:28px 24px;text-align:center}
-.hdr h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;font-weight:700;letter-spacing:-0.5px}
-.hdr p{color:var(--muted);font-size:14px;margin-top:6px}
+.hdr{background:var(--card);border-bottom:1px solid var(--border);padding:32px 24px;text-align:center}
+.hdr h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;font-weight:700}
+.hdr p{color:var(--muted);font-size:15px;margin-top:6px}
 .hdr .tag{display:inline-block;background:var(--gold-dim);color:var(--gold);font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px;margin-top:10px;text-transform:uppercase;letter-spacing:1px}
-
-/* layout */
-.wrap{max-width:900px;margin:0 auto;padding:32px 20px 80px}
-
-/* stage */
-.stage{margin-bottom:36px}
-.stage-head{display:flex;align-items:center;gap:14px;margin-bottom:16px;cursor:pointer}
+.wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+.stage{margin-bottom:32px}
+.stage-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
 .stage-num{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;flex-shrink:0}
 .stage-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:700}
 .stage-status{margin-left:auto;font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap}
-
-.s-ready .stage-num{background:var(--green-dim);color:var(--green)}
-.s-ready .stage-status{background:var(--green-dim);color:var(--green)}
-.s-blocked .stage-num{background:var(--red-dim);color:var(--red)}
-.s-blocked .stage-status{background:var(--red-dim);color:var(--red)}
-.s-progress .stage-num{background:var(--yellow-dim);color:var(--yellow)}
-.s-progress .stage-status{background:var(--yellow-dim);color:var(--yellow)}
-.s-planned .stage-num{background:var(--blue-dim);color:var(--blue)}
-.s-planned .stage-status{background:var(--blue-dim);color:var(--blue)}
-
+.s-ready .stage-num{background:var(--green-dim);color:var(--green)}.s-ready .stage-status{background:var(--green-dim);color:var(--green)}
+.s-blocked .stage-num{background:var(--red-dim);color:var(--red)}.s-blocked .stage-status{background:var(--red-dim);color:var(--red)}
+.s-progress .stage-num{background:var(--yellow-dim);color:var(--yellow)}.s-progress .stage-status{background:var(--yellow-dim);color:var(--yellow)}
+.s-planned .stage-num{background:var(--blue-dim);color:var(--blue)}.s-planned .stage-status{background:var(--blue-dim);color:var(--blue)}
 .stage-body{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;margin-left:54px}
 .stage-body h3{font-size:14px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;margin-top:20px}
 .stage-body h3:first-child{margin-top:0}
@@ -53,416 +41,263 @@ a{color:var(--gold);text-decoration:none}
 .stage-body strong{color:var(--text)}
 .stage-body ul{color:var(--muted);padding-left:20px;margin-bottom:10px}
 .stage-body li{margin-bottom:6px}
-
-/* decision box */
-.decision{background:var(--gold-dim);border-left:3px solid var(--gold);padding:14px 18px;border-radius:0 var(--radius) var(--radius) 0;margin:14px 0}
-.decision .d-label{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
-.decision p{color:var(--text);margin-bottom:0;font-size:14px}
-
-/* link row */
 .link-row{display:flex;align-items:center;gap:8px;margin:8px 0}
-.link-row .label{color:var(--dim);font-size:12px;min-width:80px}
-.link-row a{font-size:13px;word-break:break-all}
-.link-row .placeholder{color:var(--red);font-size:13px;font-style:italic}
-
-/* checklist */
-.check{display:flex;align-items:flex-start;gap:8px;margin:6px 0;font-size:14px;color:var(--muted)}
+.link-row .label{color:var(--dim);font-size:13px;min-width:80px}
+.link-row a{font-size:14px;word-break:break-all}
+.link-row .placeholder{color:var(--red);font-size:14px;font-style:italic}
+.check{display:flex;align-items:flex-start;gap:8px;margin:6px 0;font-size:15px;color:var(--muted)}
 .check input[type="checkbox"]{margin-top:3px;accent-color:var(--gold);width:16px;height:16px;cursor:pointer}
-
-/* divider */
-.connector{width:2px;height:20px;background:var(--border);margin:0 0 0 19px}
-
-/* footer */
+.connector{width:2px;height:16px;background:var(--border);margin:0 0 0 19px}
+.broke{background:var(--red-dim);border-left:3px solid var(--red);padding:14px 18px;border-radius:0 var(--radius) var(--radius) 0;margin:12px 0}
+.broke .bl{font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.fixed{background:var(--green-dim);border-left:3px solid var(--green);padding:14px 18px;border-radius:0 var(--radius) var(--radius) 0;margin:12px 0}
+.fixed .bl{font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.script-box{background:var(--bg);border:1px solid var(--gold);border-radius:var(--radius);padding:28px 32px;margin:16px 0;font-size:18px;line-height:1.85;color:var(--text)}
+.script-box p{margin-bottom:14px;color:var(--text)}
+.script-note{font-size:12px;color:var(--dim);margin-top:-8px;margin-bottom:14px}
 .ft{text-align:center;padding:40px;font-size:12px;color:var(--dim)}
+@media(max-width:600px){.stage-body{margin-left:0;margin-top:12px}.stage-head{flex-wrap:wrap}}
 </style>
 </head>
 <body>
 
 <div class="hdr">
-  <h1>April 18 Career Briefing — Launch Plan</h1>
-  <p>Internal only. Every stage, every decision, every reason.</p>
-  <div class="tag">9 Days to Launch</div>
+  <h1>April 18 Career Briefing</h1>
+  <p>What's built. What broke last time. What each person does next.</p>
+  <div class="tag">9 Days Out</div>
 </div>
 
 <div class="wrap">
 
-<!-- ═══ STAGE 1 ═══ -->
-<div class="stage s-progress">
+<!-- ═══ 1: WHAT BROKE + WHAT'S FIXED ═══ -->
+<div class="stage s-ready">
   <div class="stage-head">
     <div class="stage-num">1</div>
-    <div class="stage-title">Re-Engage Existing 197 Leads</div>
-    <div class="stage-status">In Progress</div>
+    <div class="stage-title">What Broke March 19 and How It's Fixed</div>
+    <div class="stage-status">Fixed</div>
   </div>
   <div class="stage-body">
-    <h3>What</h3>
-    <p>197 people registered for the March 19 session. 24 attended. 6 applied. Nobody followed up. These leads are gold — they already know DJ. They just need a reason to come back.</p>
+    <p>March 19 result: $1,854 in ad spend. 197 registered. 24 showed up. 0 revenue. Here's why, and what changed.</p>
 
-    <div class="decision">
-      <div class="d-label">Decision</div>
-      <p><strong>No apology.</strong> We don't say "sorry we dropped the ball." We say "I rebuilt this. It's better. Here's your chance." Power positioning — confidence, not weakness.</p>
-    </div>
+    <div class="broke"><div class="bl">Broke</div><p style="margin:0">GHL timezone set to America/Detroit. Registrants saw wrong time. Some couldn't join.</p></div>
+    <div class="fixed"><div class="bl">Fixed</div><p style="margin:0">GHL timezone needs to be changed to America/New_York. <strong>Verify in Settings > Business Info.</strong></p></div>
 
-    <div class="decision">
-      <div class="d-label">Decision</div>
-      <p><strong>$27 founder's rate</strong> for the 18 people who attended or applied (72-hour window). $47 full price for everyone else. Rewards loyalty without devaluing the offer.</p>
-    </div>
+    <div class="broke"><div class="bl">Broke</div><p style="margin:0">Emails sent from extromarketingagency@gmail.com. Looked like spam.</p></div>
+    <div class="fixed"><div class="bl">Fixed</div><p style="margin:0">Change sender to achieversquantum@gmail.com in GHL Settings > Email Services.</p></div>
 
-    <h3>4 Segments — Different Message for Each</h3>
-    <ul>
-      <li><strong>6 Applicants (HOT)</strong> — Personal WhatsApp DM. "You applied. I remember. Priority access at $27."</li>
-      <li><strong>12 Attended</strong> — Personal WhatsApp DM. "You showed up. Three things changed. $27 for you."</li>
-      <li><strong>54 No-Shows</strong> — WhatsApp broadcast. "197 registered. I'm only reopening for people serious enough to put $47 on it."</li>
-      <li><strong>125 Cold/Stale</strong> — WhatsApp broadcast. Lead with new intel (salary data, hiring stats), no reference to old event.</li>
-    </ul>
+    <div class="broke"><div class="bl">Broke</div><p style="margin:0">First confirmation email went out 5 days late. People forgot about the event.</p></div>
+    <div class="fixed"><div class="bl">Fixed</div><p style="margin:0">Confirmation must fire immediately on registration. Test before April 18.</p></div>
 
-    <div class="decision">
-      <div class="d-label">Why WhatsApp, Not Email</div>
-      <p>Indian IT professional audience. WhatsApp is their primary channel — confirmed by DJ. Old emails were sent from a wrong sender address (looked like spam). WhatsApp bypasses all of that.</p>
-    </div>
+    <div class="broke"><div class="bl">Broke</div><p style="margin:0">Meta ads targeted "cybersecurity interest" broadly. Attracted helpdesk workers making $45-65K who couldn't afford the program.</p></div>
+    <div class="fixed"><div class="bl">Fixed</div><p style="margin:0">New audience: LinkedIn Sales Nav export of IT Managers, System Admins, Network Engineers making $85K+. Upload to Meta as Custom Audience.</p></div>
+
+    <div class="broke"><div class="bl">Broke</div><p style="margin:0">No video or personal touchpoint before the webinar. People showed up cold.</p></div>
+    <div class="fixed"><div class="bl">Fixed</div><p style="margin:0">60-second trust video from DJ sent via WhatsApp after registration. Script is in Stage 6 below.</p></div>
+
+    <div class="broke"><div class="bl">Broke</div><p style="margin:0">6 people applied to the Accelerator. Nobody followed up. They waited 2+ weeks and went cold.</p></div>
+    <div class="fixed"><div class="bl">Fixed</div><p style="margin:0">Re-engagement messages going out via WhatsApp this week. Personal, direct, with early access to April 18.</p></div>
+
+    <div class="broke"><div class="bl">Broke</div><p style="margin:0">Free entry. 12% show rate. No skin in the game.</p></div>
+    <div class="fixed"><div class="bl">Fixed</div><p style="margin:0">$47 paid entry. Paid webinars get 70-85% show rate. The payment is the filter.</p></div>
+
+    <div class="broke"><div class="bl">Broke</div><p style="margin:0">Zoom chat was chaotic. Multiple team members posting Telegram links, repeated CTAs, cheerleading messages.</p></div>
+    <div class="fixed"><div class="bl">Fixed</div><p style="margin:0">DJ presents. One person moderates silently. Offer link posted once at the end. No Telegram links during the session.</p></div>
+
+    <div class="broke"><div class="bl">Broke</div><p style="margin:0">All contacts unassigned in GHL. Nobody owned the leads.</p></div>
+    <div class="fixed"><div class="bl">Fixed</div><p style="margin:0">All new contacts assigned to DJ on import.</p></div>
   </div>
 </div>
 <div class="connector"></div>
 
-<!-- ═══ STAGE 2 ═══ -->
-<div class="stage s-progress">
+<!-- ═══ 2: WHAT'S LIVE ═══ -->
+<div class="stage s-ready">
   <div class="stage-head">
     <div class="stage-num">2</div>
-    <div class="stage-title">New Audience — LinkedIn Scrape + Meta Ads</div>
-    <div class="stage-status">In Progress</div>
+    <div class="stage-title">What's Built and Live</div>
+    <div class="stage-status">Ready</div>
   </div>
   <div class="stage-body">
-    <h3>What</h3>
-    <p>March 19 Meta ads targeted "cybersecurity interest" broadly — pulled broke IT helpdesk workers making $45-65K who could never afford $4,997. This time we target the right people.</p>
+    <div class="link-row"><span class="label">Registration:</span><a href="https://dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html" target="_blank">masterclass.html</a></div>
+    <div class="link-row"><span class="label">Offer Doc:</span><a href="https://dmanwadefreedom.github.io/tqa-jumpstart/offer.html" target="_blank">offer.html</a></div>
+    <div class="link-row"><span class="label">Application:</span><a href="https://dmanwadefreedom.github.io/tqa-jumpstart/apply.html" target="_blank">apply.html</a></div>
+    <div class="link-row"><span class="label">Slides:</span><a href="https://dmanwadefreedom.github.io/tqa-jumpstart/briefing-slides.html" target="_blank">briefing-slides.html</a></div>
 
-    <div class="decision">
-      <div class="d-label">Decision</div>
-      <p><strong>LinkedIn Sales Navigator list replaces Pixel targeting.</strong> Export ~1,000 leads filtered by: IT Manager / System Admin / Network Engineer titles, US metros, 5-15 years experience, $85K-$150K salary range. Upload to Meta as Custom Audience + build 1% Lookalike.</p>
-    </div>
-
-    <h3>Channels</h3>
-    <ul>
-      <li><strong>LinkedIn DMs</strong> — 20-25 connection requests/day with the 5-Touch warm-up sequence</li>
-      <li><strong>Meta Retarget</strong> — Custom Audience of scraped leads ($15/day)</li>
-      <li><strong>Meta Lookalike</strong> — 1% off the scrape list ($20/day)</li>
-      <li><strong>Meta Cold</strong> — Filtered by title + metro + cultural signals ($15/day)</li>
-    </ul>
-
-    <div class="decision">
-      <div class="d-label">Why This Fixes Targeting</div>
-      <p>People who hold IT Manager titles at $85K+ CAN afford $4,997. Helpdesk workers at $45K cannot. The LinkedIn scrape guarantees we're putting the briefing in front of people with budget and career ceiling pain.</p>
-    </div>
-
-    <h3>Blocker</h3>
-    <p>LinkedIn Sales Navigator export needed. Apify scraper can't access saved searches without an authenticated session. <strong>Manual CSV export required.</strong></p>
+    <h3>How the funnel works</h3>
+    <p><strong>Before April 18:</strong> People register on the masterclass page ($47) → get WhatsApp confirmation + trust video → receive 3-4 warm-up messages leading up to the briefing → reminders day before + morning of.</p>
+    <p><strong>April 18:</strong> DJ presents live. 90 min. 5 topics + live LinkedIn audit. At the end, mentions the Accelerator once and drops the offer doc link in chat.</p>
+    <p><strong>After April 18:</strong> Offer doc goes out via WhatsApp. People read it, click Apply if ready. Application form captures their info. Follow-up over 7 days. People who aren't ready for $4,997 get the $97/mo Insider Brief option.</p>
   </div>
 </div>
 <div class="connector"></div>
 
-<!-- ═══ STAGE 3 ═══ -->
+<!-- ═══ 3: WHAT'S NEEDED ═══ -->
 <div class="stage s-blocked">
   <div class="stage-head">
     <div class="stage-num">3</div>
-    <div class="stage-title">Registration Page — $47 Paid Entry</div>
-    <div class="stage-status">Blocked — Stripe</div>
+    <div class="stage-title">What's Needed to Go Live</div>
+    <div class="stage-status">Action Required</div>
   </div>
   <div class="stage-body">
-    <h3>What</h3>
-    <p>Customer-facing registration page. Collects name, email, phone, current role, years in IT. Redirects to Stripe for $47 payment.</p>
+    <h3>From DJ (today)</h3>
+    <div class="check"><input type="checkbox"> <strong>Stripe $47 payment link</strong> — Stripe Dashboard → Payment Links → Create → "$47 one-time" → copy URL → send to Dylan</div>
+    <div class="check"><input type="checkbox"> <strong>Zoom link</strong> — same one or new? Send the link</div>
+    <div class="check"><input type="checkbox"> <strong>60-second trust video</strong> — script is in Stage 6 below. Film on phone, one take, send the file</div>
+    <div class="check"><input type="checkbox"> <strong>Approve $27 early access</strong> for the 18 people who attended or applied in March (72-hour window, then $47 for everyone)</div>
+    <div class="check"><input type="checkbox"> <strong>LinkedIn Sales Nav CSV export</strong> — open the saved search → select all → download CSV → send to Dylan</div>
 
-    <div class="link-row"><span class="label">Live URL:</span><a href="https://dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html" target="_blank">masterclass.html</a></div>
-    <div class="link-row"><span class="label">Stripe:</span><span class="placeholder">WAITING — need $47 payment link from DJ's Stripe account</span></div>
-    <div class="link-row"><span class="label">GHL Hook:</span><span class="placeholder">WAITING — webhook URL from GHL workflow</span></div>
+    <h3>From GHL Admin (this week)</h3>
+    <div class="check"><input type="checkbox"> Change timezone: Settings > Business Info > <strong>America/New_York</strong></div>
+    <div class="check"><input type="checkbox"> Change email sender: Settings > Email Services > <strong>achieversquantum@gmail.com</strong></div>
+    <div class="check"><input type="checkbox"> Create webhook for registration form</div>
+    <div class="check"><input type="checkbox"> Publish confirmation + reminder workflows (test that confirmation fires immediately)</div>
+    <div class="check"><input type="checkbox"> Assign all new contacts to DJ</div>
 
-    <div class="decision">
-      <div class="d-label">Decision — $47 Not Free</div>
-      <p><strong>Paid webinars get 70-85% show rate</strong> vs 30-40% for free. March 19 was free and got 12% show rate. The $47 IS the no-show fix. It filters for professionals who execute. DJ himself said "anything that comes free has no value."</p>
-    </div>
+    <h3>From Ads (after CSV provided)</h3>
+    <div class="check"><input type="checkbox"> Upload LinkedIn CSV to Meta as Custom Audience</div>
+    <div class="check"><input type="checkbox"> Build 1% Lookalike from that audience</div>
+    <div class="check"><input type="checkbox"> $50/day budget: retarget $15 + lookalike $20 + cold $15</div>
+    <div class="check"><input type="checkbox"> All ads drive to masterclass.html</div>
 
-    <div class="decision">
-      <div class="d-label">Decision — No Recording, No Replay</div>
-      <p>Paid webinars with no replay get +15-20% higher attendance. "The value is being in the room." This creates real urgency without fake scarcity.</p>
-    </div>
-
-    <h3>What's Ready</h3>
-    <ul>
-      <li>Page design: cyber grid animation, 3D countdown, scroll reveals, 20% font bump</li>
-      <li>Dates: Saturday April 18, 11 AM ET</li>
-      <li>Countdown timer pointing to correct UTC (15:00Z = 11AM EDT)</li>
-      <li>Meta Pixel firing InitiateCheckout at $47</li>
-      <li>Form: first name, email, phone, role, experience, SMS consent</li>
-    </ul>
-
-    <h3>To Unblock</h3>
-    <p>DJ creates a $47 one-time payment link in his Stripe Dashboard. One URL swap and registration goes live.</p>
+    <h3>Weekend</h3>
+    <div class="check"><input type="checkbox"> Update bios on LinkedIn, YouTube, Facebook, Twitter to match new branding</div>
+    <div class="check"><input type="checkbox"> Record a short YouTube video if time allows (topic: "How to Break Into Cybersecurity From IT in 2026")</div>
   </div>
 </div>
 <div class="connector"></div>
 
-<!-- ═══ STAGE 4 ═══ -->
-<div class="stage s-planned">
+<!-- ═══ 4: TIMELINE ═══ -->
+<div class="stage s-progress">
   <div class="stage-head">
     <div class="stage-num">4</div>
-    <div class="stage-title">Pre-Webinar Warm-Up (Registration → April 18)</div>
+    <div class="stage-title">Day-by-Day Timeline</div>
+    <div class="stage-status">In Progress</div>
+  </div>
+  <div class="stage-body">
+    <ul>
+      <li><strong>April 9 (today):</strong> Send re-engagement WhatsApp messages to 18 hottest leads (6 applicants + 12 attended). Get DJ's Stripe link.</li>
+      <li><strong>April 10:</strong> WhatsApp broadcast to 54 no-shows. Stripe link swapped into page — registration goes live.</li>
+      <li><strong>April 11:</strong> WhatsApp broadcast to 125 cold leads (new intel angle). LinkedIn CSV uploaded to Meta. Ads start.</li>
+      <li><strong>April 12-13 (weekend):</strong> DJ updates social bios. Records trust video + YouTube video if possible.</li>
+      <li><strong>April 14:</strong> LinkedIn DM outreach begins. Pre-webinar warm-up starts for registered attendees.</li>
+      <li><strong>April 15-16:</strong> Warm-up messages continue. Scarcity updates ("38 of 50 seats filled").</li>
+      <li><strong>April 17 (eve):</strong> Final reminder. DJ voice note to registered. Technical test — Zoom link, screen share, audio.</li>
+      <li><strong>April 18, 11 AM ET:</strong> Briefing goes live. DJ presents. Offer doc link dropped in chat at the end.</li>
+      <li><strong>April 18-25:</strong> Post-webinar follow-up. Offer doc via WhatsApp. Application window open for 7 days.</li>
+    </ul>
+  </div>
+</div>
+<div class="connector"></div>
+
+<!-- ═══ 5: PRE-WEBINAR SEQUENCE ═══ -->
+<div class="stage s-planned">
+  <div class="stage-head">
+    <div class="stage-num">5</div>
+    <div class="stage-title">What Registered Attendees Receive Before April 18</div>
     <div class="stage-status">Planned</div>
   </div>
   <div class="stage-body">
-    <h3>What</h3>
-    <p>Everyone who registers gets a nurture sequence via WhatsApp. 8 touchpoints between registration and the briefing. By the time they sit down, they've already shifted 4 beliefs.</p>
-
-    <div class="decision">
-      <div class="d-label">Decision — 4 Beliefs to Shift Before the Webinar</div>
-      <p>If these beliefs are in place when DJ presents, the offer at the end isn't a surprise — it's a relief:</p>
-    </div>
-
+    <p>Everyone who pays $47 gets these messages via WhatsApp between registration and the briefing:</p>
     <ul>
-      <li><strong>Belief 1:</strong> "Certs alone won't get me hired. I need positioning." (Kills the Security+ obsession)</li>
-      <li><strong>Belief 2:</strong> "If a chef can do it, I can do it." (Robert's story — zero tech background to $120K)</li>
-      <li><strong>Belief 3:</strong> "70% of jobs are never posted. I need DJ's network." (Hidden job market reveal)</li>
-      <li><strong>Belief 4:</strong> "A paid program exists and it's worth it." (So the offer isn't a surprise)</li>
+      <li><strong>Immediately:</strong> "You're confirmed for April 18, 11 AM ET. No replay — the value is being there live. Add it to your calendar now."</li>
+      <li><strong>Day 2:</strong> DJ's 60-second trust video (see Stage 6)</li>
+      <li><strong>Day 4:</strong> "Quick question — what's your biggest concern about moving into cybersecurity? Reply and DJ will address it live on the 18th."</li>
+      <li><strong>Day 6:</strong> "A professional chef went through this framework and landed a $120K cybersecurity analyst role. Zero tech background. On the 18th, DJ breaks down exactly how that works."</li>
+      <li><strong>Day 8:</strong> "Here's what we're covering Saturday: threat landscape, certs that matter, salary data, hidden job market, and a live LinkedIn audit. Bring your laptop with LinkedIn open."</li>
+      <li><strong>Day before:</strong> "Tomorrow. 11 AM ET. Have your LinkedIn profile open on your laptop. See you inside."</li>
+      <li><strong>2 hours before:</strong> "We start in 2 hours. Your Zoom link: [LINK]"</li>
+      <li><strong>15 min before:</strong> "Starting in 15 minutes."</li>
     </ul>
-
-    <h3>Sequence</h3>
-    <ul>
-      <li><strong>On registration:</strong> "You're confirmed. No replay — the value is showing up live." + calendar file</li>
-      <li><strong>Day 2:</strong> 60-second voice note — "Here's what I'm seeing in the market right now..."</li>
-      <li><strong>Day 4:</strong> Engagement question — "What's your biggest concern about making the move?" (mental commitment)</li>
-      <li><strong>Day 6:</strong> Robert's story — chef to $120K analyst (Belief 2)</li>
-      <li><strong>Day 8:</strong> Agenda preview — "Here's exactly what we're covering" (Belief 1 + 3)</li>
-      <li><strong>Eve:</strong> "Tomorrow. 11 AM ET. Have your LinkedIn open on your laptop."</li>
-      <li><strong>Morning of:</strong> "We start in 2 hours. Your link: [ZOOM]"</li>
-      <li><strong>15 min:</strong> "Starting in 15 minutes. See you inside."</li>
-    </ul>
-
-    <div class="decision">
-      <div class="d-label">Why Voice Notes</div>
-      <p>Voice notes outperform text 3-to-1 for professional audiences. Feels personal, builds trust. DJ records one 60-second clip and it does heavy lifting.</p>
-    </div>
-
-    <h3>Video Option</h3>
-    <p>HeyGen AI video as backup if DJ can't record. 60-90 second trust video + 15-30 second phone-size promo for WhatsApp status / IG stories.</p>
   </div>
 </div>
 <div class="connector"></div>
 
-<!-- ═══ STAGE 5 ═══ -->
-<div class="stage s-ready">
-  <div class="stage-head">
-    <div class="stage-num">5</div>
-    <div class="stage-title">The Briefing — April 18, 11 AM ET</div>
-    <div class="stage-status">Ready</div>
-  </div>
-  <div class="stage-body">
-    <h3>What</h3>
-    <p>DJ presents live. 90 minutes. Five topics + live LinkedIn audit. Ends with one mention of the Accelerator and drops the offer doc link in chat.</p>
-
-    <div class="link-row"><span class="label">Slides:</span><a href="https://dmanwadefreedom.github.io/tqa-jumpstart/briefing-slides.html" target="_blank">briefing-slides.html</a></div>
-
-    <div class="decision">
-      <div class="d-label">Decision — Chat Protocol</div>
-      <p>March 19 chat was chaotic — too many team messages, Telegram spam, multiple CTA links. This time: <strong>DJ presents. One moderator handles chat silently. Application link posted ONCE at the end. No Telegram links. No cheerleading.</strong></p>
-    </div>
-
-    <div class="decision">
-      <div class="d-label">Decision — "Laptop + LinkedIn Open"</div>
-      <p>March 19 had attendees joining from phones ("iPhone", "motorola razr 2024"). The LinkedIn audit exercise requires a laptop. Every reminder tells them: bring your laptop with LinkedIn open.</p>
-    </div>
-
-    <h3>Technical Checklist</h3>
-    <div class="check"><input type="checkbox"> Zoom link tested 24hrs before (screen share + audio)</div>
-    <div class="check"><input type="checkbox"> Zoom NOT auto-recording (no replay policy)</div>
-    <div class="check"><input type="checkbox"> Backup Google Meet link ready</div>
-    <div class="check"><input type="checkbox"> DJ has slide deck loaded</div>
-    <div class="check"><input type="checkbox"> DJ has practiced LinkedIn audit exercise</div>
-    <div class="check"><input type="checkbox"> Offer doc link ready to paste in chat</div>
-  </div>
-</div>
-<div class="connector"></div>
-
-<!-- ═══ STAGE 6 ═══ -->
-<div class="stage s-ready">
+<!-- ═══ 6: VIDEO SCRIPT ═══ -->
+<div class="stage s-blocked">
   <div class="stage-head">
     <div class="stage-num">6</div>
-    <div class="stage-title">Post-Webinar — Offer Doc (Salesless Close)</div>
-    <div class="stage-status">Ready</div>
+    <div class="stage-title">Trust Video — Record This Today</div>
+    <div class="stage-status">Action Required</div>
   </div>
   <div class="stage-body">
-    <h3>What</h3>
-    <p>The offer doc replaces the need for a sales call or closer. DJ drops the link in Zoom chat at the end. WhatsApp follow-up sends it again. The doc does the selling.</p>
+    <p>60-second video sent to every person who registers. Goes out via WhatsApp the day after they pay. Film on your phone, horizontal, one take. Read the script once, then just say it in your own words.</p>
 
-    <div class="link-row"><span class="label">Offer Doc:</span><a href="https://dmanwadefreedom.github.io/tqa-jumpstart/offer.html" target="_blank">offer.html</a></div>
+    <div class="script-box">
+      <p>Hey. You just grabbed a seat for the Career Briefing. Good move.</p>
 
-    <div class="decision">
-      <div class="d-label">Decision — No Closer Needed</div>
-      <p>Taki Moore model: content pre-sells, the doc presents everything (credentials, testimonials, program breakdown, value stack, pricing, FAQ). Prospect reads it and decides on their own. "Reply I'm in" or click Apply. No DMs. No pressure. No sales calls unless they want one.</p>
+      <p>Most people in your position spend months looking at certifications, reading job posts, watching YouTube — trying to figure out the path on their own. You just skipped all of that.</p>
+
+      <p>Here's what you're walking into on April 18.</p>
+
+      <p>I've been hiring cybersecurity professionals for 28 years. Deloitte. EY. Shell. And the number one reason IT people stay stuck is not skill. It's how they position themselves. That's what I'm going to fix for you.</p>
+
+      <p>I'm going to pull up someone's LinkedIn live and show the room exactly what I look for when I'm on the hiring side. You'll see what gets you noticed — and what gets you skipped.</p>
+
+      <p>Block 11 AM Eastern on Saturday the 18th. Set a phone alarm right now while you're watching this. There's no recording — what happens in the room stays in the room.</p>
+
+      <p style="margin-bottom:0;">You made a real move today. Most people just think about it. See you on the 18th.</p>
     </div>
 
-    <h3>Offer Doc Structure (Profit Creators Format)</h3>
+    <h3>Filming tips</h3>
     <ul>
-      <li>"You" / "Me" alignment — establishes common ground</li>
-      <li>5 real testimonials with names and credentials</li>
-      <li>The broken cert model — why what they're doing doesn't work</li>
-      <li>14-week program breakdown — week by week</li>
-      <li>Value stack — $20,000+ in value</li>
-      <li>Best case / worst case — honest risk assessment</li>
-      <li>Price: $4,997 or $1,997 x 3 — with ROI math</li>
-      <li>Two options: "I'm in" or "watch more content"</li>
-      <li>P.S.: $97/mo Insider Brief for people not ready</li>
+      <li>Phone, horizontal, propped up. Natural light from a window if possible.</li>
+      <li>One take. Small mistakes are fine — over-produced feels corporate.</li>
+      <li>60 seconds. If it's over 75, trim it. People are watching on their phone.</li>
+      <li>Talk to one person, not a crowd. Like you're telling a colleague what's happening Saturday.</li>
+      <li>End clean — "See you on the 18th" then stop. Don't trail off.</li>
     </ul>
-
-    <h3>Follow-Up Sequence (WhatsApp)</h3>
-    <ul>
-      <li><strong>30 min after:</strong> "The offer doc is in the chat. Read it tonight." + link</li>
-      <li><strong>Day +1:</strong> "Did you read the doc? Any questions — reply here."</li>
-      <li><strong>Day +3:</strong> "3 people from Saturday's session have already applied."</li>
-      <li><strong>Day +5:</strong> "Applications close Friday at midnight."</li>
-      <li><strong>Day +7:</strong> Close applications. Move non-buyers to $97/mo Insider Brief.</li>
-    </ul>
-
-    <div class="decision">
-      <div class="d-label">Decision — VSSL Video Slot</div>
-      <p>The offer page has a hidden video slot. When DJ records the 15-18 min VSSL (Week 3), it drops in at the top and becomes the evergreen Path B funnel — revenue any day, no webinar date needed.</p>
-    </div>
   </div>
 </div>
 <div class="connector"></div>
 
-<!-- ═══ STAGE 7 ═══ -->
-<div class="stage s-progress">
+<!-- ═══ 7: TECHNICAL CHECKLIST ═══ -->
+<div class="stage s-planned">
   <div class="stage-head">
     <div class="stage-num">7</div>
-    <div class="stage-title">March 19 Failures — Prevention Checklist</div>
-    <div class="stage-status">Verifying</div>
+    <div class="stage-title">Technical Checklist — Verify Before April 18</div>
+    <div class="stage-status">Verify by April 17</div>
   </div>
   <div class="stage-body">
-    <h3>Every issue that killed March 19, and what we did about it</h3>
-
-    <div class="check"><input type="checkbox"> <strong>GHL timezone was wrong</strong> (America/Detroit → should be America/New_York) — <em>needs live API verification</em></div>
-    <div class="check"><input type="checkbox"> <strong>Emails sent from wrong address</strong> (extromarketingagency@gmail.com) — <em>must be achieversquantum@gmail.com</em></div>
-    <div class="check"><input type="checkbox"> <strong>First email went out 5 days late</strong> — <em>must test confirmation fires immediately</em></div>
-    <div class="check"><input type="checkbox"> <strong>Meta Pixel not firing on conversions</strong> — FIXED: our page fires InitiateCheckout</div>
-    <div class="check"><input type="checkbox"> <strong>Wrong audience attracted</strong> — FIXED: LinkedIn scrape replaces broad Pixel targeting</div>
-    <div class="check"><input type="checkbox"> <strong>No pre-webinar video</strong> — PLANNED: HeyGen or DJ voice note</div>
-    <div class="check"><input type="checkbox"> <strong>$4,999 price shock with no anchoring</strong> — FIXED: value stack in slides + offer doc</div>
-    <div class="check"><input type="checkbox"> <strong>6 applicants ghosted for 2+ weeks</strong> — READY: Tier 1 re-engagement messages</div>
-    <div class="check"><input type="checkbox"> <strong>All contacts unassigned in GHL</strong> — <em>assign to DJ on import</em></div>
+    <div class="check"><input type="checkbox"> Zoom link tested — DJ logs in, shares screen, tests audio (24hrs before)</div>
+    <div class="check"><input type="checkbox"> Zoom NOT set to auto-record (no replay policy)</div>
+    <div class="check"><input type="checkbox"> Backup Google Meet link ready in case Zoom fails</div>
+    <div class="check"><input type="checkbox"> Stripe payment link working (test purchase + refund)</div>
+    <div class="check"><input type="checkbox"> Registration form submits correctly and redirects to Stripe</div>
+    <div class="check"><input type="checkbox"> GHL confirmation email fires immediately after registration (not 5 days late)</div>
+    <div class="check"><input type="checkbox"> GHL sender is achieversquantum@gmail.com (not extromarketingagency)</div>
+    <div class="check"><input type="checkbox"> GHL timezone is America/New_York</div>
+    <div class="check"><input type="checkbox"> WhatsApp broadcast lists created and tested</div>
+    <div class="check"><input type="checkbox"> DJ has slide deck loaded and tested</div>
+    <div class="check"><input type="checkbox"> DJ has practiced the LinkedIn audit exercise</div>
+    <div class="check"><input type="checkbox"> Offer doc link ready to paste in Zoom chat at the end</div>
   </div>
 </div>
 <div class="connector"></div>
 
-<!-- ═══ STAGE 8 ═══ -->
-<div class="stage s-blocked">
+<!-- ═══ 8: REVENUE ═══ -->
+<div class="stage s-planned">
   <div class="stage-head">
     <div class="stage-num">8</div>
-    <div class="stage-title">Blockers — What's Needed to Go Live</div>
-    <div class="stage-status">Action Required</div>
+    <div class="stage-title">Revenue Target</div>
+    <div class="stage-status">Projected</div>
   </div>
   <div class="stage-body">
-    <h3>These must be resolved before any registrations can happen</h3>
-
-    <div class="check"><input type="checkbox"> <strong>Stripe payment link ($47)</strong> — Create in Stripe Dashboard → Payment Links → $47 one-time. Send the URL.</div>
-    <div class="check"><input type="checkbox"> <strong>WhatsApp Business</strong> — Confirm it's set up for broadcast messaging.</div>
-    <div class="check"><input type="checkbox"> <strong>60-second trust video</strong> — Full script is in Stage 9 below. Film on phone, one take, send the file.</div>
-    <div class="check"><input type="checkbox"> <strong>Confirm Zoom link</strong> — Same one or new? Send the link.</div>
-    <div class="check"><input type="checkbox"> <strong>Approve $27 founder's rate</strong> for 18 past attendees/applicants (72-hour window).</div>
-    <div class="check"><input type="checkbox"> <strong>Export LinkedIn Sales Navigator list</strong> — Open saved search → Select all → Download CSV.</div>
-    <div class="check"><input type="checkbox"> <strong>Update all social bios</strong> this weekend to match unified branding.</div>
-
-    <h3>Revenue Projection</h3>
-    <p><strong>50 seats x $47 = $2,350</strong> briefing revenue.<br>
-    If 5 apply and 3 convert to Accelerator = <strong>$14,991</strong>.<br>
-    Plus $27 early birds (18 x $27 = $486).<br>
-    <strong style="color:var(--gold);font-size:18px">Total potential: $17,827 from one briefing.</strong></p>
-  </div>
-</div>
-
-</div>
-<div class="connector"></div>
-
-<!-- ═══ STAGE 9 ═══ -->
-<div class="stage s-blocked">
-  <div class="stage-head">
-    <div class="stage-num">9</div>
-    <div class="stage-title">Trust Video Script — Record This Today</div>
-    <div class="stage-status">Action Required</div>
-  </div>
-  <div class="stage-body">
-    <h3>What This Is</h3>
-    <p>A 60-second video sent to every person who registers. It goes out via WhatsApp the day after they pay. Its only job is to make them show up on April 18.</p>
-
-    <div class="decision">
-      <div class="d-label">Why This Matters</div>
-      <p>Confirmation videos increase show-up rates by 25-40% over email-only reminders. People who see your face after paying feel a personal connection. They don't skip something that feels personal.</p>
-    </div>
-
-    <h3>How to Film</h3>
-    <ul>
-      <li>Phone, horizontal, propped up on something stable</li>
-      <li>Your office or anywhere that looks like a real CISO's environment</li>
-      <li>Natural light from a window if possible</li>
-      <li>One take. Don't memorize the script — just hit the beats</li>
-      <li>Imperfections are fine. Over-produced = corporate = no trust</li>
-      <li>60 seconds. Not 30 (too short). Not 2 minutes (they won't finish).</li>
-    </ul>
-
-    <h3>The Script</h3>
-    <p style="color: var(--dim); font-size: 14px;">Read it once. Then just talk. One sentence at a time. Every line ties back to THEIR career, not yours. 60 seconds total.</p>
-
-    <div style="background: var(--bg); border: 1px solid var(--gold); border-radius: var(--radius); padding: 28px 32px; margin: 16px 0; font-size: 18px; line-height: 1.85; color: var(--text);">
-      <p style="margin-bottom: 4px;">Hey. You just grabbed a seat for the Career Briefing. Good move.</p>
-      <p style="margin-bottom: 16px; font-size: 12px; color: var(--dim);">[2 sec — look at camera, small nod, no pause]</p>
-
-      <p style="margin-bottom: 4px;">Most people in your position spend months looking at certifications, reading job posts, watching YouTube — trying to figure out the path on their own. You just skipped all of that.</p>
-      <p style="margin-bottom: 16px; font-size: 12px; color: var(--dim);">[About THEM. Not about you. Don't add credentials here — resist the urge.]</p>
-
-      <p style="margin-bottom: 4px;">Here's what you're walking into on April 18.</p>
-      <p style="margin-bottom: 16px; font-size: 12px; color: var(--dim);">[Transition line. Say it, move on. No pause.]</p>
-
-      <p style="margin-bottom: 4px;">I've been hiring cybersecurity professionals for 28 years. Deloitte. EY. Shell. And the number one reason IT people stay stuck is not skill. It's how they position themselves. That's what I'm going to fix for you.</p>
-      <p style="margin-bottom: 16px; font-size: 12px; color: var(--dim);">[STOP here. Don't add the wire fraud story, the Qatar bank, the CIO award. One credential line. "That's what I'm going to fix for YOU" — pulls it back to them.]</p>
-
-      <p style="margin-bottom: 4px;">I'm going to pull up someone's LinkedIn live and show the room exactly what I look for when I'm on the hiring side. You'll see what gets you noticed — and what gets you skipped.</p>
-      <p style="margin-bottom: 16px; font-size: 12px; color: var(--dim);">[This is the hook. The thing they can't get anywhere else. Say it like you're telling a friend what's going to happen — not presenting.]</p>
-
-      <p style="margin-bottom: 4px;">Block 11 AM Eastern on Saturday the 18th. Set a phone alarm right now while you're watching this. There's no recording — what happens in the room stays in the room.</p>
-      <p style="margin-bottom: 16px; font-size: 12px; color: var(--dim);">[Direct instruction. "Right now while you're watching this" = micro-commitment. They physically do something.]</p>
-
-      <p style="margin-bottom: 4px;">You made a real move today. Most people just think about it. See you on the 18th.</p>
-      <p style="margin-bottom: 0; font-size: 12px; color: var(--dim);">[End. Don't add "if you have any questions..." Don't trail off. "See you on the 18th" = done. Stop talking.]</p>
-    </div>
-
-    <h3 style="color: var(--red);">Delivery Notes (Critical)</h3>
-    <div style="background: var(--red-dim); border-left: 3px solid var(--red); padding: 18px 22px; border-radius: 0 var(--radius) var(--radius) 0; margin: 14px 0;">
-      <p style="margin-bottom: 10px;"><strong style="color: var(--red);">No long pauses.</strong> If you need to think, stop recording and restart. A pause on video reads as uncertainty. On WhatsApp, people skip ahead or close the video.</p>
-      <p style="margin-bottom: 10px;"><strong style="color: var(--red);">One sentence at a time.</strong> Say the sentence. Stop. Say the next one. Your natural instinct is to connect ideas with "and also..." and "what I mean by that is..." — don't. Short. Punchy. Move on.</p>
-      <p style="margin-bottom: 10px;"><strong style="color: var(--red);">Every line is about THEM.</strong> You'll want to talk about your experience. You have ONE credential line. After that, everything is "you" / "your career" / "your LinkedIn." If a sentence starts with "I" more than twice in a row, you've drifted.</p>
-      <p style="margin-bottom: 10px;"><strong style="color: var(--red);">60 seconds max.</strong> Time yourself. If it's over 75 seconds, you're adding words. Cut, don't add. The viewer is on their phone between meetings.</p>
-      <p style="margin-bottom: 0;"><strong style="color: var(--red);">Don't explain the script, just say it.</strong> No "so basically what we're going to do is..." — that's filler. The script already says what you're going to do. Trust the words.</p>
-    </div>
-
-    <h3>Do NOT</h3>
-    <ul>
-      <li>Add music, intros, or "hey guys" energy</li>
-      <li>Re-sell the briefing — they already paid. Re-selling creates doubt.</li>
-      <li>Say "thank you so much for registering" — grateful energy lowers authority</li>
-      <li>List the 5 topics or the full agenda — kills curiosity</li>
-      <li>Mention the $4,997 program, the Accelerator, or anything about buying more — this video is about SHOWING UP, not selling</li>
-      <li>Trail off at the end with "so yeah... looking forward to it..." — end clean</li>
-    </ul>
+    <p><strong>Briefing revenue:</strong> 50 seats x $47 = $2,350</p>
+    <p><strong>Accelerator:</strong> If 5 apply and 3 convert at $4,997 = $14,991</p>
+    <p><strong>Early access:</strong> 18 past attendees x $27 = $486</p>
+    <p style="color: var(--gold); font-size: 20px; font-weight: 700; margin-top: 16px;">Total potential: $17,827 from one briefing.</p>
+    <p style="font-size: 14px;">Plus $97/mo Insider Brief subscriptions from people who aren't ready for the full program. Recurring revenue that stacks monthly.</p>
   </div>
 </div>
 
 </div>
 
-<div class="ft">Internal document — The Quantum Achievers — April 2026</div>
+<div class="ft">The Quantum Achievers — Internal — April 2026</div>
 
 <script>
-// Save checkbox state to localStorage
 document.querySelectorAll('input[type="checkbox"]').forEach(function(cb, i) {
-  var key = 'launch-check-' + i;
+  var key = 'lp-' + i;
   cb.checked = localStorage.getItem(key) === 'true';
-  cb.addEventListener('change', function() {
-    localStorage.setItem(key, cb.checked);
-  });
+  cb.addEventListener('change', function() { localStorage.setItem(key, cb.checked); });
 });
 </script>
 </body>
