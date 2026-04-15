@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Director Path — Full Package for DJ</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #fafaf7;
+  color: #1a1a1a;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 60px 28px 100px;
+}
+.hdr {
+  text-align: center;
+  margin-bottom: 56px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid #d4d4cf;
+}
+.hdr .tag {
+  display: inline-block;
+  background: rgba(201, 168, 76, 0.12);
+  color: #a88a35;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 100px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hdr h1 {
+  font-family: 'Source Serif Pro', serif;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+  line-height: 1.15;
+}
+.hdr p {
+  font-size: 18px;
+  color: #555;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.intro {
+  background: #fff;
+  border: 1px solid #e5e5e0;
+  border-radius: 6px;
+  padding: 30px 32px;
+  margin-bottom: 40px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #2a2a2a;
+}
+.intro strong { color: #000; }
+.order-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  color: #888;
+  font-weight: 600;
+  margin: 36px 0 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e5e0;
+}
+.card {
+  background: #fff;
+  border: 1px solid #e5e5e0;
+  border-radius: 6px;
+  padding: 26px 28px;
+  margin-bottom: 16px;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.15s;
+}
+.card:hover {
+  border-color: #c9a84c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+.card .step {
+  display: inline-block;
+  background: #1a1a1a;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 14px;
+  vertical-align: middle;
+}
+.card .primary .step { background: #c9a84c; }
+.card .card-head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.card .card-title {
+  font-family: 'Source Serif Pro', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  flex: 1;
+}
+.card .read-time {
+  font-size: 12px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.card .card-desc {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-left: 44px;
+}
+.card .arrow {
+  float: right;
+  color: #c9a84c;
+  font-size: 20px;
+  margin-top: -20px;
+}
+.primary {
+  border-color: #c9a84c;
+  background: #fffdf5;
+}
+.footer-note {
+  margin-top: 56px;
+  padding: 24px 28px;
+  background: #1a1a1a;
+  color: #d4d4cf;
+  border-radius: 6px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.footer-note strong { color: #fff; }
+.footer-note .sig {
+  margin-top: 16px;
+  font-style: italic;
+  color: #999;
+  font-size: 14px;
+}
+.decisions {
+  background: #fff;
+  border: 2px solid #c9a84c;
+  border-radius: 6px;
+  padding: 28px 32px;
+  margin-top: 48px;
+}
+.decisions h3 {
+  font-family: 'Source Serif Pro', serif;
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+.decisions ol {
+  margin-left: 20px;
+}
+.decisions ol li {
+  margin-bottom: 14px;
+  color: #2a2a2a;
+  line-height: 1.6;
+}
+.decisions ol li strong { color: #000; }
+@media (max-width: 640px) {
+  .page { padding: 40px 20px 60px; }
+  .hdr h1 { font-size: 32px; }
+  .card { padding: 22px 22px; }
+  .card .card-title { font-size: 19px; }
+  .card .card-desc { margin-left: 0; margin-top: 8px; }
+  .card .card-head { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hdr">
+    <div class="tag">Private · For DJ Naronikar</div>
+    <h1>The Director Path</h1>
+    <p>Full launch package. New plan. Ready for your sign-off.</p>
+  </div>
+
+  <div class="intro">
+    <strong>DJ —</strong> scrapped the 3-month content funnel. Rebuilt the whole motion based on your feedback + Akshaya's note about leveraging LinkedIn.
+    <br><br>
+    New approach is <strong>Taki Moore / Dan Martell doc-sell method</strong>: LinkedIn outreach → sales doc does the heavy lifting → prospect self-qualifies → books a call with you → $10K close. No webinar. No VSL. No video production.
+    <br><br>
+    <strong>Launch: April 25, 2026.</strong> 30-day target: $30K–$50K from the 10K LinkedIn leads we already have.
+    <br><br>
+    Four assets below. Start with the <strong>5-minute summary</strong> — it has the 4 decisions I need from you.
+  </div>
+
+  <div class="order-label">Read in this order</div>
+
+  <a href="summary.html" class="card primary">
+    <div class="card-head">
+      <span class="step">1</span>
+      <span class="card-title">The Summary (start here)</span>
+      <span class="read-time">5 min</span>
+    </div>
+    <div class="card-desc">
+      What changed, what I built, 4 decisions I need from you. Read this first. Everything else is reference.
+    </div>
+  </a>
+
+  <a href="../manager-to-director.html" class="card">
+    <div class="card-head">
+      <span class="step">2</span>
+      <span class="card-title">The Sales Doc</span>
+      <span class="read-time">18 min</span>
+    </div>
+    <div class="card-desc">
+      This is the whole pitch. Replaces the webinar. Written in your voice. Security Manager → Director, 14 weeks, $10K. Mark anywhere the voice doesn't sound like you and we'll fix together.
+    </div>
+  </a>
+
+  <a href="profile.html" class="card">
+    <div class="card-head">
+      <span class="step">3</span>
+      <span class="card-title">Your New LinkedIn Profile</span>
+      <span class="read-time">4 min</span>
+    </div>
+    <div class="card-desc">
+      New headline, About section, Featured section. You update live on your profile — 60-90 min solo task. This is the silent closer behind every connection request.
+    </div>
+  </a>
+
+  <a href="dms.html" class="card">
+    <div class="card-head">
+      <span class="step">4</span>
+      <span class="card-title">The DM Sequence</span>
+      <span class="read-time">6 min</span>
+    </div>
+    <div class="card-desc">
+      Connection request + 4-DM sequence + GHL pipeline spec for Agresh. This is how we deliver the doc to the 10K leads. Volume caps, kill switches, KPIs included.
+    </div>
+  </a>
+
+  <div class="decisions">
+    <h3>4 Decisions I Need From You</h3>
+    <ol>
+      <li><strong>Doc format:</strong> Google Doc (my recommendation) or the HTML version only, or both?</li>
+      <li><strong>LinkedIn automation tool:</strong> Your app, Dripify ($89/mo proven), or both as fallback?</li>
+      <li><strong>Calendly booking link:</strong> Do you have one already with 3 time zones? If not, Agresh can set up in 20 min.</li>
+      <li><strong>Closer:</strong> You run all discovery → pitch calls yourself, confirmed? Or do we need a backup plan?</li>
+    </ol>
+  </div>
+
+  <div class="footer-note">
+    <strong>Next step:</strong> 30-minute call with me this Wed or Thu to lock those 4 decisions and start execution. Once you greenlight, I have the Google Doc live, GHL pipeline spec to Agresh, and the first test batch of DMs firing by Friday.
+    <div class="sig">— Dylan · April 15, 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Director Path — DJ Naronikar</title>
+<meta name="description" content="How Security Managers break through the last ceiling. A letter from DJ Naronikar — 28-year CISO (Deloitte, EY, Shell) — to Security Managers ready for Director-level roles.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="The Director Path — DJ Naronikar">
+<meta property="og:description" content="How Security Managers break through the last ceiling. 28-year CISO mentors Manager-to-Director transitions in 14 weeks.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Source Serif Pro', Georgia, 'Times New Roman', serif;
+  background: #fafaf7;
+  color: #1a1a1a;
+  font-size: 19px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 60px 28px 120px;
+}
+.topbar {
+  background: #fff;
+  border-bottom: 1px solid #e5e5e0;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.topbar .name {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+.topbar .tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #888;
+}
+h1 {
+  font-size: 42px;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+h2 {
+  font-size: 28px;
+  line-height: 1.3;
+  font-weight: 700;
+  margin-top: 64px;
+  margin-bottom: 20px;
+  letter-spacing: -0.3px;
+  border-top: 1px solid #d4d4cf;
+  padding-top: 40px;
+}
+h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+h3 {
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 700;
+  margin-top: 36px;
+  margin-bottom: 14px;
+}
+h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #6b6b63;
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+p { margin-bottom: 20px; }
+p.lead {
+  font-size: 22px;
+  line-height: 1.55;
+  color: #2a2a2a;
+  margin-bottom: 28px;
+}
+p.meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 8px;
+  font-style: normal;
+}
+.subtitle {
+  font-size: 20px;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+ul, ol {
+  margin-bottom: 24px;
+  padding-left: 28px;
+}
+li {
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+strong { font-weight: 700; color: #000; }
+em { font-style: italic; }
+blockquote {
+  border-left: 4px solid #c9a84c;
+  padding: 4px 0 4px 24px;
+  margin: 28px 0;
+  color: #3a3a3a;
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.65;
+}
+blockquote cite {
+  display: block;
+  margin-top: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  color: #666;
+  font-weight: 500;
+}
+hr {
+  border: none;
+  border-top: 1px solid #d4d4cf;
+  margin: 56px 0;
+}
+.dropcap::first-letter {
+  float: left;
+  font-size: 62px;
+  line-height: 0.9;
+  font-weight: 700;
+  padding: 8px 10px 0 0;
+  color: #c9a84c;
+}
+.callout {
+  background: #fffdf5;
+  border: 1px solid #e8dfb8;
+  border-left: 4px solid #c9a84c;
+  padding: 22px 26px;
+  margin: 32px 0;
+  border-radius: 2px;
+  font-size: 18px;
+  line-height: 1.65;
+}
+.callout p:last-child { margin-bottom: 0; }
+.week-grid {
+  background: #fff;
+  border: 1px solid #e5e5e0;
+  border-radius: 4px;
+  padding: 28px;
+  margin: 24px 0;
+}
+.week-grid .phase {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #c9a84c;
+  margin-bottom: 6px;
+}
+.week-grid .phase-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.week-grid .week-item {
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px dotted #e5e5e0;
+}
+.week-grid .week-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.week-grid .week-num {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #6b6b63;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.week-grid .week-body {
+  margin-top: 4px;
+  line-height: 1.6;
+}
+.proof-grid {
+  background: #fff;
+  border: 1px solid #e5e5e0;
+  border-radius: 4px;
+  padding: 28px;
+  margin: 24px 0;
+}
+.proof-grid blockquote {
+  border-left: 3px solid #c9a84c;
+  margin: 0 0 20px;
+  padding-left: 20px;
+  font-size: 17px;
+}
+.proof-grid blockquote:last-child { margin-bottom: 0; }
+.faq {
+  margin: 28px 0;
+}
+.faq-q {
+  font-weight: 700;
+  font-size: 19px;
+  color: #000;
+  margin-top: 28px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.faq-a {
+  margin-bottom: 16px;
+  color: #2a2a2a;
+}
+.cta-block {
+  background: #1a1a1a;
+  color: #fafaf7;
+  padding: 48px 36px;
+  border-radius: 4px;
+  margin: 56px 0 32px;
+  text-align: center;
+}
+.cta-block h2 {
+  color: #fff;
+  border: none;
+  padding: 0;
+  margin: 0 0 14px;
+  font-size: 30px;
+}
+.cta-block p {
+  color: #d4d4cf;
+  font-size: 18px;
+  max-width: 540px;
+  margin: 0 auto 24px;
+}
+.cta-btn {
+  display: inline-block;
+  background: #c9a84c;
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  padding: 18px 40px;
+  border-radius: 3px;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: background 0.2s;
+}
+.cta-btn:hover { background: #d9b85c; }
+.cta-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #999;
+  margin-top: 16px;
+  letter-spacing: 0.3px;
+}
+.signature {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid #d4d4cf;
+}
+.signature .name {
+  font-family: 'Source Serif Pro', serif;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.signature .credentials {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+.ps {
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: #fff;
+  border: 1px solid #e5e5e0;
+  border-radius: 3px;
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.6;
+  color: #3a3a3a;
+}
+.ps + .ps { margin-top: 12px; }
+.ps strong { color: #000; font-style: normal; }
+@media (max-width: 640px) {
+  .page { padding: 40px 20px 80px; }
+  h1 { font-size: 32px; }
+  h2 { font-size: 24px; margin-top: 48px; padding-top: 32px; }
+  h3 { font-size: 20px; }
+  body { font-size: 18px; }
+  p.lead { font-size: 20px; }
+  .cta-block { padding: 36px 22px; }
+  .cta-block h2 { font-size: 26px; }
+}
+@media print {
+  .topbar, .cta-btn { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="name">DJ Naronikar</span>
+  <span class="tag">Private Document · 18 min read</span>
+</div>
+
+<article class="page">
+
+<h1>The Director Path</h1>
+<p class="lead">How Security Managers break through the last ceiling.</p>
+<p class="meta">A letter from DJ Naronikar to Security Managers ready for Director-level roles.</p>
+<p class="meta"><em>Written for IT Security Managers, Information Security Managers, and Cybersecurity Managers with 5+ years in role who are tired of watching less-qualified peers get promoted while they stay stuck.</em></p>
+<p class="meta">Read time: 18 minutes. &nbsp;•&nbsp; If it clicks, there's a call link at the bottom.</p>
+
+<hr>
+
+<h2>Part 1 — Who This Is For</h2>
+
+<p>Before you read any further, let me save you some time.</p>
+
+<p>This document is <strong>NOT</strong> for you if:</p>
+<ul>
+  <li>You're trying to break INTO cybersecurity from IT or another field. I have a different program for that. This one isn't it.</li>
+  <li>You have fewer than 5 years in a security role.</li>
+  <li>You're looking for a bootcamp or exam prep. You don't need one. You already know the technical work.</li>
+  <li>You want someone to hand you a Director job. Nobody can do that. What I can do is put you in the position where Director roles come to you.</li>
+  <li>You want a miracle in 3 weeks. This is a 14-week program. It works because it takes time.</li>
+</ul>
+
+<p>This document <strong>IS</strong> for you if:</p>
+<ul>
+  <li>Your title is IT Security Manager, Information Security Manager, or Cybersecurity Manager (or equivalent — Security Operations Manager, GRC Manager, Security Engineering Manager all count).</li>
+  <li>You've been in the role 3+ years and your title hasn't moved.</li>
+  <li>You've watched someone junior to you get promoted to Director or Head of Security, and you know — in your gut — that you were the stronger technical operator.</li>
+  <li>You hold CISSP already. Maybe CISM, CRISC, or CCSP too. The certs are not the problem.</li>
+  <li>You're earning somewhere between $130K and $170K total comp.</li>
+  <li>You want to be earning $200K+ within 18 months without hopping three jobs to get there.</li>
+</ul>
+
+<p>If that's you, keep reading.</p>
+<p>If it's not, close this tab. I don't want your money. I want people this works for.</p>
+
+<h2>Part 2 — Why I Wrote This</h2>
+
+<p class="dropcap">My name is DJ Naronikar.</p>
+
+<p>I've spent 28 years building security programs. I've been the CISO at Deloitte, at EY, and at Shell. I've advised boards across 400+ organizations in 8 countries. I wrote the AI security policy for a Middle East central bank. I stopped a $300K wire fraud in real time. I won the CIO Choice Award in 2026.</p>
+
+<p>But here's what matters for you.</p>
+
+<p>Over those 28 years, I've hired hundreds of Security Managers. I've promoted a big chunk of them into Director, Head of Security, and VP roles. I've also watched a much bigger group stay stuck in the manager tier for 5, 8, 10 years — not because they weren't smart, but because nobody ever told them what was actually gating their next promotion.</p>
+
+<p>I wrote this document because I'm tired of seeing good operators fail to get promoted for reasons that have almost nothing to do with how good they are at security.</p>
+
+<p>The manager-to-director jump is the single most misunderstood leap in this industry. People think another cert will do it. Or another master's degree. Or a job hop. Almost none of that moves the needle.</p>
+
+<p>What moves the needle is <strong>positioning, executive presence, and network</strong>. That's what this program builds.</p>
+
+<p>Let's go through the whole thing.</p>
+
+<h2>Part 3 — The Ceiling You're Hitting</h2>
+
+<p>Here's what's happening inside your head right now, if you're the person I'm writing this for:</p>
+
+<p>You've been the manager for 3+ years. You run a team. Your SOC hums. Your audits pass. Your board reports go in on time. Technically, you are the strongest person in the room on most days.</p>
+
+<p>And yet.</p>
+
+<p>The Director role opens up. Maybe at your company, maybe at another. You apply. You interview. You don't get it. The person who got it was less technical than you. Sometimes significantly less.</p>
+
+<p>You tell yourself it's politics. Sometimes it is. But mostly it isn't.</p>
+
+<p>Here's what's actually happening.</p>
+
+<div class="callout">
+  <p><strong>Above the manager line, the job changes.</strong></p>
+  <p>Below the manager line, you're paid for what you can DO. Above it, you're paid for what you can INFLUENCE. Director-level work is 20% technical, 80% translation, persuasion, budget defense, hiring, executive communication, and cross-functional politics.</p>
+</div>
+
+<p>When you interview for a Director role using your manager résumé and your manager language, you sound like a manager. And the person on the other side of the table — the CISO or the CIO — listens to you and thinks, "This person is technically strong. But I don't see the Director in them yet."</p>
+
+<p>They're not wrong. They're just seeing what you're presenting.</p>
+
+<p>The gap between "can do the job" and "can be seen doing the job" is the gap that's keeping you stuck. And it doesn't close on its own.</p>
+
+<h2>Part 4 — Why the Obvious Options Don't Work</h2>
+
+<p>Let me walk you through the paths most Security Managers try, and why most of them fail.</p>
+
+<h3>1. Another certification.</h3>
+<p>You already have CISSP. Maybe CISM. Maybe CCSP. You're thinking about CCISO, CGEIT, or TOGAF.</p>
+<p>Here's the truth. Certs after CISSP have flat-lined as a promotion lever. I hire Directors and I don't look at their cert alphabet anymore. I look at their operational track record, their board exposure, and how they talk. An extra cert on your LinkedIn doesn't change how you talk in a Director interview.</p>
+<p>Does that mean don't get them? No. If you want to get CCISO or CISSP-ISSMP, do it. Just know that the cert isn't what gets you the job. At best, it's table stakes.</p>
+
+<h3>2. An MBA or Master's in cybersecurity.</h3>
+<p>Two-year investment. $40K-$80K. Here's what actually happens when you finish: you come back to the same company, in the same role, and nobody promotes you because you completed a degree. The degree is positioning for your NEXT career, not your current company. And your next company still hires on positioning + network, not on diplomas.</p>
+<p>If you love learning, great. If you're doing it for promotion, it's the slowest and most expensive option you can pick.</p>
+
+<h3>3. Job hopping.</h3>
+<p>This works — some of the time. You go from Manager at Company A to Manager at Company B for a 15-20% raise. Then Manager at Company C for another jump. After three hops you're making more money, but you're still a Manager.</p>
+<p>The reason hopping doesn't fix the Director gap is that Company C is hiring for the same role Company A was hiring for. You're just getting paid more to do it. The positioning problem travels with you.</p>
+
+<h3>4. LinkedIn Learning, Coursera, YouTube.</h3>
+<p>All of it is free or almost free, and none of it makes you a Director. It's technical content. You don't have a technical deficit. You have a leadership presentation deficit.</p>
+
+<h3>5. Asking your current boss for a promotion.</h3>
+<p>Your boss isn't trained to promote you. Most CISOs and IT Directors I know didn't get promoted by their boss — they got promoted by building a case that was undeniable and sometimes by leaving and coming back at the next tier. Very few companies have a real promotion pipeline for senior security roles.</p>
+
+<h3>6. "I'll just network more."</h3>
+<p>Networking works if you know who you're networking with and what you're trying to extract. Most Security Managers network sideways — they know a lot of other Security Managers. That's the wrong net. You need a net of Directors, Heads, VPs, and CISOs who already hire for the role you want. That network doesn't get built by showing up to one more chapter meeting.</p>
+
+<h2>Part 5 — The Three Shifts (This Is the Mechanism)</h2>
+
+<p>OK, so what actually works.</p>
+
+<p>In 28 years, I've identified three shifts that separate the Manager who stays stuck from the Manager who lands the Director role.</p>
+
+<p>Every single person I've seen make the jump made these three shifts, whether they knew it or not.</p>
+
+<h3>Shift 1: POSITIONING</h3>
+<p>You stop sounding like an engineer.</p>
+<p>When a Manager describes their job, they say: <em>"I run the SOC. I manage 6 analysts. We handle 40K events a month. I implement controls, I respond to incidents, I report to the CISO."</em></p>
+<p>That's accurate. It's also the exact wrong way to describe your job if you want a Director role.</p>
+<p>When a Director describes their job, they say: <em>"I own the organization's security posture across a $2B revenue business. My team reduced material risk exposure by 40% year-over-year, saved the company $1.2M in prevented fraud, and I represent security posture to the audit committee quarterly."</em></p>
+<p>Same work. Completely different altitude.</p>
+<p>Positioning is not lying. It's describing your work at the altitude of the person who's about to hire you.</p>
+<p>Most Security Managers have never been trained to do this. We fix that in the first 4 weeks.</p>
+
+<h3>Shift 2: EXECUTIVE PRESENCE</h3>
+<p>Presence is a word people throw around without defining.</p>
+<p>Here's my definition. Executive presence is the ability to walk into a room of CFOs, Chief Risk Officers, and board members, and explain security in the language THEY speak — risk, revenue, resilience, reputation — without dropping into acronyms or making them feel dumb.</p>
+<p>Almost no Security Manager has this. Almost every Director has it.</p>
+<p>The reason is brutal but simple. Nobody ever taught it. We get trained on MITRE ATT&CK. We don't get trained on board storytelling.</p>
+<p>In the program, I give you the exact frameworks I've used for 28 years to translate security into C-suite language. You will practice these. You will be bad at them for the first two weeks. Then you will be good at them. This is the single highest-leverage skill you'll build.</p>
+
+<h3>Shift 3: DIRECTOR-LEVEL NETWORK</h3>
+<p>You need a peer network one level above your current role.</p>
+<p>Not because networking magically gets you jobs. Because the Director role search is 80% warm intros and 20% cold applications. If you're applying cold to Director roles, you're competing against 400 other résumés. If you're being warm-intro'd by someone at the hiring company, you're one of 3 people they're seriously considering.</p>
+<p>In the program, I introduce you to people in my network. I teach you how to activate your own network (yes, you already have one — you just haven't used it the right way). And I give you a 30-day plan for building a permanent peer network of Directors and VPs who can refer you for the rest of your career.</p>
+
+<div class="callout">
+  <p><strong>Those are the three shifts. Positioning. Executive Presence. Director Network.</strong></p>
+  <p>Make them, you get promoted. Skip them, you stay stuck.</p>
+</div>
+
+<h2>Part 6 — The 14 Weeks, Week by Week</h2>
+
+<p>Here's what we actually do together.</p>
+
+<div class="week-grid">
+  <div class="phase">Phase 1 &nbsp;&nbsp;·&nbsp;&nbsp; Weeks 1-4</div>
+  <div class="phase-title">Positioning Rebuild</div>
+
+  <div class="week-item">
+    <div class="week-num">Week 1 — Current-state audit</div>
+    <div class="week-body">We pull apart your résumé, your LinkedIn, and your elevator pitch. I tell you — honestly — what a Director-level recruiter sees when they look at you today. It's uncomfortable. It's also the most valuable hour of the program.</div>
+  </div>
+  <div class="week-item">
+    <div class="week-num">Week 2 — Title and scope rewrite</div>
+    <div class="week-body">We reposition every role on your résumé at Director altitude — not by exaggerating, but by describing the actual business impact of what you did in language that hiring Directors recognize.</div>
+  </div>
+  <div class="week-item">
+    <div class="week-num">Week 3 — LinkedIn rebuild</div>
+    <div class="week-body">New headline, new About section, new Featured content. This is where recruiters find you. By the end of Week 3, inbound recruiter messages increase for almost everyone who does the work.</div>
+  </div>
+  <div class="week-item">
+    <div class="week-num">Week 4 — 90-second Director story</div>
+    <div class="week-body">We build your answer to "tell me about yourself" at Director altitude. You rehearse it with me until it's natural.</div>
+  </div>
+</div>
+
+<div class="week-grid">
+  <div class="phase">Phase 2 &nbsp;&nbsp;·&nbsp;&nbsp; Weeks 5-8</div>
+  <div class="phase-title">Executive Presence Build</div>
+
+  <div class="week-item">
+    <div class="week-num">Week 5 — Board storytelling framework</div>
+    <div class="week-body">I give you the 3-slide board update I've delivered to dozens of boards. You adapt it to your own company. You practice it with me.</div>
+  </div>
+  <div class="week-item">
+    <div class="week-num">Week 6 — Risk-to-revenue translation</div>
+    <div class="week-body">Every security decision is a business decision in disguise. I show you how to translate control decisions into financial impact. This is the skill that gets you budget approved and gets you in the room for strategy discussions.</div>
+  </div>
+  <div class="week-item">
+    <div class="week-num">Week 7 — Executive interview prep (behavioral)</div>
+    <div class="week-body">I've been on the other side of the Director interview table for two decades. I give you the 12 behavioral questions that make or break Director candidates, and we rehearse them.</div>
+  </div>
+  <div class="week-item">
+    <div class="week-num">Week 8 — Executive interview prep (strategic)</div>
+    <div class="week-body">The questions about vision, roadmap, and program-building. Most Security Managers freeze on these. You won't.</div>
+  </div>
+</div>
+
+<div class="week-grid">
+  <div class="phase">Phase 3 &nbsp;&nbsp;·&nbsp;&nbsp; Weeks 9-12</div>
+  <div class="phase-title">Network Activation</div>
+
+  <div class="week-item">
+    <div class="week-num">Week 9 — Warm network audit</div>
+    <div class="week-body">We list every person you already know who's at or above Director level. Most students find they have 15-30 of these contacts they'd completely forgotten about. We build a reactivation plan.</div>
+  </div>
+  <div class="week-item">
+    <div class="week-num">Week 10 — Cold network expansion</div>
+    <div class="week-body">I give you my exact process for reaching out to Directors and CISOs in your industry for a 15-minute call — a process that gets an 80%+ acceptance rate when done right.</div>
+  </div>
+  <div class="week-item">
+    <div class="week-num">Week 11 — Community and visibility</div>
+    <div class="week-body">We pick 2 communities or platforms where Directors in your niche actually hang out. We build a 30-day presence plan.</div>
+  </div>
+  <div class="week-item">
+    <div class="week-num">Week 12 — My network</div>
+    <div class="week-body">I introduce you to Directors, Heads, or CISOs from my network who are relevant to your path. Not a job guarantee — an accelerator. These people hire Managers all the time, and when they need a Director, they look at their network first.</div>
+  </div>
+</div>
+
+<div class="week-grid">
+  <div class="phase">Phase 4 &nbsp;&nbsp;·&nbsp;&nbsp; Weeks 13-14</div>
+  <div class="phase-title">Offer Engineering</div>
+
+  <div class="week-item">
+    <div class="week-num">Week 13 — Application strategy</div>
+    <div class="week-body">By now you've probably surfaced 2-4 real opportunities. We go through each one together, build your application package, and prep for the first round.</div>
+  </div>
+  <div class="week-item">
+    <div class="week-num">Week 14 — Offer negotiation</div>
+    <div class="week-body">When an offer comes, I coach you through the negotiation — base salary, equity if applicable, signing bonus, title clarity, and scope. Most students leave this week with a $20K-$50K higher package than the initial offer.</div>
+  </div>
+</div>
+
+<h2>Part 7 — What You Get</h2>
+
+<p>I want to be specific. This is not a self-paced course with a Slack channel.</p>
+
+<ul>
+  <li><strong>14 weeks of 1:1 mentorship with me.</strong> Not group coaching. Not a cohort call where you're one of 50. Direct. One on one. We meet weekly for 60-75 minutes. Between sessions, you message me and I respond.</li>
+  <li><strong>Your personalized Director Roadmap.</strong> In Week 1 I build a roadmap based on your background, target role, city, and salary goal. This is the document we execute against for 14 weeks.</li>
+  <li><strong>Résumé and LinkedIn rebuild WITH me.</strong> I don't send you a template. We build them together. By Week 4, your LinkedIn profile looks like a Director's.</li>
+  <li><strong>The Board Reporting Kit.</strong> My exact slide templates, narrative frameworks, and risk translation tools. Used in hundreds of real boardrooms.</li>
+  <li><strong>The Interview Prep Library.</strong> Every question I've asked Director candidates in 28 years of hiring, organized by theme, with the strong-answer framework for each one.</li>
+  <li><strong>3+ live mock interviews with me.</strong> We record these. We review them. You fix what needs fixing.</li>
+  <li><strong>Direct introductions to my network.</strong> Targeted to your path. Not a mass email. Warm, personal, specific.</li>
+  <li><strong>A Director-level peer network you didn't have before.</strong> Activated and expanded with a method, not luck.</li>
+  <li><strong>My direct phone and email access for the full 14 weeks.</strong> Questions don't wait until next session.</li>
+</ul>
+
+<h2>Part 8 — Proof</h2>
+
+<p>I could tell you stories about students. I'll do that in a second.</p>
+<p>But first, let me show you what people I've actually worked WITH — peers, not students — say about me. These are all verifiable on my LinkedIn profile.</p>
+
+<div class="proof-grid">
+  <blockquote>
+    "'Genuine expert' is the phrase that comes to mind when I think about DJ. His technical acumen is matched only by his ability to lead and develop teams."
+    <cite>— Shashank Upadhye, CISSP, CCSP, CISA · Worked with DJ for 2 years at ANZ</cite>
+  </blockquote>
+  <blockquote>
+    "Best team player I've seen in my recent past. The amount of knowledge he possesses in Information Security is a great gift to the team."
+    <cite>— Sachin Ghodkhande, CISSP, OSCP</cite>
+  </blockquote>
+  <blockquote>
+    "If you are looking for someone entrepreneurial and who can balance 'telling it as it is' with innovation and vision, look no further."
+    <cite>— Richard Keirstead, GAICD, CISSP · Served with DJ at ANZ and on the ISC2 board</cite>
+  </blockquote>
+  <blockquote>
+    "DJ demonstrated unparalleled expertise in cybersecurity and strategic advisory. I highly recommend DJ for any role that requires a strategic thinker and a cybersecurity expert."
+    <cite>— Sunit, Infrastructure Analyst → Security · Worked with DJ at Arowana Consulting</cite>
+  </blockquote>
+</div>
+
+<p>13 more recommendations like this on my LinkedIn. Every single one from a working security professional. Every one verifiable.</p>
+
+<p>These are my peers. The people I've worked alongside for decades. These are the same kind of people you'll be interviewing against — and who will be sitting across the table from you in your next Director interview. When they see my name on your engagement, it carries weight.</p>
+
+<h2>Part 9 — The Money Math</h2>
+
+<p>Let's do the math that matters.</p>
+
+<p>Your current total comp is likely $130K-$170K. Call it $150K average.</p>
+
+<p>A Director of Information Security role — the kind of job this program is designed to land you — pays between $200K and $280K in most U.S. metros. Call it $230K average.</p>
+
+<p><strong>That's an $80K annual raise.</strong></p>
+
+<p>The program is $10,000.</p>
+
+<p>Payback period: about 6 weeks of the new salary covers the full program cost.</p>
+
+<p>After that, it's all yours. Every year. Year 1: +$80K. Year 2: +$80K-$120K (most people don't stay at Director salary — they compound from there). 10-year NPV, even at conservative growth assumptions, is $600K-$1M.</p>
+
+<div class="callout">
+  <p>You are choosing between spending $10K once, or leaving somewhere between $500K and $1M on the table over the next decade.</p>
+  <p>And that's if it only works one time. If this program sets you on the CISO track — which it does for a lot of students — the math gets much bigger.</p>
+</div>
+
+<h2>Part 10 — The Investment</h2>
+
+<p>The Director Path is <strong>$10,000</strong>.</p>
+
+<p>You can pay it two ways:</p>
+<ul>
+  <li><strong>Option 1:</strong> $10,000 one-time. Done. You get a small discount and you stop thinking about billing.</li>
+  <li><strong>Option 2:</strong> $3,997 per month for 3 months. Slightly more total, but easier on cash flow.</li>
+</ul>
+
+<p>That's it. No upsells. No hidden modules. No "VIP tier" that has what you actually need.</p>
+<p>Every student gets the same program. The same 1:1 time with me. The same network access. Same everything.</p>
+
+<h2>Part 11 — FAQ</h2>
+
+<p>I've had hundreds of these conversations over the years. Here are the honest answers to the questions almost everyone asks.</p>
+
+<div class="faq">
+  <div class="faq-q">"I already have CISSP, CISM, CCSP. What more do you give me that I don't already have?"</div>
+  <div class="faq-a">None of those certs teach you positioning, executive presence, or network activation. They prove technical knowledge. The Director interview tests for business translation, leadership presence, and strategic thinking. Your certs are table stakes — they get you past the HR screen, not the CISO panel.</div>
+
+  <div class="faq-q">"I don't have time for 14 weeks."</div>
+  <div class="faq-a">Weekly session is 60-75 minutes. Between sessions, most students spend 3-5 hours on homework. Total time per week is about 5-6 hours. If you're working 50+ hours a week already and cannot find 5 more to invest in the next 10 years of your career, the program isn't your biggest problem.</div>
+
+  <div class="faq-q">"Can my employer pay for this?"</div>
+  <div class="faq-a">Often yes. I've had dozens of students expense this as professional development. Most employers have a professional development budget that's underused. I'll give you the 1-page justification document you can submit. Frame it as leadership development, not a cert prep course.</div>
+
+  <div class="faq-q">"Why not just apply for Director roles myself and see what happens?"</div>
+  <div class="faq-a">You can. Most Managers who try this get rejected 20+ times before they figure out what's wrong with their positioning. That's fine if you have 2-3 years to burn. The program compresses that entire feedback loop into 14 weeks by giving you the honest feedback most recruiters won't.</div>
+
+  <div class="faq-q">"What if the Director role I land pays less than $200K?"</div>
+  <div class="faq-a">Most don't. Some do. Even a $180K offer is $30K above your current salary, and the program still pays back in 4 months. Also — we don't aim for the lowest Director role in your city. We aim for the strongest one you're qualified for. That's part of the work.</div>
+
+  <div class="faq-q">"I don't want to be a CISO. I just want to be a Director. Is this right for me?"</div>
+  <div class="faq-a">Yes. This program targets Director-level roles specifically. If you later decide you want to go CISO, the same framework applies at the next tier. But the goal here is Director.</div>
+
+  <div class="faq-q">"I'm in a specialized niche — cloud security / GRC / offensive security. Does this still work?"</div>
+  <div class="faq-a">Yes. I've placed students into Director roles across cloud security, GRC, AppSec, SOC, offensive security, and red team leadership. The positioning changes by niche. The mechanism doesn't.</div>
+
+  <div class="faq-q">"I'm not in the U.S. Does this work for me?"</div>
+  <div class="faq-a">Yes, though salary numbers are U.S.-based. I've worked with students across the UK, Australia, Singapore, UAE, Canada, and India. The framework translates. The salary step-up is proportional — in India, Manager to Director is often a 50-70% total comp jump.</div>
+
+  <div class="faq-q">"What if I don't get a Director offer in 14 weeks?"</div>
+  <div class="faq-a">Most students don't have an offer in hand in exactly 14 weeks. The program builds the foundation. Most offers land between month 4 and month 9 after we finish. You'll know after Week 4 whether you're on track. If you do the work, the outcome isn't a question of if — it's a question of when.</div>
+
+  <div class="faq-q">"Is there a guarantee?"</div>
+  <div class="faq-a">I don't offer a money-back guarantee because I've seen guarantees attract people who are looking for an excuse not to do the work. What I offer is this: if you do every assignment, show up to every session, and implement what we build together, and after 12 months you haven't moved up in title or compensation, I'll extend the mentorship for another 6 months at no additional cost. That's more valuable than a refund because the work is what creates the outcome.</div>
+
+  <div class="faq-q">"How is this different from a $500 LinkedIn course on executive presence?"</div>
+  <div class="faq-a">A $500 course is a recording. This is 1:1 with a 28-year CISO. The frameworks are taught IN the recording. The application — your actual résumé, your actual LinkedIn, your actual interview — is done WITH you, personally, by me. Nothing in a recorded course gets you there.</div>
+
+  <div class="faq-q">"Can I talk to past students before deciding?"</div>
+  <div class="faq-a">Yes. On our intro call I'll connect you with 1-2 students who are in the same phase of their career you're in. You talk to them directly. No filter.</div>
+</div>
+
+<h2>Part 12 — Who I'm Looking For</h2>
+
+<p>I cap my cohort at 15 students at a time. That means I say no to most applicants.</p>
+
+<p><strong>Here's who I say YES to:</strong></p>
+<ul>
+  <li>Security Manager with 5+ years in role, CISSP-equivalent certification, clear track record of running teams or programs.</li>
+  <li>Someone who has been passed over for Director at least once and took it seriously.</li>
+  <li>Someone willing to put in 5-6 hours per week for 14 weeks.</li>
+  <li>Someone who treats $10K as an investment, not a purchase.</li>
+  <li>Someone ready to be uncomfortable when I tell them their positioning is weak. (It will be. That's the starting point.)</li>
+</ul>
+
+<p><strong>Here's who I say NO to:</strong></p>
+<ul>
+  <li>Someone who's only done this role for 1-2 years.</li>
+  <li>Someone who doesn't have the fundamentals yet.</li>
+  <li>Someone who's "just looking."</li>
+  <li>Someone who wants me to do the work for them.</li>
+  <li>Someone who wants to argue with the process.</li>
+</ul>
+
+<p>I'd rather say no and send you to a better fit than take your money for something that won't work.</p>
+
+<div class="cta-block" id="next-step">
+  <h2>The Next Step</h2>
+  <p>If you've read this far, you're probably in the right place. Book a 30-minute call with me directly. Not a sales call — a working call. We'll figure out together whether this program is the right move for you.</p>
+  <a href="#" class="cta-btn" id="book-call">Book a call with DJ →</a>
+  <div class="cta-note">30 minutes · US, UK, and Australia time zones available</div>
+</div>
+
+<p>Three time zones available: US Eastern, UK, Australia Eastern.</p>
+<p>If those don't work, reply to my LinkedIn DM and we'll find a time.</p>
+
+<hr>
+
+<p>One last thing.</p>
+<p>I wrote this document because I'm tired of hearing from Security Managers — 5, 7, 10 years into their careers — who KNOW they should be Directors by now and can't figure out why they aren't.</p>
+<p>The answer is almost always the same. Positioning, Presence, Network.</p>
+<p>You can build those three shifts on your own. Some people do. It usually takes 2-3 years of trial and error, lots of rejected applications, and a lot of self-doubt.</p>
+<p>Or you can compress that into 14 weeks with someone who's been doing this for 28 years.</p>
+<p>Your call.</p>
+
+<div class="signature">
+  <div class="name">DJ Naronikar</div>
+  <div class="credentials">
+    28-Year CISO · Deloitte, EY, Shell<br>
+    CIO Choice Award 2026<br>
+    Board Advisor · 400+ Organizations · 8 Countries
+  </div>
+</div>
+
+<div class="ps">
+  <strong>P.S.</strong> If you're not sure you're ready for the full program, just reply to my DM and tell me where you are. I read everything myself. If the program's not a fit, I'll point you to something that is.
+</div>
+
+<div class="ps">
+  <strong>P.P.S.</strong> I'm running a free 30-minute Director Path Q&A on <strong>April 25 at 11 AM EDT</strong>. No pitch, no recording, no replay. Just me answering your specific questions about the manager-to-director path. If you want in, reply with "Q&A" on LinkedIn and I'll send the link.
+</div>
+
+</article>
+
+<script>
+// Placeholder — replace with DJ's live Calendly URL once ready
+document.getElementById('book-call').addEventListener('click', function(e) {
+  e.preventDefault();
+  alert('Calendly link goes here — DJ to provide by Thursday.');
+});
+</script>
+
+</body>
+</html>
