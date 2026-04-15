@@ -233,6 +233,107 @@ Tier A launch list. 500 strongest matches from the 10K scraped. Tier B/C layered
 
 ---
 
+## POST-BOOKING EMAIL (auto-fires when Calendly webhook hits GHL)
+
+**Trigger:** Calendly booking confirmed + GHL pipeline stage moves to `Call Booked`
+**Send:** Immediately on booking
+**From:** DJ Naronikar <dj@thequantumachievers.com>
+**Subject:** [First Name], your call with DJ is booked. Watch this 4-min video first.
+
+### Email body:
+
+> Hi [First Name],
+>
+> Your call with me is locked in for [DATE / TIME / TIMEZONE].
+>
+> Before we hop on, I record one short video for everyone who books a call. Takes 4 minutes. Walks you through what we'll cover, what to bring, and one question I want you to think about before we talk.
+>
+> **Watch here:** [VIDEO 5 LINK or embedded MP4]
+>
+> Three things to have ready for the call:
+> 1. Your current résumé (no need to polish, just whatever you'd send a recruiter today)
+> 2. Your specific salary target 18 months from now
+> 3. Your honest answer to "why haven't I been promoted yet"
+>
+> If something comes up and you need to reschedule, here's the link: [CALENDLY RESCHEDULE LINK]
+>
+> Talk soon,
+>
+> DJ Naronikar
+> 28-Year CISO | Deloitte, EY, Shell
+
+**Why this email works:**
+- Subject line tells them there's a video to watch (raises open rate)
+- Video is the first thing they see (max watch rate)
+- The 3 items create homework (commitment device, increases show rate)
+- One reschedule link (no friction, but also no escape)
+- Plain signature with credentials reinforces "this is the real DJ, not a junior closer"
+
+### 24-hour reminder email (auto-fires)
+
+**Trigger:** 24 hours before scheduled call
+**Subject:** [First Name], we're talking tomorrow at [TIME]
+
+> Hi [First Name],
+>
+> Reminder. We're talking tomorrow at [TIME] [TZ].
+>
+> If you haven't watched the 4-min walkthrough yet, do that now: [VIDEO 5 LINK]
+>
+> The 3 things to bring:
+> 1. Current résumé
+> 2. Your 18-month salary target
+> 3. Honest answer to why you haven't been promoted yet
+>
+> See you tomorrow.
+>
+> DJ
+
+### 1-hour reminder (SMS via Twilio if phone captured)
+
+> Reminder. Your call with DJ is in 1 hour. [CALENDLY ZOOM LINK]
+
+---
+
+## POST-CALL FOLLOW-UP (DJ runs manually after call)
+
+If they're a fit, DJ sends this within 4 hours of the call.
+
+### Subject: [First Name], your enrollment link
+
+> [First Name],
+>
+> Good talking with you today. Based on what you shared about [SPECIFIC THING THEY SAID, e.g. "the manager-to-director gap at your current company" or "the skip-level interview you have coming up"], you're a fit for the program.
+>
+> Two ways to enroll:
+>
+> 1. **$10,000 one-time** (small discount): [STRIPE LINK A]
+> 2. **$3,997 × 3 months** (cash flow option): [STRIPE LINK B]
+>
+> Take 24 hours. Think it through. If yes, click whichever works for you and I'll send your Week 1 booking link by EOD.
+>
+> If it's a no, just reply "not now" and I'll respect it. No follow-up emails for 6 months.
+>
+> Either way, appreciated the conversation today.
+>
+> DJ
+
+### If they're NOT a fit:
+
+> [First Name],
+>
+> Thanks for the call. Based on what we discussed, the Director Path isn't the right move for you right now. The reason is [SPECIFIC REASON, e.g. "you're 6-12 months away from having the operational track record this program assumes" or "your real goal is product management, not security leadership"].
+>
+> What I'd actually recommend instead:
+>
+> [SPECIFIC RESOURCE: book recommendation, free tool, different program, etc.]
+>
+> If anything changes in the next year, my DM is open.
+>
+> DJ
+
+---
+
 ## DM VARIANTS, BY REPLY TYPE
 
 ### If they ask about price in DM:
@@ -284,7 +385,9 @@ Tier A launch list. 500 strongest matches from the 10K scraped. Tier B/C layered
 **Triggers:**
 - Stage to `Connected` auto-queue DM1 (48 hour delay)
 - Stage to `DM1 Replied (HOT)` auto-trigger DM2 within 1 hour
-- Stage to `Call Booked` auto-send confirmation email with calendar block + 1-pager attachment
+- Stage to `Call Booked` auto-send post-booking email with Video 5 + 3 prep items
+- 24 hours before call: auto-reminder email with Video 5 link
+- 1 hour before call: SMS reminder (if phone captured)
 - Stage to `Closed Won` auto-send onboarding email + Week 1 booking link + Stripe receipt
 
 ---
